@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    name: "Club Administration",
+    docs: [
+      { title: "Standard Club Constitution", type: "PDF", size: "1.2 MB", date: "Jul 2025" },
+      { title: "Bylaws Template", type: "DOCX", size: "450 KB", date: "Jul 2025" },
+      { title: "Meeting Agenda Template", type: "XLSX", size: "150 KB", date: "Aug 2025" }
+    ]
+  },
+  {
+    name: "Branding & PR",
+    docs: [
+      { title: "Rotaract Brand Guidelines", type: "PDF", size: "5.4 MB", date: "Jul 2025" },
+      { title: "Social Media End Card", type: "PNG", size: "2.1 MB", date: "Jul 2025" },
+      { title: "Letterhead Template", type: "DOCX", size: "300 KB", date: "Aug 2025" }
+    ]
+  },
+  {
+    name: "District Forms",
+    docs: [
+      { title: "District Dues Payment Form", type: "PDF", size: "800 KB", date: "Aug 2025" },
+      { title: "Award Nomination Form", type: "DOCX", size: "250 KB", date: "Feb 2026" },
+      { title: "Expense Reimbursement", type: "XLSX", size: "400 KB", date: "Aug 2025" }
+    ]
+  }
+];
+---
+
+<Layout title="Document Resources">
+  
+  <header class="bg-gray-50 border-b border-gray-200 py-16">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      <h1 class="text-4xl font-bold text-gray-900 tracking-tight">Resource Library</h1>
+      <p class="text-gray-500 mt-2">Official documents, templates, and guidelines for District 3192 clubs.</p>
+    </div>
+  </header>
+
+  <section class="py-16 bg-white min-h-[50vh]">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <div class="md:col-span-1 hidden md:block">
+          <div class="sticky top-24 bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Categories</h3>
+            <ul class="space-y-3">
+              {categories.map((cat, i) => (
+                <li>
+                  <a href={`#cat-${i}`} class="text-sm font-medium text-gray-700 hover:text-[#003F8A] transition-colors">{cat.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Documents List -->
+        <div class="md:col-span-3 space-y-12">
+          {categories.map((cat, i) => (
+            <div id={`cat-${i}`} class="scroll-mt-24">
+              <h2 class="text-2xl font-bold text-[#003F8A] mb-6 flex items-center">
+                <span class="w-8 h-1 bg-[#F5A623] mr-4 rounded-full"></span>
+                {cat.name}
+              </h2>
+              
+              <div class="bg-white rounded-2xl card-shadow border border-gray-100 overflow-hidden divide-y divide-gray-50">
+                {cat.docs.map(doc => (
+                  <div class="p-4 sm:p-6 hover:bg-gray-50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
+                    <div class="flex items-center">
+                      <div class={`w-10 h-10 rounded-lg flex items-center justify-center mr-4 shrink-0 
+                        ${doc.type === 'PDF' ? 'bg-red-50 text-red-500' : 
+                          doc.type === 'DOCX' ? 'bg-blue-50 text-blue-500' : 
+                          doc.type === 'XLSX' ? 'bg-green-50 text-green-500' : 'bg-gray-50 text-gray-500'}`}>
+                        <span class="text-[10px] font-bold">{doc.type}</span>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-900 group-hover:text-[#003F8A] transition-colors">{doc.title}</h4>
+                        <div class="flex items-center text-xs text-gray-400 mt-1 space-x-3">
+                          <span>{doc.size}</span>
+                          <span>&bull;</span>
+                          <span>Updated: {doc.date}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <button class="w-full sm:w-auto mt-2 sm:mt-0 px-5 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-[#003F8A] hover:border-[#003F8A] transition-colors flex items-center justify-center shrink-0">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                      Download
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+</Layout>

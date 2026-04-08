@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import clubsData from '../../mock/clubs.json';
+const clubs = clubsData;
+---
+<Layout title="Manage Clubs - Admin">
+  <div class="flex min-h-screen bg-gray-50">
+    <aside class="w-64 bg-gray-900 fixed inset-y-0 z-50 text-gray-400 p-4 pt-20">
+      <a href="/admin" class="flex flex-col mb-8 px-4"><span class="font-bold text-2xl text-white">Rotaract<span class="text-[#F5A623]">3192</span></span></a>
+      <a href="/admin/clubs" class="block px-4 py-3 bg-[#003F8A] text-white rounded-xl mb-1">Clubs</a>
+      <a href="/admin/events" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Events</a>
+      <a href="/admin/feeds" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Feeds</a>
+      <a href="/admin/campaigns" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Campaigns</a>
+      <a href="/admin/announcements" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Announcements</a>
+      <a href="/admin/audit" class="block px-4 py-3 hover:bg-gray-800 rounded-xl">Audit Log</a>
+    </aside>
+    <main class="flex-grow pl-64 p-8">
+      <h1 class="text-2xl font-bold mb-6">Manage Clubs</h1>
+      <div class="bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden p-6 mb-8">
+        <h2 class="font-bold mb-4">Add New Club</h2>
+        <form class="grid grid-cols-2 gap-4">
+          <input type="text" placeholder="Club Name" class="border p-2 rounded" />
+          <input type="text" placeholder="City" class="border p-2 rounded" />
+          <input type="date" class="border p-2 rounded" />
+          <input type="color" class="border p-1 rounded h-10 w-full" value="#003F8A" />
+          <button class="col-span-2 bg-[#003F8A] text-white font-bold py-2 rounded">Add Club</button>
+        </form>
+      </div>
+      <div class="bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden p-6">
+        <h2 class="font-bold mb-4">Existing Clubs</h2>
+        <table class="w-full text-left">
+          {clubs.map(c => (
+            <tr class="border-b"><td class="py-2">{c.name}</td><td class="text-right"><button class="text-blue-600">Edit</button></td></tr>
+          ))}
+        </table>
+      </div>
+    </main>
+  </div>
+</Layout>

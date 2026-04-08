@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import momsData from '../../mock/moms.json';
+
+export async function getStaticPaths() {
+  const moms = momsData;
+  return moms.map((mom: any) => ({
+    params: { id: mom.id },
+    props: { mom },
+  }));
+}
+
+const { mom } = Astro.props;
+---
+
+<Layout title={`${mom.title} - Minutes`}>
+  
+  <header class="bg-gray-50 border-b border-gray-200 py-8 sticky top-0 z-40">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center">
+        <a href="/mom" class="text-gray-500 hover:text-[#003F8A] p-2 -ml-2 rounded-lg transition-colors mr-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        </a>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900 tracking-tight">{mom.title}</h1>
+          <p class="text-sm font-semibold text-gray-500 mt-1">{new Date(mom.date).toLocaleDateString('en-IN', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} • Recorded via AI App</p>
+        </div>
+      </div>
+      
+      <div class="flex gap-3">
+        <button class="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold px-4 py-2 rounded-xl transition-colors shadow-sm text-sm flex items-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+          Share
+        </button>
+        <button class="bg-[#003F8A] hover:bg-[#002f6c] text-white font-bold px-4 py-2 rounded-xl transition-all shadow-md text-sm flex items-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          Export PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white min-h-screen">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl flex flex-col lg:flex-row gap-8">
+      
+      <!-- Main Document -->
+      <div class="lg:w-2/3 space-y-8">
+        
+        <!-- Summary Box -->
+        <div class="bg-blue-50 rounded-3xl p-6 md:p-8 border border-blue-100 relative">
+          <div class="absolute top-0 left-6 -translate-y-1/2 bg-[#F5A623] text-[#003F8A] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded shadow-md">
+            AI Generated Summary
+          </div>
+          <p class="text-[#003F8A] leading-relaxed font-medium mt-2">{mom.summary}</p>
+        </div>
+
+        <!-- Full Transcript (Mocked) -->
+        <div class="bg-white rounded-3xl border border-gray-200 overflow-hidden card-shadow">
+          <div class="bg-gray-50 border-b border-gray-200 px-8 py-5">
+            <h2 class="text-xl font-bold text-gray-900">Meeting Minutes</h2>
+          </div>
+          <div class="p-8 prose prose-lg prose-blue max-w-none text-gray-700">
+            <h3>1. Call to Order</h3>
+            <p>The meeting was called to order by the President at 10:05 AM. The sergeant-at-arms requested all members to wear their lapel pins.</p>
+            
+            <h3>2. Review of Previous Minutes</h3>
+            <p>The secretary presented the minutes of the previous meeting. Motion to approve by Member A, seconded by Member B. Approved unanimously.</p>
+            
+            <h3>3. Upcoming Projects Discussion</h3>
+            <p>Extensive discussion took place regarding the upcoming beach cleanup drive. Budget allocation was debated, with the treasurer noting a slight shortfall in the community service fund. It was agreed to divert funds from the club admin budget to cover transportation costs for the cleanup equipment.</p>
+            
+            <h3>4. Membership Inductions</h3>
+            <p>Two new prospects were introduced to the general body. The membership director will process their applications by next week.</p>
+            
+            <h3>5. Adjournment</h3>
+            <p>Meeting adjourned at 11:30 AM.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:w-1/3">
+        <div class="bg-white rounded-3xl border border-gray-200 card-shadow sticky top-36 overflow-hidden">
+          
+          <div class="bg-[#003F8A] px-6 py-4">
+            <h3 class="font-bold text-white flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#F5A623]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              Action Items ({mom.action_items.length})
+            </h3>
+          </div>
+          
+          <div class="p-2 space-y-1">
+            {mom.action_items.map((item: any, idx: number) => (
+              <div class={`p-4 rounded-2xl flex items-start gap-3 transition-colors ${item.completed ? 'opacity-60 bg-gray-50' : 'bg-white hover:bg-gray-50'}`}>
+                
+                <button class={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors
+                  ${item.completed ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 hover:border-[#003F8A]'}
+                `}>
+                  {item.completed && <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>}
+                </button>
+                
+                <div class="-mt-0.5">
+                  <p class={`font-semibold text-sm ${item.completed ? 'text-gray-500 line-through' : 'text-gray-900'}`}>{item.task}</p>
+                  <p class="text-xs text-gray-500 font-medium mt-1">Assigned to: <span class="text-[#003F8A] font-bold">{item.assigned_to}</span></p>
+                </div>
+                
+              </div>
+            ))}
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import membersData from '../mock/members.json';
+
+// Use a mock member for phase 1
+const user = membersData[0];
+---
+
+<Layout title="Member Dashboard">
+  
+  <div class="bg-gray-50 min-h-screen pb-24">
+    
+    <!-- Dash Header -->
+    <header class="bg-[#003F8A] text-white pt-12 pb-24 px-4 lg:px-8 border-b-4 border-[#F5A623]">
+      <div class="container mx-auto max-w-6xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img src={user.profile_pic_url} alt={user.name} class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white/20 shadow-xl mr-5" />
+            <div>
+              <h1 class="text-2xl md:text-3xl font-bold tracking-tight mb-1">Welcome back, {user.name.split(' ')[0]}!</h1>
+              <p class="text-blue-200 text-sm font-medium">{user.role.replace('_', ' ').toUpperCase()} • Rotaract Club of Chennai</p>
+            </div>
+          </div>
+          <div class="hidden md:block text-right">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-[#F5A623] mb-1">Engage Score</p>
+            <p class="text-4xl font-black">{user.points}</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-4 lg:px-8 max-w-6xl -mt-12 relative z-10 space-y-8">
+      
+      <!-- Quick Stats Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
+          <div class="text-gray-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <p class="text-2xl font-black text-gray-900 leading-none">14</p>
+            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Events Attended</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
+          <div class="text-gray-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002 2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          </div>
+          <div>
+            <p class="text-2xl font-black text-gray-900 leading-none">2</p>
+            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">LMS Certs</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between md:hidden">
+          <div class="text-[#F5A623] mb-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <div>
+            <p class="text-2xl font-black text-gray-900 leading-none">{user.points}</p>
+            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Total Points</p>
+          </div>
+        </div>
+
+        <a href="/profile" class="col-span-2 md:col-span-2 bg-[#F5A623] hover:bg-[#e0941a] rounded-2xl p-5 card-shadow border justify-center items-center text-center transition-colors flex flex-col group">
+          <p class="text-[#003F8A] font-bold">Update Profile & Settings →</p>
+        </a>
+
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Action Center / Shortcuts -->
+        <div class="lg:col-span-1 space-y-6">
+          <h2 class="text-lg font-bold text-gray-900">Action Center</h2>
+          
+          <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow space-y-3">
+            <a href="/lms" class="flex items-center p-3 rounded-xl hover:bg-blue-50 transition-colors group border border-transparent hover:border-blue-100">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Learning Center</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Resume your courses</p>
+              </div>
+            </a>
+
+            <a href="/mom" class="flex items-center p-3 rounded-xl hover:bg-green-50 transition-colors group border border-transparent hover:border-green-100">
+              <div class="w-10 h-10 rounded-lg bg-green-100 text-green-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">MOM Recorder</h4>
+                <p class="text-xs text-gray-500 mt-0.5">AI transcribed meetings</p>
+              </div>
+            </a>
+
+            <a href="/mentorship" class="flex items-center p-3 rounded-xl hover:bg-purple-50 transition-colors group border border-transparent hover:border-purple-100">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Mentorship Hub</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Book an expert session</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Upcoming Registered Events -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-gray-900">Your Upcoming Events</h2>
+            <a href="/events" class="text-sm font-semibold text-[#003F8A] hover:underline">Browse All</a>
+          </div>
+
+          <!-- Mock registered event -->
+          <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow flex flex-col sm:flex-row gap-6 items-center">
+            
+            <div class="w-full sm:w-1/3 bg-gray-100 rounded-2xl aspect-video overflow-hidden relative shrink-0">
+              <img src="https://placehold.co/1200x600/003F8A/FFFFFF?text=Coastal+Cleanup" class="w-full h-full object-cover opacity-90" />
+            </div>
+
+            <div class="w-full sm:w-2/3 flex flex-col h-full justify-center">
+              <div class="flex items-center text-xs font-bold uppercase tracking-widest text-[#F5A623] mb-2">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Registered
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight">Coastal Cleanup Drive</h3>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">Join us for our annual Marina beach coastal cleanup. Let's make an impact!</p>
+              
+              <div class="mt-auto flex items-center justify-between">
+                <p class="text-xs font-semibold text-gray-400">June 15, 2026 • 06:00 AM</p>
+                <button class="text-sm font-bold bg-gray-100 text-gray-600 px-4 py-2 rounded-lg border border-gray-200">View Ticket</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mock Feed from Club -->
+          <div class="mt-12">
+            <h2 class="text-lg font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Latest From Your Club</h2>
+            
+            <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow flex gap-4">
+              <img src="https://ui-avatars.com/api/?name=Club+Pres&background=random" class="w-10 h-10 rounded-full" />
+              <div>
+                <p class="text-xs font-bold text-gray-500 mb-1">Club President posted an update</p>
+                <p class="text-sm text-gray-800 leading-relaxed">
+                  Thank you to everyone who attended the general body meeting last week! The MOM has been auto-transcribed and is now available in the portal. Please review your action items!
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Layout>

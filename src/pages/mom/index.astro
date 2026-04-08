@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import momsData from '../../mock/moms.json';
+
+const moms = momsData;
+---
+
+<Layout title="MOM Recorder">
+  
+  <header class="bg-gray-50 border-b border-gray-200 py-12">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <div class="bg-green-100 text-green-700 p-2 rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+          </div>
+          <h1 class="text-3xl font-bold text-gray-900 tracking-tight">AI MOM Recorder</h1>
+        </div>
+        <p class="text-gray-500 font-medium">Record meetings, auto-generate minutes, and track action items.</p>
+      </div>
+      
+      <a href="/mom/new" class="bg-[#003F8A] hover:bg-[#002f6c] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center shrink-0">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        New Meeting
+      </a>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white min-h-[60vh]">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-shadow">
+          <p class="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-1">Total Meetings</p>
+          <p class="text-3xl font-black text-gray-900">{moms.length}</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-shadow">
+          <p class="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-1">Pending Actions</p>
+          <p class="text-3xl font-black text-red-500">12</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-shadow">
+          <p class="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-1">Time Saved (Est.)</p>
+          <p class="text-3xl font-black text-green-500">4.5 hrs</p>
+        </div>
+      </div>
+      
+      <!-- Table -->
+      <div class="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="py-4 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Meeting Title</th>
+                <th class="py-4 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Date</th>
+                <th class="py-4 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Club</th>
+                <th class="py-4 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Action Items</th>
+                <th class="py-4 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {moms.map((mom: any) => (
+                <tr class="hover:bg-gray-50 transition-colors group">
+                  <td class="py-4 px-6">
+                    <p class="font-bold text-gray-900 group-hover:text-[#003F8A] transition-colors">{mom.title}</p>
+                    <p class="text-xs text-gray-400 mt-1 max-w-xs truncate">{mom.summary}</p>
+                  </td>
+                  <td class="py-4 px-6 whitespace-nowrap">
+                    <p class="text-sm font-semibold text-gray-700">{new Date(mom.date).toLocaleDateString('en-IN', {month: 'short', day: 'numeric', year: 'numeric'})}</p>
+                  </td>
+                  <td class="py-4 px-6 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-[#003F8A]">
+                      {mom.club_id}
+                    </span>
+                  </td>
+                  <td class="py-4 px-6 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <span class="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold mr-2">
+                        {mom.action_items.filter((a: any) => !a.completed).length}
+                      </span>
+                      <span class="text-xs text-gray-500 font-medium">Pending</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 whitespace-nowrap text-right">
+                    <a href={`/mom/${mom.id}`} class="inline-flex items-center font-bold text-sm text-[#003F8A] hover:text-[#F5A623] transition-colors">
+                      View Details
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+</Layout>

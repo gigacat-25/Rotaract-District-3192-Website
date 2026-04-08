@@ -1,0 +1,46 @@
+---
+// Global layout for Rotaract District 3192 Website
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  clubColor?: string;
+}
+
+const { title, description = "Rotaract District 3192 Portal", clubColor } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isAuthPage = currentPath.startsWith('/login');
+const isAdminPage = currentPath.startsWith('/admin');
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Rotaract District 3192</title>
+    <!-- Google Fonts: Space Grotesk & Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- Material Symbols for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body 
+    class="bg-gray-50 text-gray-900 font-sans antialiased min-h-screen flex flex-col" 
+    style={clubColor ? `--club-color: ${clubColor};` : undefined}
+  >
+    {!isAuthPage && !isAdminPage && <Navbar />}
+
+    <main class="flex-grow flex flex-col">
+      <slot />
+    </main>
+
+    {!isAuthPage && !isAdminPage && <Footer />}
+  </body>
+</html>

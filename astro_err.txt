@@ -1,0 +1,10 @@
+[31m[1m20:24:29[22m [ERROR] [vite][39m [31m✗[39m Build failed in 974ms
+Expected "from" but found "'../mock/events.json'"
+  [1mLocation:[22m
+    [4mC:/Users/pabt2/Rotaract-District-3192-Website/src/pages/index.astro:3:13[24m
+  [1mStack trace:[22m
+[2m    at failureErrorWithLog (C:\Users\pabt2\Rotaract-District-3192-Website\node_modules\esbuild\lib\main.js:1748:15)
+    at responseCallbacks.<computed> (C:\Users\pabt2\Rotaract-District-3192-Website\node_modules\esbuild\lib\main.js:884:9)
+    at Socket.readFromStdout (C:\Users\pabt2\Rotaract-District-3192-Website\node_modules\esbuild\lib\main.js:862:7)
+    at addChunk (node:internal/streams/readable:561:12)
+    at Readable.push (node:internal/streams/readable:392:5)[22m

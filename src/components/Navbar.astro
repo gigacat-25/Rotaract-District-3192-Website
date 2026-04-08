@@ -1,0 +1,124 @@
+---
+const currentPath = Astro.url.pathname;
+const isLoggedIn = true; // Phase 1 Mock Auth State
+const userRole = 'district_admin'; // Phase 1 Mock Role (member, district_team, district_admin)
+
+const mainNavLinks = [
+  { name: 'District', href: '/about' },
+  { name: 'Clubs', href: '/clubs' },
+  { name: 'Events', href: '/events' },
+  { name: 'Resources', href: '/resources' },
+];
+
+const dashboardLink = userRole === 'district_admin' ? '/admin' : '/dashboard';
+---
+
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_32px_48px_-12px_rgba(23,65,116,0.06)]">
+  <div class="flex justify-between items-center px-6 lg:px-12 py-4 w-full max-w-screen-2xl mx-auto h-20">
+    
+    <!-- Logo / Brand -->
+    <a href="/" class="flex flex-col group">
+      <span class="text-2xl font-black tracking-tighter text-primary group-hover:text-primary-container transition-colors font-headline">
+        Rotaract 3192
+      </span>
+      <span class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold leading-none mt-0.5 opacity-70">
+        The Fluid Authority
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-10 font-headline tracking-tight">
+      {mainNavLinks.map((link: any) => (
+        <a 
+          href={link.href} 
+          class={`text-sm font-bold transition-all duration-300 hover:text-primary ${currentPath === link.href ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant'}`}
+        >
+          {link.name}
+        </a>
+      ))}
+      
+      <!-- More Dropdown -->
+      <div class="relative group">
+        <button class="text-on-surface-variant group-hover:text-primary text-sm font-bold flex items-center gap-1 transition-all">
+          DRR Office
+          <span class="material-symbols-outlined text-lg leading-none transform group-hover:rotate-180 transition-transform">expand_more</span>
+        </button>
+        <div class="absolute top-full -left-10 w-56 bg-surface-container-lowest shadow-2xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4 border border-outline-variant">
+          <a href="/news" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">District News</a>
+          <a href="/newsletter" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Digital Newsletters</a>
+          <a href="/jobs" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Service Opportunities</a>
+          <a href="/brand-centre" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Brand Guidelines</a>
+          <a href="/hall-of-fame" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Impact Hall of Fame</a>
+          <a href="/leaderboard" class="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Engagement Board</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth / CTA Actions -->
+    <div class="hidden md:flex items-center gap-6">
+      {isLoggedIn ? (
+        <a href={dashboardLink} class="material-symbols-outlined text-on-surface-variant hover:text-primary hover:scale-110 transition-all text-3xl">
+          account_circle
+        </a>
+      ) : (
+        <a href="/login" class="text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">Login</a>
+      )}
+      
+      <a href="/clubs" class="aqueous-gradient text-on-primary px-7 py-3 rounded-xl font-bold text-sm hover:translate-y-[-2px] transition-all shadow-lg shadow-primary/20 scale-95 hover:scale-100">
+        Join Us
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden text-primary p-2" id="mobile-menu-btn" aria-label="Toggle Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="lg:hidden hidden bg-surface-container-lowest border-t border-outline-variant" id="mobile-menu">
+    <div class="px-6 py-8 space-y-6">
+      {mainNavLinks.map((link: any) => (
+        <a 
+          href={link.href} 
+          class={`block text-xl font-bold font-headline ${currentPath === link.href ? 'text-primary' : 'text-on-surface-variant'}`}
+        >
+          {link.name}
+        </a>
+      ))}
+      
+      <div class="pt-6 border-t border-outline-variant space-y-4">
+        <h4 class="text-[10px] uppercase tracking-widest text-primary font-black">Resources & Office</h4>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+          <a href="/news" class="text-sm font-bold text-on-surface-variant">News</a>
+          <a href="/newsletter" class="text-sm font-bold text-on-surface-variant">Newsletters</a>
+          <a href="/jobs" class="text-sm font-bold text-on-surface-variant">Jobs</a>
+          <a href="/brand-centre" class="text-sm font-bold text-on-surface-variant">Brand</a>
+          <a href="/hall-of-fame" class="text-sm font-bold text-on-surface-variant">Hall of Fame</a>
+          <a href="/leaderboard" class="text-sm font-bold text-on-surface-variant">Leaderboard</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-outline-variant flex flex-col gap-4">
+        {isLoggedIn ? (
+          <a href={dashboardLink} class="aqueous-gradient text-on-primary font-bold text-center py-4 rounded-xl shadow-lg">Go to Dashboard</a>
+        ) : (
+          <a href="/login" class="bg-surface-container-high text-on-surface font-bold text-center py-4 rounded-xl">Member Login</a>
+        )}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  
+  if(btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>
+

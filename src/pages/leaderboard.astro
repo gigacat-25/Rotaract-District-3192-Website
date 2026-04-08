@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import leaderboardData from '../mock/leaderboard.json';
+
+const leaderboard = leaderboardData;
+---
+
+<Layout title="District Leaderboard">
+  
+  <header class="bg-[#F5A623] pt-24 pb-16">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-[#003F8A]">Active Leaderboard</h1>
+      <p class="text-lg text-[#003F8A]/80 font-medium">Recognising the most engaged members in District 3192.</p>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white min-h-[60vh]">
+    <div class="container mx-auto px-4 max-w-4xl">
+      
+      <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <div class="flex bg-gray-100 p-1 rounded-lg border border-gray-200">
+          <button class="bg-white text-gray-900 px-4 py-2 rounded-md text-sm font-bold shadow-sm">District 3192</button>
+          <button class="text-gray-500 hover:text-gray-900 px-4 py-2 rounded-md text-sm font-medium transition-colors">My Club Only</button>
+        </div>
+        <select class="bg-gray-50 border border-gray-200 text-sm font-semibold text-gray-700 rounded-lg px-4 py-2 focus:ring-[#003F8A]">
+          <option>This Month (June)</option>
+          <option>This Year (2025-26)</option>
+          <option>All Time</option>
+        </select>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden">
+        <table class="w-full text-left">
+          <thead class="bg-gray-50 border-b border-gray-100">
+            <tr>
+              <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest w-16">Rank</th>
+              <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Member</th>
+              <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest hidden sm:table-cell">Club</th>
+              <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest text-right">Points</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {leaderboard.map(entry => (
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 font-black text-gray-400 text-lg">#{entry.rank}</td>
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <img src={entry.profile_pic_url} class="w-10 h-10 rounded-full mr-4 border border-gray-200 bg-gray-100" />
+                    <p class="font-bold text-gray-900">{entry.name}</p>
+                  </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-600 text-sm hidden sm:table-cell">{entry.club_name}</td>
+                <td class="px-6 py-4 text-right">
+                  <span class="inline-block bg-blue-50 text-[#003F8A] font-black px-3 py-1.5 rounded-lg border border-blue-100 shadow-sm">{entry.points}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

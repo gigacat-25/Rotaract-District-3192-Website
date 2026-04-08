@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Brand Centre | District 3192">
+  
+  <header class="bg-gray-900 text-white pt-24 pb-16 text-center">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Brand Centre</h1>
+      <p class="text-gray-400 text-lg">Official assets and guidelines for Rotaract District 3192.</p>
+    </div>
+  </header>
+
+  <section class="py-16 bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4">District Logos</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Logo variant: Master -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-shadow flex flex-col justify-between">
+          <div class="aspect-video bg-gray-50 rounded-xl mb-6 flex items-center justify-center">
+            <span class="text-[#003F8A] font-black text-2xl">Rotaract 3192</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Master Logo</h3>
+            <p class="text-xs text-gray-500 mb-4">Primary logo on light backgrounds.</p>
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2 rounded-lg transition">PNG</button>
+              <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2 rounded-lg transition">SVG</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo variant: White -->
+        <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 card-shadow flex flex-col justify-between">
+          <div class="aspect-video bg-gray-800 rounded-xl mb-6 flex items-center justify-center">
+            <span class="text-white font-black text-2xl">Rotaract 3192</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-white mb-1">Reverse White</h3>
+            <p class="text-xs text-gray-400 mb-4">For use on solid dark backgrounds.</p>
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-gray-800 hover:bg-gray-700 text-white text-xs font-semibold py-2 rounded-lg transition">PNG</button>
+              <button class="flex-1 bg-gray-800 hover:bg-gray-700 text-white text-xs font-semibold py-2 rounded-lg transition">SVG</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo variant: Master -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-shadow flex flex-col justify-between">
+          <div class="aspect-video bg-[#F5A623]/10 rounded-xl mb-6 flex items-center justify-center">
+            <span class="text-[#F5A623] font-black text-2xl">Rotaract 3192</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Gold Monotone</h3>
+            <p class="text-xs text-gray-500 mb-4">For specific aesthetic applications.</p>
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2 rounded-lg transition">PNG</button>
+              <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold py-2 rounded-lg transition">SVG</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white min-h-[40vh]">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">Colour Palette</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        
+        <div class="group">
+          <div class="h-32 bg-[#003F8A] rounded-2xl shadow-inner mb-3 relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">Rotaract Blue</h4>
+          <p class="text-gray-500 text-xs uppercase tracking-wider font-mono mt-1">#003F8A</p>
+          <div class="mt-2 text-[10px] text-gray-400 space-y-0.5">
+            <p>RGB: 0, 63, 138</p>
+            <p>CMYK: 100, 80, 9, 12</p>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="h-32 bg-[#F5A623] rounded-2xl shadow-inner mb-3 relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/10 to-transparent"></div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">Rotaract Gold</h4>
+          <p class="text-gray-500 text-xs uppercase tracking-wider font-mono mt-1">#F5A623</p>
+          <div class="mt-2 text-[10px] text-gray-400 space-y-0.5">
+            <p>RGB: 245, 166, 35</p>
+            <p>CMYK: 0, 36, 93, 0</p>
+          </div>
+        </div>
+        
+        <div class="group">
+          <div class="h-32 bg-gray-900 rounded-2xl shadow-inner mb-3 relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">Charcoal Black</h4>
+          <p class="text-gray-500 text-xs uppercase tracking-wider font-mono mt-1">#111827</p>
+          <div class="mt-2 text-[10px] text-gray-400 space-y-0.5">
+            <p>Accent text & UI elements</p>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="h-32 bg-gray-50 border border-gray-200 rounded-2xl shadow-inner mb-3 relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">Paper White</h4>
+          <p class="text-gray-500 text-xs uppercase tracking-wider font-mono mt-1">#F9FAFB</p>
+          <div class="mt-2 text-[10px] text-gray-400 space-y-0.5">
+            <p>Backgrounds</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Typography -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">Typography</h2>
+      <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200">
+        <h3 class="text-base text-gray-500 font-bold tracking-widest uppercase mb-6">Primary Typeface: Inter</h3>
+        
+        <div class="space-y-6">
+          <div class="pb-6 border-b border-gray-200">
+            <p class="text-4xl font-extrabold text-gray-900 mb-1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p class="text-4xl font-extrabold text-gray-900 mb-3">abcdefghijklmnopqrstuvwxyz</p>
+            <p class="text-sm font-semibold text-gray-500 bg-gray-200 inline-block px-3 py-1 rounded-full">ExtraBold 800 - Headlines</p>
+          </div>
+          <div class="pb-6 border-b border-gray-200">
+            <p class="text-3xl font-semibold text-gray-900 mb-1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p class="text-3xl font-semibold text-gray-900 mb-3">abcdefghijklmnopqrstuvwxyz</p>
+            <p class="text-sm font-medium text-gray-500 bg-gray-200 inline-block px-3 py-1 rounded-full">SemiBold 600 - Subheadings</p>
+          </div>
+          <div>
+            <p class="text-2xl text-gray-800 mb-1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p class="text-2xl text-gray-800 mb-3">abcdefghijklmnopqrstuvwxyz</p>
+            <p class="text-sm text-gray-500 bg-gray-200 inline-block px-3 py-1 rounded-full">Regular 400 - Body Text</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

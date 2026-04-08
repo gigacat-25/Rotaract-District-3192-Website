@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  --color-primary: #174174;
+  --color-primary-container: #33588d;
+  --color-on-primary: #ffffff;
+
+  --color-surface: #f8f9fa;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #414750;
+
+  --color-outline-variant: rgba(193, 199, 209, 0.15);
+
+  --color-rotaract-gold: #F5A623;
+  --color-club-accent: var(--club-color, #174174);
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font {
+  font-family: var(--font-headline);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.aqueous-gradient {
+  background: linear-gradient(135deg, #174174 0%, #33588d 100%);
+}
+
+.glass-nav {
+  background: rgba(248, 249, 250, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.fluid-shadow {
+  box-shadow: 0 32px 48px -12px rgba(23, 65, 116, 0.06);
+}
+
+/* Page transitions / interactions */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+/* Remove standard borders rule */
+.no-line-section {
+  border: none !important;
+}

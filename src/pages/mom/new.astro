@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="New Meeting - MOM Recorder">
+  
+  <header class="bg-gray-50 border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl flex items-center">
+      <a href="/mom" class="text-gray-500 hover:text-[#003F8A] p-2 -ml-2 rounded-lg transition-colors mr-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+      </a>
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Record New Meeting</h1>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white min-h-[70vh]">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+      
+      <div class="bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden">
+        
+        <div class="p-8 border-b border-gray-200">
+          <div class="space-y-4">
+            <input type="text" placeholder="Meeting Title (e.g. Monthly GBM - June)" class="w-full text-2xl font-bold text-gray-900 border-none p-0 focus:ring-0 placeholder-gray-300">
+            <div class="flex gap-4">
+              <input type="date" class="bg-gray-50 border border-gray-200 text-sm font-semibold text-gray-600 rounded-lg px-4 py-2 focus:ring-[#003F8A]">
+              <select class="bg-gray-50 border border-gray-200 text-sm font-semibold text-gray-600 rounded-lg px-4 py-2 focus:ring-[#003F8A]">
+                <option>General Body Meeting</option>
+                <option>Board Meeting</option>
+                <option>Committee Meeting</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[300px]">
+          
+          <!-- Mock Recorder UI -->
+          <div class="relative w-32 h-32 mb-8 flex items-center justify-center group cursor-pointer">
+            <div class="absolute inset-0 bg-red-100 rounded-full scale-110 group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="absolute inset-0 bg-red-200 rounded-full scale-100 animate-ping opacity-50"></div>
+            <div class="relative w-24 h-24 bg-red-500 rounded-full flex items-center justify-center text-white shadow-xl group-hover:bg-red-600 transition-colors">
+               <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+            </div>
+          </div>
+          
+          <h2 class="text-xl font-bold text-gray-900 mb-2">Tap to Start Recording</h2>
+          <p class="text-sm text-gray-500 font-medium max-w-sm text-center">The AI assistant will transcribe the meeting in real-time, extract key decisions, and automatically assign action items.</p>
+          
+          <div class="mt-10 flex items-center gap-4 border-t border-gray-200 pt-8 w-full max-w-md">
+            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest shrink-0">Or upload audio</span>
+            <button class="w-full bg-white border border-gray-200 hover:border-[#003F8A] hover:text-[#003F8A] text-gray-700 font-semibold py-2.5 rounded-xl transition-colors shadow-sm flex items-center justify-center text-sm">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              Select MP3 / M4A
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

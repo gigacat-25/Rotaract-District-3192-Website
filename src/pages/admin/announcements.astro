@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Broadcast Announcements - Admin">
+  <div class="flex min-h-screen bg-gray-50">
+    <aside class="w-64 bg-gray-900 fixed inset-y-0 z-50 text-gray-400 p-4 pt-20">
+      <a href="/admin" class="flex flex-col mb-8 px-4"><span class="font-bold text-2xl text-white">Rotaract<span class="text-[#F5A623]">3192</span></span></a>
+      <a href="/admin/clubs" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Clubs</a>
+      <a href="/admin/events" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Events</a>
+      <a href="/admin/feeds" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Feeds</a>
+      <a href="/admin/campaigns" class="block px-4 py-3 hover:bg-gray-800 rounded-xl mb-1">Campaigns</a>
+      <a href="/admin/announcements" class="block px-4 py-3 bg-[#003F8A] text-white rounded-xl mb-1">Announcements</a>
+      <a href="/admin/audit" class="block px-4 py-3 hover:bg-gray-800 rounded-xl">Audit Log</a>
+    </aside>
+    <main class="flex-grow pl-64 p-8">
+      <h1 class="text-2xl font-bold mb-6">WhatsApp Broadcasts</h1>
+      <div class="bg-white rounded-3xl border border-gray-200 card-shadow p-6 mb-8">
+        <h2 class="font-bold mb-4">Send New Broadcast</h2>
+        <form class="space-y-4">
+          <select class="w-full border border-gray-300 rounded p-2 text-sm">
+            <option>Select Message Template...</option>
+            <option>General Assembly Notice</option>
+            <option>Dues Reminder</option>
+          </select>
+          <select class="w-full border border-gray-300 rounded p-2 text-sm">
+            <option>All Presidents and Secretaries</option>
+            <option>All Members</option>
+            <option>District Council</option>
+          </select>
+          <button type="button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Send Broadcast</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</Layout>

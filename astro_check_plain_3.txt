@@ -1,0 +1,108 @@
+[2m20:18:08[22m [34m[types][39m Generated [2m72ms[22m
+[2m20:18:08[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\pabt2\Rotaract-District-3192-Website...
+[96mpublic/sw.js[0m:[93m2[0m:[93m35[0m - [93mwarning[0m[90m ts(6133): [0m'event' is declared but its value is never read.
+
+[7m2[0m self.addEventListener('install', (event) => {
+[7m [0m [93m                                  ~~~~~[0m
+
+[96msrc/pages/dashboard.astro[0m:[93m6[0m:[93m26[0m - [91merror[0m[90m ts(2339): [0mProperty 'default' does not exist on type '{ id: string; club_id: string; name: string; email: string; phone: string; whatsapp_number: string; dob: string; profile_pic_url: string; membership_status: string; joined_at: string; points: number; role: string; }[]'.
+
+[7m6[0m const user = membersData.default[0];
+[7m [0m [91m                         ~~~~~~~[0m
+
+[96msrc/pages/hall-of-fame.astro[0m:[93m71[0m:[93m35[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m71[0m         {leaderboard.map((member, index) => (
+[7m  [0m [93m                                  ~~~~~[0m
+
+[96msrc/pages/index.astro[0m:[93m131[0m:[93m26[0m - [91merror[0m[90m ts(7006): [0mParameter 'post' implicitly has an 'any' type.
+
+[7m131[0m         {recentFeeds.map(post => (
+[7m   [0m [91m                         ~~~~[0m
+[96msrc/pages/index.astro[0m:[93m82[0m:[93m29[0m - [91merror[0m[90m ts(7006): [0mParameter 'event' implicitly has an 'any' type.
+
+[7m82[0m         {upcomingEvents.map(event => (
+[7m  [0m [91m                            ~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m10[0m:[93m40[0m - [91merror[0m[90m ts(7006): [0mParameter 'c' implicitly has an 'any' type.
+
+[7m10[0m   clubsCount: clubsData.default.filter(c => c.status === 'active').length,
+[7m  [0m [91m                                       ~[0m
+[96msrc/pages/index.astro[0m:[93m10[0m:[93m25[0m - [91merror[0m[90m ts(2339): [0mProperty 'default' does not exist on type '{ id: string; slug: string; name: string; district_id: string; city: string; status: string; logo_url: string; cover_url: string; theme_color: string; founded_date: string; charter_date: string; about: string; instagram_url: string; linkedin_url: string; whatsapp_group_url: string; member_count: number; }[]'.
+
+[7m10[0m   clubsCount: clubsData.default.filter(c => c.status === 'active').length,
+[7m  [0m [91m                        ~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m8[0m:[93m31[0m - [91merror[0m[90m ts(2339): [0mProperty 'default' does not exist on type '{ id: string; club_id: string; club_name: string; author_name: string; author_pic: string; content_type: string; caption: string; media_url: string; posted_at: string; }[]'.
+
+[7m8[0m const recentFeeds = feedsData.default.slice(0, 3);
+[7m [0m [91m                              ~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m7[0m:[93m50[0m - [91merror[0m[90m ts(7006): [0mParameter 'e' implicitly has an 'any' type.
+
+[7m7[0m const upcomingEvents = eventsData.default.filter(e => e.status === 'published' && e.start_at > new Date().toISOString()).slice(0, 3);
+[7m [0m [91m                                                 ~[0m
+[96msrc/pages/index.astro[0m:[93m7[0m:[93m35[0m - [91merror[0m[90m ts(2339): [0mProperty 'default' does not exist on type '{ id: string; club_id: string; club_name: string; title: string; slug: string; type: string; description: string; venue: string; maps_url: string; start_at: string; end_at: string; capacity: number; status: string; banner_url: string; is_free: boolean; ticket_tiers: { ...; }[]; }[]'.
+
+[7m7[0m const upcomingEvents = eventsData.default.filter(e => e.status === 'published' && e.start_at > new Date().toISOString()).slice(0, 3);
+[7m [0m [91m                                  ~~~~~~~[0m
+
+[96msrc/pages/login.astro[0m:[93m64[0m:[93m38[0m - [91merror[0m[90m ts(2322): [0mType '{ type: "text"; maxLength: string; class: string; placeholder: string; }' is not assignable to type 'InputHTMLAttributes'.
+  Property 'maxLength' does not exist on type 'InputHTMLAttributes'. Did you mean 'maxlength'?
+
+[7m64[0m                   <input type="text" maxLength="1" class="w-12 h-14 text-center text-2xl font-bold bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#003F8A] focus:border-[#003F8A] transition-colors" placeholder="•" />
+[7m  [0m [91m                                     ~~~~~~~~~[0m
+[96msrc/pages/login.astro[0m:[93m63[0m:[93m36[0m - [93mwarning[0m[90m ts(6133): [0m'i' is declared but its value is never read.
+
+[7m63[0m                 {[1,2,3,4,5,6].map(i => (
+[7m  [0m [93m                                   ~[0m
+[96msrc/pages/login.astro[0m:[93m30[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'event' is deprecated.
+
+[7m30[0m           <form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.remove('hidden');">
+[7m  [0m [93m                                            ~~~~~[0m
+
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m15[0m:[93m1[0m - [91merror[0m[90m astro(1006): [0mThe closing frontmatter fence (---) is missing an opening fence
+
+Add --- at the beginning of your file before any import statements or code
+
+[7m15[0m ---
+[7m  [0m [91m~~~[0m
+
+[96msrc/pages/events/[slug]/index.astro[0m:[93m91[0m:[93m39[0m - [91merror[0m[90m ts(7006): [0mParameter 'tier' implicitly has an 'any' type.
+
+[7m91[0m               {event.ticket_tiers.map(tier => (
+[7m  [0m [91m                                      ~~~~[0m
+
+[96msrc/pages/events/[slug]/register.astro[0m:[93m59[0m:[93m44[0m - [91merror[0m[90m ts(7006): [0mParameter 'idx' implicitly has an 'any' type.
+
+[7m59[0m             {event.ticket_tiers.map((tier, idx) => (
+[7m  [0m [91m                                           ~~~[0m
+[96msrc/pages/events/[slug]/register.astro[0m:[93m59[0m:[93m38[0m - [91merror[0m[90m ts(7006): [0mParameter 'tier' implicitly has an 'any' type.
+
+[7m59[0m             {event.ticket_tiers.map((tier, idx) => (
+[7m  [0m [91m                                     ~~~~[0m
+[96msrc/pages/events/[slug]/register.astro[0m:[93m4[0m:[93m24[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../../mock/events.json' or its corresponding type declarations.
+
+[7m4[0m import eventsData from '../../../../mock/events.json';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/events/[slug]/register.astro[0m:[93m3[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../../layouts/Layout.astro' or its corresponding type declarations.
+
+[7m3[0m import Layout from '../../../../layouts/Layout.astro';
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/lms/[courseId].astro[0m:[93m67[0m:[93m44[0m - [91merror[0m[90m ts(7006): [0mParameter 'idx' implicitly has an 'any' type.
+
+[7m67[0m               {course.lessons.map((lesson, idx) => (
+[7m  [0m [91m                                           ~~~[0m
+[96msrc/pages/lms/[courseId].astro[0m:[93m67[0m:[93m36[0m - [91merror[0m[90m ts(7006): [0mParameter 'lesson' implicitly has an 'any' type.
+
+[7m67[0m               {course.lessons.map((lesson, idx) => (
+[7m  [0m [91m                                   ~~~~~~[0m
+
+[96msrc/pages/mom/[id].astro[0m:[93m94[0m:[93m47[0m - [93mwarning[0m[90m ts(6133): [0m'idx' is declared but its value is never read.
+
+[7m94[0m             {mom.action_items.map((item: any, idx: number) => (
+[7m  [0m [93m                                              ~~~[0m
+
+Result (39 files): 
+- 17 errors
+- 0 warnings
+- 5 hints
+

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import membersData from '../mock/members.json';
+
+const members = membersData;
+// Filter a subset of members to act as mentors for mock data
+const mentors = members.slice(0, 4).map((m: any) => ({
+  ...m,
+  expertise: m.role.includes('pres') ? ['Leadership', 'Event Management'] : ['Marketing', 'Public Speaking']
+}));
+---
+
+<Layout title="Mentorship Hub">
+  
+  <header class="bg-[#003F8A] text-white pt-24 pb-16">
+    <div class="container mx-auto px-4 max-w-5xl text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Mentorship Hub</h1>
+      <p class="text-lg text-blue-100 font-medium">Connect with experienced district leaders for 1-on-1 guidance.</p>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white min-h-[60vh]">
+    <div class="container mx-auto px-4 max-w-5xl">
+      
+      <div class="flex border-b border-gray-200 mb-10">
+        <button class="pb-3 px-4 border-b-2 border-[#003F8A] font-bold text-gray-900 text-sm tracking-wide">Find a Mentor</button>
+        <button class="pb-3 px-4 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 text-sm tracking-wide">My Sessions (0)</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {mentors.map(mentor => (
+           <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow flex flex-col md:flex-row gap-6">
+              <div class="shrink-0 text-center md:text-left">
+                <img src={mentor.profile_pic_url} alt={mentor.name} class="w-24 h-24 rounded-2xl object-cover mb-3 mx-auto md:mx-0 shadow-sm border border-gray-100" />
+                <span class="text-[10px] font-black uppercase tracking-widest bg-blue-50 text-[#003F8A] px-2 py-1 rounded">Verified</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h3>
+                <p class="text-sm font-semibold text-gray-500 mb-3">{mentor.club_id}</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  {mentor.expertise.map((skill: any) => (
+                    <span class="text-xs font-semibold bg-gray-100 text-gray-700 px-2.5 py-1 rounded-md">{skill}</span>
+                  ))}
+                </div>
+                <button class="w-full text-center bg-white border-2 border-[#003F8A] text-[#003F8A] hover:bg-[#003F8A] hover:text-white font-bold py-2.5 rounded-xl transition-colors shadow-sm">
+                  Book a Slot
+                </button>
+              </div>
+           </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

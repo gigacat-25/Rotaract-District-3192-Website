@@ -1,0 +1,102 @@
+[
+    {
+        "id": "c1",
+        "title": "Rotaract Leadership Basics",
+        "description": "A comprehensive guide to leadership roles within a Rotaract club, covering everything from running meetings to conflict resolution.",
+        "category": "Leadership",
+        "thumbnail_url": "https://placehold.co/800x450/4A90E2/FFFFFF?text=Leadership+Basics",
+        "is_ri_cert": true,
+        "lessons": [
+            {
+                "id": "l1",
+                "title": "Understanding Your Role",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 1
+            },
+            {
+                "id": "l2",
+                "title": "Effective Meetings",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 2
+            },
+            {
+                "id": "l3",
+                "title": "Conflict Resolution",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 3
+            }
+        ]
+    },
+    {
+        "id": "c2",
+        "title": "Digital Marketing for Clubs",
+        "description": "Learn how to establish a strong online presence for your Rotaract club using social media, SEO, and content marketing.",
+        "category": "Marketing",
+        "thumbnail_url": "https://placehold.co/800x450/E24A4A/FFFFFF?text=Digital+Marketing",
+        "is_ri_cert": false,
+        "lessons": [
+            {
+                "id": "l4",
+                "title": "Instagram Strategies",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 1
+            },
+            {
+                "id": "l5",
+                "title": "Content Planning",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 2
+            }
+        ]
+    },
+    {
+        "id": "c3",
+        "title": "Fundraising 101",
+        "description": "Essential skills for planning and executing successful fundraising campaigns for community service projects.",
+        "category": "Finance",
+        "thumbnail_url": "https://placehold.co/800x450/4AE273/FFFFFF?text=Fundraising",
+        "is_ri_cert": true,
+        "lessons": [
+            {
+                "id": "l6",
+                "title": "Planning Your Campaign",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 1
+            },
+            {
+                "id": "l7",
+                "title": "Corporate Sponsorships",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 2
+            },
+            {
+                "id": "l8",
+                "title": "Donor Retention",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 3
+            }
+        ]
+    },
+    {
+        "id": "c4",
+        "title": "Public Speaking Mastery",
+        "description": "Overcome stage fright and deliver compelling speeches and presentations confidently.",
+        "category": "Professional Development",
+        "thumbnail_url": "https://placehold.co/800x450/9B4AE2/FFFFFF?text=Public+Speaking",
+        "is_ri_cert": false,
+        "lessons": [
+            {
+                "id": "l9",
+                "title": "Body Language",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 1
+            },
+            {
+                "id": "l10",
+                "title": "Vocal Variety",
+                "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "order_index": 2
+            }
+        ]
+    }
+]

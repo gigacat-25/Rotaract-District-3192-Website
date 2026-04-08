@@ -1,0 +1,158 @@
+[
+    {
+        "id": "e1",
+        "club_id": "c1",
+        "club_name": "Rotaract Club of Chennai",
+        "title": "Coastal Cleanup Drive",
+        "slug": "coastal-cleanup-drive-2026",
+        "type": "service",
+        "description": "Join us for our annual Marina beach coastal cleanup. Let's make an impact and keep our oceans clean! Gloves and bags will be provided.",
+        "venue": "Marina Beach, Chennai",
+        "maps_url": "https://maps.google.com/?q=Marina+Beach,Chennai",
+        "start_at": "2026-06-15T06:00:00Z",
+        "end_at": "2026-06-15T09:00:00Z",
+        "capacity": 100,
+        "status": "published",
+        "banner_url": "https://placehold.co/1200x600/003F8A/FFFFFF?text=Coastal+Cleanup",
+        "is_free": true,
+        "ticket_tiers": [
+            {
+                "id": "t1",
+                "name": "Volunteer Pass",
+                "price": 0,
+                "capacity": 100
+            }
+        ]
+    },
+    {
+        "id": "e2",
+        "club_id": "c2",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "title": "Leadership Summit 2026",
+        "slug": "leadership-summit-2026",
+        "type": "professional",
+        "description": "A full-day summit featuring industry leaders, workshops, and networking opportunities. Elevate your leadership skills.",
+        "venue": "Taj MG Road, Bengaluru",
+        "maps_url": "https://maps.google.com/?q=Taj+MG+Road,Bengaluru",
+        "start_at": "2026-07-20T09:00:00Z",
+        "end_at": "2026-07-20T17:00:00Z",
+        "capacity": 200,
+        "status": "published",
+        "banner_url": "https://placehold.co/1200x600/F5A623/FFFFFF?text=Leadership+Summit",
+        "is_free": false,
+        "ticket_tiers": [
+            {
+                "id": "t2",
+                "name": "Early Bird",
+                "price": 499,
+                "capacity": 50
+            },
+            {
+                "id": "t3",
+                "name": "Standard Pass",
+                "price": 799,
+                "capacity": 150
+            }
+        ]
+    },
+    {
+        "id": "e3",
+        "club_id": "c3",
+        "club_name": "Rotaract Club of Coimbatore Cosmos",
+        "title": "Green Earth Trek",
+        "slug": "green-earth-trek",
+        "type": "social",
+        "description": "A weekend trek to the Nilgiris to bond, explore nature, and plant saplings along the way.",
+        "venue": "Nilgiris, Ooty",
+        "maps_url": "https://maps.google.com/?q=Nilgiris,Ooty",
+        "start_at": "2026-08-05T05:00:00Z",
+        "end_at": "2026-08-06T18:00:00Z",
+        "capacity": 40,
+        "status": "published",
+        "banner_url": "https://placehold.co/1200x600/00732A/FFFFFF?text=Green+Earth+Trek",
+        "is_free": false,
+        "ticket_tiers": [
+            {
+                "id": "t4",
+                "name": "Trekker Pass",
+                "price": 1200,
+                "capacity": 40
+            }
+        ]
+    },
+    {
+        "id": "e4",
+        "club_id": "c4",
+        "club_name": "Rotaract Club of Mysuru Royal",
+        "title": "Blood Donation Camp",
+        "slug": "blood-donation-camp-mysuru",
+        "type": "service",
+        "description": "Donate blood, save lives. In association with Mysore Medical College.",
+        "venue": "Mysore Medical College, Mysuru",
+        "maps_url": "https://maps.google.com/?q=Mysore+Medical+College,Mysuru",
+        "start_at": "2026-06-25T09:00:00Z",
+        "end_at": "2026-06-25T14:00:00Z",
+        "capacity": 150,
+        "status": "published",
+        "banner_url": "https://placehold.co/1200x600/8A003F/FFFFFF?text=Blood+Donation+Camp",
+        "is_free": true,
+        "ticket_tiers": [
+            {
+                "id": "t5",
+                "name": "Donor Registration",
+                "price": 0,
+                "capacity": 150
+            }
+        ]
+    },
+    {
+        "id": "e5",
+        "club_id": "c1",
+        "club_name": "Rotaract Club of Chennai",
+        "title": "Youth Conclave - Past Event",
+        "slug": "youth-conclave-2025",
+        "type": "professional",
+        "description": "Our biggest youth event of the year featuring TEDx speakers and startup founders.",
+        "venue": "IIT Madras Research Park, Chennai",
+        "maps_url": "https://maps.google.com/?q=IIT+Madras,Chennai",
+        "start_at": "2025-11-10T09:00:00Z",
+        "end_at": "2025-11-10T17:00:00Z",
+        "capacity": 500,
+        "status": "past",
+        "banner_url": "https://placehold.co/1200x600/333333/FFFFFF?text=Youth+Conclave",
+        "is_free": false,
+        "ticket_tiers": [
+            {
+                "id": "t6",
+                "name": "Delegate",
+                "price": 400,
+                "capacity": 500
+            }
+        ]
+    },
+    {
+        "id": "e6",
+        "club_id": "c2",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "title": "Startup Pitch Night",
+        "slug": "startup-pitch-night",
+        "type": "professional",
+        "description": "Watch young entrepreneurs pitch their ideas to angel investors. Networking dinner to follow.",
+        "venue": "WeWork Galaxy, Bengaluru",
+        "maps_url": "https://maps.google.com/?q=WeWork+Galaxy,Bengaluru",
+        "start_at": "2026-09-12T18:00:00Z",
+        "end_at": "2026-09-12T21:00:00Z",
+        "capacity": 80,
+        "status": "published",
+        "banner_url": "https://placehold.co/1200x600/F5A623/FFFFFF?text=Startup+Pitch+Night",
+        "is_free": false,
+        "ticket_tiers": [
+            {
+                "id": "t7",
+                "name": "Attendee Pass",
+                "price": 250,
+                "capacity": 80
+            }
+        ]
+    }
+]

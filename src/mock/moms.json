@@ -1,0 +1,87 @@
+[
+    {
+        "id": "mom1",
+        "club_id": "c1",
+        "club_name": "Rotaract Club of Chennai",
+        "meeting_date": "2026-05-10",
+        "title": "May General Body Meeting",
+        "transcript_text": "The meeting commenced at 6 PM. The President welcomed the members. We discussed the upcoming Coastal Cleanup Drive. Roles were assigned: Priya will handle logistics, Arjun will manage volunteers. Next, the Treasurer presented the financial report for April. Finally, we decided to host a joint meeting with Rotary Club next month. Meeting adjourned at 7:30 PM.",
+        "audio_url": "https://example.com/audio/mom1.mp3",
+        "author_name": "Vikram Singh",
+        "status": "transcribed",
+        "action_items": [
+            {
+                "id": "ai1",
+                "type": "action",
+                "content": "Handle logistics for Coastal Cleanup",
+                "assigned_to": "Priya Sharma",
+                "assigned_to_id": "m2",
+                "due_date": "2026-05-25"
+            },
+            {
+                "id": "ai2",
+                "type": "action",
+                "content": "Manage volunteers for Coastal Cleanup",
+                "assigned_to": "Arjun Kumar",
+                "assigned_to_id": "m1",
+                "due_date": "2026-05-25"
+            },
+            {
+                "id": "ai3",
+                "type": "decision",
+                "content": "Host joint meeting with Rotary Club next month"
+            }
+        ]
+    },
+    {
+        "id": "mom2",
+        "club_id": "c2",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "meeting_date": "2026-05-15",
+        "title": "Board Meeting - May",
+        "transcript_text": "Board met to finalize the Leadership Summit 2026. Venue confirmed as Taj MG Road. Snippets of the speaker line-up were reviewed. We need more sponsors. Karthik will reach out to tech companies. Sneha to prepare the marketing materials by Friday. Budget approved for social media ads.",
+        "audio_url": "https://example.com/audio/mom2.mp3",
+        "author_name": "Karthik Reddy",
+        "status": "transcribed",
+        "action_items": [
+            {
+                "id": "ai4",
+                "type": "decision",
+                "content": "Venue confirmed: Taj MG Road"
+            },
+            {
+                "id": "ai5",
+                "type": "action",
+                "content": "Reach out to tech companies for sponsorship",
+                "assigned_to": "Karthik Reddy",
+                "assigned_to_id": "m3",
+                "due_date": "2026-05-30"
+            },
+            {
+                "id": "ai6",
+                "type": "action",
+                "content": "Prepare marketing materials",
+                "assigned_to": "Sneha Patil",
+                "assigned_to_id": "m4",
+                "due_date": "2026-05-22"
+            },
+            {
+                "id": "ai7",
+                "type": "decision",
+                "content": "Budget approved for social media ads"
+            }
+        ]
+    },
+    {
+        "id": "mom3",
+        "club_id": "c3",
+        "club_name": "Rotaract Club of Coimbatore Cosmos",
+        "meeting_date": "2026-05-20",
+        "title": "Project Green Earth Planning",
+        "transcript_text": "Uploading audio in progress...",
+        "audio_url": "",
+        "author_name": "Lakshmi Narayanan",
+        "status": "pending",
+        "action_items": []
+    }
+]

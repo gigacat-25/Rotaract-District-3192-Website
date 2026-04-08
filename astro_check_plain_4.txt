@@ -1,0 +1,56 @@
+[2m20:19:57[22m [34m[types][39m Generated [2m76ms[22m
+[2m20:19:57[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\pabt2\Rotaract-District-3192-Website...
+[96mpublic/sw.js[0m:[93m2[0m:[93m35[0m - [93mwarning[0m[90m ts(6133): [0m'event' is declared but its value is never read.
+
+[7m2[0m self.addEventListener('install', (event) => {
+[7m [0m [93m                                  ~~~~~[0m
+
+[96msrc/pages/hall-of-fame.astro[0m:[93m71[0m:[93m35[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m71[0m         {leaderboard.map((member, index) => (
+[7m  [0m [93m                                  ~~~~~[0m
+
+[96msrc/pages/login.astro[0m:[93m63[0m:[93m36[0m - [93mwarning[0m[90m ts(6133): [0m'i' is declared but its value is never read.
+
+[7m63[0m                 {[1,2,3,4,5,6].map(i => (
+[7m  [0m [93m                                   ~[0m
+[96msrc/pages/login.astro[0m:[93m30[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'event' is deprecated.
+
+[7m30[0m           <form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.remove('hidden');">
+[7m  [0m [93m                                            ~~~~~[0m
+
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m79[0m:[93m33[0m - [91merror[0m[90m ts(7006): [0mParameter 'event' implicitly has an 'any' type.
+
+[7m79[0m                 {clubEvents.map(event => (
+[7m  [0m [91m                                ~~~~~[0m
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m15[0m:[93m46[0m - [91merror[0m[90m ts(7006): [0mParameter 'e' implicitly has an 'any' type.
+
+[7m15[0m const clubEvents = eventsData.default.filter(e => e.club_id === club.id && e.status === 'published').slice(0,3);
+[7m  [0m [91m                                             ~[0m
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m8[0m:[93m20[0m - [91merror[0m[90m ts(7006): [0mParameter 'club' implicitly has an 'any' type.
+
+[7m8[0m   return clubs.map(club => ({
+[7m [0m [91m                   ~~~~[0m
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m4[0m:[93m24[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../mock/events.json' or its corresponding type declarations.
+
+[7m4[0m import eventsData from '../../mock/events.json';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m3[0m:[93m23[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../mock/clubs.json' or its corresponding type declarations.
+
+[7m3[0m import clubsData from '../../mock/clubs.json';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/clubs/[slug]/index.astro[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../layouts/Layout.astro' or its corresponding type declarations.
+
+[7m2[0m import Layout from '../../layouts/Layout.astro';
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/mom/[id].astro[0m:[93m94[0m:[93m47[0m - [93mwarning[0m[90m ts(6133): [0m'idx' is declared but its value is never read.
+
+[7m94[0m             {mom.action_items.map((item: any, idx: number) => (
+[7m  [0m [93m                                              ~~~[0m
+
+Result (39 files): 
+- 6 errors
+- 0 warnings
+- 5 hints
+

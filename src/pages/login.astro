@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+// A completely clean, minimal auth page
+---
+
+<Layout title="Login">
+  
+  <div class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+      
+      <!-- Logo Header -->
+      <div class="text-center mb-8 fade-in-up">
+        <a href="/" class="inline-flex flex-col group">
+          <span class="font-bold text-3xl tracking-tight text-[#003F8A] leading-tight">Rotaract</span>
+          <span class="text-sm uppercase tracking-widest text-[#F5A623] font-bold leading-none mt-1">District 3192</span>
+        </a>
+      </div>
+
+      <!-- Auth Form Card -->
+      <div class="bg-white rounded-3xl p-8 md:p-10 card-shadow border border-gray-100 fade-in-up stagger-1">
+        
+        <!-- Step 1: Email -->
+        <div id="step-1" class="block">
+          <div class="mb-8">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h1>
+            <p class="text-gray-500 text-sm">Enter your registered email address to receive a secure login code.</p>
+          </div>
+          
+          <form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.remove('hidden');">
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-gray-700">Email Address</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <input type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-[#003F8A]/50 focus:border-[#003F8A] transition-colors" placeholder="member@rotaract.org" />
+              </div>
+            </div>
+            
+            <button type="submit" class="w-full bg-[#003F8A] hover:bg-[#002f6c] text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center group shadow-md hover:shadow-lg">
+              Send Login Code
+              <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Step 2: OTP (Hidden initially via JS) -->
+        <div id="step-2" class="hidden">
+          <div class="mb-8">
+            <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Check your email</h1>
+            <p class="text-gray-500 text-sm">We've sent a 6-digit secure code to your email address.</p>
+          </div>
+          
+          <form action="/dashboard" class="space-y-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-gray-700">Secure Code</label>
+              <div class="flex justify-between gap-2">
+                <!-- Mocking 6 digit OTP input visually -->
+                {[1,2,3,4,5,6].map(i => (
+                  <input type="text" maxlength="1" class="w-12 h-14 text-center text-2xl font-bold bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#003F8A] focus:border-[#003F8A] transition-colors" placeholder="•" />
+                ))}
+              </div>
+            </div>
+            
+            <button type="submit" class="w-full bg-[#F5A623] hover:bg-[#e0941a] text-[#003F8A] font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg">
+              Verify & Login
+            </button>
+            
+            <div class="text-center pt-2">
+              <button type="button" onclick="document.getElementById('step-2').classList.add('hidden'); document.getElementById('step-1').classList.remove('hidden');" class="text-sm font-semibold text-gray-400 hover:text-[#003F8A] transition-colors">
+                ← Use a different email
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      
+      <div class="mt-8 text-center">
+        <p class="text-xs text-gray-400 font-medium">By logging in, you agree to the District 3192 <a href="#" class="text-[#003F8A] hover:underline">Privacy Policy</a>.</p>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>

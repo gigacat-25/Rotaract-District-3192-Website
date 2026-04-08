@@ -1,0 +1,86 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import clubsData from '../../../mock/clubs.json';
+import eventsData from '../../../mock/events.json';
+
+export async function getStaticPaths() {
+  const clubs = clubsData;
+  return clubs.map(club => ({
+    params: { slug: club.slug },
+    props: { club },
+  }));
+}
+
+const { club } = Astro.props;
+const allEvents = eventsData.filter(e => e.club_id === club.id);
+const upcomingEvents = allEvents.filter(e => e.status === 'published' && e.start_at > new Date().toISOString());
+const pastEvents = allEvents.filter(e => e.status === 'past' || e.start_at <= new Date().toISOString());
+---
+
+<Layout title={`${club.name} - Events`} clubColor={club.theme_color}>
+  
+  <!-- MINI HERO -->
+  <header class="bg-gray-900 pt-24 pb-12 relative overflow-hidden" style={`border-bottom: 4px solid ${club.theme_color}`}>
+    <div class="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 h-full w-1/2 opacity-20" style={`background: linear-gradient(135deg, transparent 0%, ${club.theme_color} 100%)`}></div>
+    
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl relative z-20 flex items-center gap-6">
+      <img src={club.logo_url} class="w-16 h-16 rounded-xl bg-white p-1" alt={club.name} />
+      <div>
+        <a href={`/clubs/${club.slug}`} class="text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors mb-1 inline-block">&larr; Back to Club</a>
+        <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Events & Initiatives</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTERS & EVENTS -->
+  <section class="py-12 bg-white min-h-[60vh]">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+      
+      <!-- Tabs structure (Mock UI) -->
+      <div class="flex border-b border-gray-200 mb-10">
+        <button class="pb-3 px-1 border-b-2 font-bold text-gray-900 text-sm tracking-wide mr-8" style={`border-color: ${club.theme_color}`}>Upcoming Events ({upcomingEvents.length})</button>
+        <button class="pb-3 px-1 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 text-sm tracking-wide">Past Events ({pastEvents.length})</button>
+      </div>
+
+      <!-- Events Grid -->
+      {upcomingEvents.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {upcomingEvents.map(event => (
+            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-gray-100 group">
+              <div class="h-48 bg-gray-200 relative overflow-hidden">
+                <img src={event.banner_url} alt={event.title} class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full text-gray-800 shadow-sm">
+                  {event.is_free ? 'Free' : 'Paid Ticket'}
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">{event.type}</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">{event.title}</h3>
+                
+                <div class="flex items-center text-sm text-gray-500 mb-2">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  {new Date(event.start_at).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                </div>
+                
+                <a href={`/events/${event.slug}`} class="block w-full mt-6 text-center text-white font-medium py-2.5 rounded-lg transition-transform hover:scale-[1.02]" style={`background-color: ${club.theme_color}`}>
+                  View Details
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20 bg-gray-50 rounded-3xl border border-gray-200 border-dashed">
+          <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">No Upcoming Events</h3>
+          <p class="text-gray-500">The club hasn't scheduled any new events yet. Check back soon!</p>
+        </div>
+      )}
+
+    </div>
+  </section>
+
+</Layout>

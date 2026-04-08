@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import coursesData from '../../mock/courses.json';
+
+export async function getStaticPaths() {
+  const courses = coursesData;
+  return courses.map((course: any) => ({
+    params: { courseId: course.id },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+---
+
+<Layout title={`${course.title} - Learning`}>
+  
+  <div class="bg-gray-50 min-h-screen">
+    
+    <header class="bg-[#003F8A] text-white pt-12 pb-24 border-b-4 border-[#F5A623]">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <a href="/lms" class="text-sm font-semibold text-blue-200 hover:text-white transition-colors mb-6 inline-block">&larr; Back to Academy</a>
+        
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="text-xs font-bold bg-[#F5A623] text-[#003F8A] px-2.5 py-1 rounded shadow-sm uppercase tracking-widest">{course.category}</span>
+          {course.is_ri_cert && (
+            <span class="text-xs font-bold bg-white/10 text-white px-2.5 py-1 rounded border border-white/20 uppercase tracking-widest">RI Certificate</span>
+          )}
+        </div>
+        
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">{course.title}</h1>
+        <p class="text-blue-100 text-lg max-w-3xl leading-relaxed">{course.description}</p>
+      </div>
+    </header>
+
+    <div class="container mx-auto px-4 max-w-5xl -mt-12 relative z-10 pb-24">
+      <div class="flex flex-col md:flex-row gap-8">
+        
+        <!-- Video Player Column -->
+        <div class="md:w-2/3">
+          <div class="bg-black rounded-3xl aspect-video w-full shadow-2xl overflow-hidden border border-gray-800 flex items-center justify-center">
+            <!-- Simulated video player -->
+            <div class="text-center text-gray-500">
+              <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <p class="text-sm font-medium">Select a module to begin playback.</p>
+            </div>
+          </div>
+          
+          <div class="mt-8 bg-white rounded-3xl p-8 border border-gray-100 card-shadow">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Course Progress</h2>
+            
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+              <div class="bg-[#22c55e] h-3 rounded-full" style="width: 33%"></div>
+            </div>
+            <p class="text-sm font-semibold text-gray-500 text-right">33% Complete (1 / 3 Modules)</p>
+          </div>
+        </div>
+
+        <!-- Modules List Sidebar -->
+        <div class="md:w-1/3">
+          <div class="bg-white rounded-3xl border border-gray-100 card-shadow overflow-hidden">
+            <div class="p-6 border-b border-gray-100 bg-gray-50">
+              <h3 class="font-bold text-gray-900 text-lg">Modules</h3>
+            </div>
+            
+            <div class="divide-y divide-gray-100 max-h-[500px] overflow-y-auto">
+              {course.lessons.map((lesson: any, idx: number) => (
+                <button class={`w-full text-left p-5 transition-colors flex items-start gap-4 hover:bg-gray-50 group
+                  ${idx === 0 ? 'bg-blue-50/50' : ''}
+                `}>
+                  <div class={`shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold
+                    ${idx === 0 ? 'border-green-500 bg-green-500 text-white' : 
+                      idx === 1 ? 'border-[#003F8A] text-[#003F8A]' : 'border-gray-300 text-gray-400'}
+                  `}>
+                    {idx === 0 ? <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> : lesson.order_index}
+                  </div>
+                  <div>
+                    <h4 class={`font-semibold text-sm leading-tight mb-1 group-hover:text-[#003F8A] transition-colors
+                      ${idx === 0 ? 'text-gray-900' : 'text-gray-600'}
+                    `}>{lesson.title}</h4>
+                    <p class="text-xs text-gray-400 font-medium">8:45 mins</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+            
+            {course.is_ri_cert && (
+              <div class="p-6 border-t border-gray-100 text-center">
+                <button disabled class="w-full bg-gray-100 text-gray-400 font-bold py-3 rounded-xl text-sm border border-gray-200 shadow-inner cursor-not-allowed">
+                  Claim Certificate
+                </button>
+                <p class="text-[10px] text-gray-400 mt-2">Complete all modules to unlock.</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Layout>
