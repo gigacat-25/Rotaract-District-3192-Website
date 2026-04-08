@@ -14,106 +14,115 @@ const metrics = {
 };
 ---
 
-<Layout title="District Admin Dashboard">
-  
-  <div class="flex min-h-screen bg-gray-50">
+<Layout title="Command Center | District Admin">
+  <div class="flex min-h-screen bg-surface">
     
-    <!-- Admin Sidebar (Mocked for layout) -->
-    <aside class="w-64 bg-gray-900 text-gray-400 flex flex-col fixed inset-y-0 z-50">
-      <div class="p-6 border-b border-gray-800">
-        <a href="/" class="flex flex-col">
-          <span class="font-bold text-2xl tracking-tight text-white leading-tight">Rotaract<span class="text-[#F5A623]">3192</span></span>
-          <span class="text-[10px] uppercase tracking-widest font-bold leading-none mt-1 text-gray-500">Access: District Admin</span>
+    <!-- Cinematic Admin Sidebar -->
+    <aside class="w-80 bg-primary text-white flex flex-col fixed inset-y-0 z-50 border-r border-white/5 shadow-2xl relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full aqueous-gradient opacity-10 blur-3xl"></div>
+      </div>
+      
+      <div class="p-10 border-b border-white/5 relative z-10">
+        <a href="/" class="flex flex-col group">
+          <span class="font-black text-3xl tracking-tighter font-headline uppercase leading-tight italic">Terminal<span class="text-white/40">3192</span></span>
+          <span class="text-[8px] font-black uppercase tracking-[0.4em] mt-2 text-white/40 italic">Hierarchy: District Controller</span>
         </a>
       </div>
       
-      <nav class="flex-grow p-4 space-y-1">
-        <a href="/admin" class="flex items-center px-4 py-3 bg-[#003F8A] text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-          Dashboard
+      <nav class="flex-grow p-6 space-y-3 relative z-10">
+        <a href="/admin" class="flex items-center px-6 py-4 bg-white/10 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all border border-white/10 fluid-shadow italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-60">space_dashboard</span>
+          Core Dashboard
         </a>
-        <a href="/admin/members" class="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-          Members Directory
+        <a href="/admin/members" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">group</span>
+          Node Directory
         </a>
-        <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          Events Approval
+        <a href="#" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">event</span>
+          Signal Approval
         </a>
-        <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-          District Dues
+        <a href="#" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">account_balance_wallet</span>
+          Capital Inflow
         </a>
       </nav>
+
+      <div class="p-8 border-t border-white/5 relative z-10">
+         <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+            <p class="text-[8px] font-black uppercase tracking-[0.3em] text-white/30 italic">System Integrity</p>
+            <p class="text-xs font-black text-white mt-1 italic tracking-widest uppercase">98.2% Nominal</p>
+         </div>
+      </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-grow pl-64 flex flex-col min-h-screen">
+    <!-- Main Command Content -->
+    <main class="flex-grow pl-80 flex flex-col min-h-screen">
       
-      <header class="bg-white px-8 py-5 border-b border-gray-200 flex items-center justify-between sticky top-0 z-40">
-        <h1 class="text-xl font-bold text-gray-900">Metrics Overview</h1>
-        <div class="flex items-center gap-4">
-          <button class="bg-[#F5A623] hover:bg-[#e0941a] text-[#003F8A] font-bold text-sm px-5 py-2 rounded-lg transition-colors shadow-sm">
-            Generate Report
-          </button>
+      <header class="bg-surface/80 backdrop-blur-xl px-12 py-8 border-b border-outline-variant/30 flex items-center justify-between sticky top-0 z-40">
+        <div class="space-y-1">
+          <h1 class="text-2xl font-black text-primary font-headline tracking-tighter uppercase italic leading-none">Intelligence Metrics</h1>
+          <p class="text-[9px] font-black text-primary/30 uppercase tracking-[0.4em] italic">Real-time data synchronization active</p>
         </div>
+        <button class="bg-primary text-white font-black text-[10px] uppercase tracking-[0.3em] px-8 py-4 rounded-xl shadow-2xl hover:translate-y-[-2px] transition-all flex items-center gap-3">
+          <span class="material-symbols-outlined text-lg">description</span>
+          Extract Log Report
+        </button>
       </header>
 
-      <div class="p-8 flex-grow">
+      <div class="p-12 space-y-12">
         
-        <!-- KPI Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 card-shadow">
-            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Total Clubs</h3>
-            <p class="text-3xl font-black text-gray-900">{metrics.totalClubs}</p>
-            <p class="text-xs font-semibold text-green-500 mt-2 flex items-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg> 2 New this year</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 card-shadow">
-            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Total Members</h3>
-            <p class="text-3xl font-black text-gray-900">~ {metrics.totalMembers * 40}</p>
-            <p class="text-xs font-semibold text-green-500 mt-2 flex items-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg> 14% Growth</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 card-shadow">
-            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Dues Collected</h3>
-            <p class="text-3xl font-black text-[#003F8A]">{metrics.totalDues}</p>
-            <p class="text-xs font-semibold text-gray-400 mt-2">60% of target</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 card-shadow">
-            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Active Events</h3>
-            <p class="text-3xl font-black text-[#F5A623]">{metrics.activeEvents}</p>
-            <p class="text-xs font-semibold text-red-500 mt-2 flex items-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg> 3 Pending Approval</p>
-          </div>
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {[
+            { label: 'Registered Nodes', val: metrics.totalClubs, icon: 'hub', trend: '+2 Adaptive' },
+            { label: 'Active Signals', val: metrics.totalMembers * 40, icon: 'sensors', trend: '14% Incline' },
+            { label: 'Retained Capital', val: metrics.totalDues, icon: 'currency_rupee', trend: '60% Quota' },
+            { label: 'Deployment Ops', val: metrics.activeEvents, icon: 'terminal', trend: '3 Pending Auth' }
+          ].map(stat => (
+            <div class="bg-surface-container-low p-8 rounded-[2.5rem] border border-outline-variant/30 fluid-shadow space-y-6 group hover:bg-surface-container-lowest transition-all">
+              <div class="flex items-center justify-between">
+                <span class="material-symbols-outlined text-3xl text-primary opacity-20 group-hover:opacity-100 transition-all">{stat.icon}</span>
+                <span class="text-[8px] font-black text-green-600 uppercase tracking-widest italic">{stat.trend}</span>
+              </div>
+              <div class="space-y-1">
+                <p class="text-4xl font-black text-primary font-headline tracking-tighter leading-none italic uppercase">{stat.val}</p>
+                <p class="text-[9px] font-black text-on-surface-variant uppercase tracking-[.4em] opacity-40 italic">{stat.label}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <!-- Two column layout for charts/lists -->
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-12">
           
-          <div class="xl:col-span-2 bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden">
-            <div class="px-6 py-5 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-              <h2 class="font-bold text-gray-900 text-lg">Recent Club Registrations</h2>
-              <a href="#" class="text-sm font-semibold text-[#003F8A] hover:underline">View All</a>
+          <!-- Recent Transmissions Table -->
+          <div class="xl:col-span-2 bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden">
+            <div class="px-10 py-8 border-b border-primary/5 flex justify-between items-center bg-surface-container-lowest">
+              <h2 class="text-xl font-black text-primary font-headline tracking-tighter uppercase italic">Recent Node Ingress</h2>
+              <a href="#" class="text-[9px] font-black text-primary uppercase tracking-[0.3em] hover:underline underline-offset-8">Manifest View →</a>
             </div>
             <div class="overflow-x-auto">
-              <table class="w-full text-left">
-                <thead class="bg-gray-50 border-b border-gray-100">
-                  <tr>
-                    <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Club Name</th>
-                    <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">City</th>
-                    <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Members</th>
-                    <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-surface-container-lowest border-b border-primary/5">
+                    <th class="py-6 px-10 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic">Origin Node</th>
+                    <th class="py-6 px-10 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic">Geography</th>
+                    <th class="py-6 px-10 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic text-right">Synchronization</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-100">
+                <tbody class="divide-y divide-primary/5">
                   {activeClubs.slice(0, 4).map(club => (
-                    <tr class="hover:bg-gray-50 transition-colors">
-                      <td class="px-6 py-4 font-bold text-gray-900 text-sm flex items-center">
-                        <img src={club.logo_url} class="w-6 h-6 mr-3 rounded" />
-                        {club.name}
+                    <tr class="hover:bg-surface-container-lowest transition-all group">
+                      <td class="py-6 px-10">
+                        <div class="flex items-center gap-4">
+                           <img src={club.logo_url} class="w-8 h-8 rounded-lg grayscale group-hover:grayscale-0 transition-all border border-primary/10" />
+                           <p class="text-base font-black text-primary font-headline uppercase leading-none tracking-tight">{club.name}</p>
+                        </div>
                       </td>
-                      <td class="px-6 py-4 font-medium text-gray-600 text-sm">{club.city}</td>
-                      <td class="px-6 py-4 font-bold text-gray-900 text-sm">{club.member_count}</td>
-                      <td class="px-6 py-4">
-                        <span class="bg-green-100 text-green-700 text-[10px] font-black px-2.5 py-1 uppercase tracking-widest rounded">Active</span>
+                      <td class="py-6 px-10 text-[10px] font-black text-on-surface-variant/50 uppercase tracking-widest italic">{club.city}</td>
+                      <td class="py-6 px-10 text-right">
+                        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.3em] bg-green-500/5 text-green-600 border border-green-500/10">Active Protocol</span>
                       </td>
                     </tr>
                   ))}
@@ -122,22 +131,28 @@ const metrics = {
             </div>
           </div>
           
-          <div class="xl:col-span-1 bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden flex flex-col">
-            <div class="px-6 py-5 border-b border-gray-200 bg-gray-50">
-              <h2 class="font-bold text-gray-900 text-lg">System Actions</h2>
+          <!-- System Tactical Actions -->
+          <div class="xl:col-span-1 bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden flex flex-col">
+            <div class="px-10 py-8 border-b border-primary/5 bg-surface-container-lowest">
+              <h2 class="text-xl font-black text-primary font-headline tracking-tighter uppercase italic leading-none">System Functions</h2>
             </div>
-            <div class="p-6 flex flex-col gap-3 flex-grow justify-center">
-              <button class="w-full bg-[#003F8A] hover:bg-[#002f6c] text-white font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm text-left px-5 flex items-center justify-between">
-                Review Event Submissions
-                <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">3</span>
+            <div class="p-10 flex flex-col gap-6 flex-grow">
+              <button class="w-full bg-primary text-white font-black py-6 rounded-2xl shadow-2xl hover:translate-y-[-2px] transition-all text-left px-8 flex items-center justify-between group">
+                <div class="space-y-0.5">
+                   <p class="text-[10px] uppercase tracking-[0.2em] italic leading-none">Review Signals</p>
+                   <p class="text-[8px] text-white/40 uppercase tracking-[0.3em] italic">Pending Auth: 3</p>
+                </div>
+                <span class="bg-white/20 text-white w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black">03</span>
               </button>
-              <button class="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-800 font-bold py-3.5 rounded-xl shadow-sm transition-colors text-sm text-left px-5 flex items-center justify-between">
-                Issue District Certs
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              
+              <button class="w-full bg-white border border-outline-variant/30 text-primary font-black py-6 rounded-2xl shadow-sm hover:bg-primary/5 transition-all text-left px-8 flex items-center justify-between group">
+                <span class="text-[10px] uppercase tracking-[0.2em] italic">Issue Certificates</span>
+                <span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors">verified</span>
               </button>
-              <button class="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-800 font-bold py-3.5 rounded-xl shadow-sm transition-colors text-sm text-left px-5 flex items-center justify-between">
-                Send Bulk Email
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+
+              <button class="w-full bg-white border border-outline-variant/30 text-primary font-black py-6 rounded-2xl shadow-sm hover:bg-primary/5 transition-all text-left px-8 flex items-center justify-between group">
+                <span class="text-[10px] uppercase tracking-[0.2em] italic">Initialize Broadcast</span>
+                <span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors">campaign</span>
               </button>
             </div>
           </div>
@@ -149,5 +164,11 @@ const metrics = {
     </main>
 
   </div>
-
 </Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 64px -12px rgba(13, 65, 116, 0.08);
+  }
+</style>
+

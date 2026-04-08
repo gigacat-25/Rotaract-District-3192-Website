@@ -1,43 +1,63 @@
-# Astro Starter Kit: Minimal
+# Rotaract District 3192 | Web Portal
 
-```sh
-npm create astro@latest -- --template minimal
+A premium, edge-native web portal for Rotaract District 3192, designed with the **Aqueous Civic** design system.
+
+## 🚀 Technical Stack
+
+- **Frontend:** Astro (SSG/SSR)
+- **Styling:** Tailwind CSS v4 (Aqueous Civic Design System)
+- **Backend:** Cloudflare Workers (Node.js compatibility mode)
+- **Framework:** Hono.js
+- **Database:** Cloudflare D1 (SQLite)
+- **Storage:** Cloudflare R2
+- **Auth:** JWT + OTP via ZeptoMail
+
+## 🌊 Aqueous Civic Design System
+
+The platform features a custom-engineered visual language:
+- **Cinematic Depth:** Multi-layered `surface` architecture with no 1px borders.
+- **Fluid Shadows:** Atmospheric elevations using `fluid-shadow` utility classes.
+- **Micro-Animations:** Fade-in-up sequences and hover-state transformations.
+- **Typography:** Space Grotesk (Headlines) / Manrope (Body).
+
+## 🛠 Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
+├── public/              # Static assets (including waves.mp4 hero video)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # Shared Astro components (Navbar, Footer, etc.)
+│   ├── layouts/         # Primary Page Layouts
+│   ├── mock/            # Phase 1 Mock Data (JSON)
+│   └── pages/           # Application Routes
+│       ├── admin/       # District Admin Control Center
+│       ├── clubs/       # Club Directory & Profiles
+│       ├── events/      # Event Portal
+│       └── ...          # General Portal Pages
+├── DESIGN.md            # Visual System Documentation
+└── wrangler.toml        # Cloudflare Configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚥 Build Phases
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Phase 1: Frontend Infrastructure (Current)
+Complete UI/UX migration to Aqueous Civic. All pages are functional using mock data from `src/mock/`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Phase 2: Core Integration
+Transition from mock data to live Cloudflare services (Workers, D1, R2).
 
-## 🧞 Commands
+## ⚡ Development
 
-All commands are run from the root of the project, from a terminal:
+```bash
+# Install dependencies
+npm install
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# Start development server
+npm run dev
 
-## 👀 Want to learn more?
+# Build for production
+npm run build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+*Created for Rotaract District 3192 — Harnessing the power of youth leadership.*

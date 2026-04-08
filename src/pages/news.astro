@@ -7,92 +7,106 @@ const types = [...new Set(feeds.map((f: any) => f.content_type))];
 ---
 
 <Layout title="District News & Feed">
-  <!-- HEADER -->
-  <header class="bg-gray-50 border-b border-gray-200 pt-20 pb-12">
-    <div class="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">District Newsboard</h1>
-      <p class="text-lg text-gray-500">Live updates, announcements, and moments from Rotaract clubs across District 3192.</p>
-    </div>
-  </header>
-
-  <!-- CONTENT CONTROLS -->
-  <section class="py-6 border-b border-gray-100 bg-white sticky top-0 z-30 shadow-sm">
-    <div class="container mx-auto px-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="flex space-x-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-hide">
-        <button class="px-4 py-1.5 rounded-full bg-gray-900 text-white font-medium text-sm whitespace-nowrap">All Posts</button>
-        {types.map(type => (
-          <button class="px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 font-medium text-sm capitalize whitespace-nowrap transition-colors">{type}</button>
-        ))}
+  <main class="pt-20">
+    <header class="bg-primary text-white pt-32 pb-16 relative overflow-hidden px-6 lg:px-12">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
       </div>
-      
-      <div class="w-full sm:w-auto">
-        <div class="relative">
-          <input type="text" placeholder="Search feed..." class="w-full sm:w-64 pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#003F8A]/50 focus:border-[#003F8A]">
-          <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <div class="container mx-auto max-w-screen-2xl relative z-10 text-center space-y-6">
+        <span class="inline-block px-5 py-2 rounded-full bg-white/10 text-white text-[10px] font-black tracking-[0.3em] uppercase font-headline border border-white/10">
+          The Pulse
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter font-headline uppercase leading-none">District Signal</h1>
+        <p class="text-xl text-white/70 max-w-2xl mx-auto font-body font-medium italic">Live updates, announcements, and cultural artifacts from across District 3192.</p>
+      </div>
+    </header>
+
+    <!-- CONTENT CONTROLS -->
+    <section class="py-10 bg-surface px-6 lg:px-12 sticky top-20 z-30 border-b border-outline-variant/30 backdrop-blur-3xl bg-surface/80">
+      <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-3 overflow-x-auto w-full md:w-auto pb-4 md:pb-0 scrollbar-hide">
+          <button class="px-8 py-3 rounded-full bg-primary text-white font-black text-[10px] uppercase tracking-widest fluid-shadow transition-all whitespace-nowrap">Source: All</button>
+          {types.map(type => (
+            <button class="px-8 py-3 rounded-full bg-surface-container-low text-primary/60 hover:text-primary font-black text-[10px] uppercase tracking-widest transition-all whitespace-nowrap border border-outline-variant/30">{type}</button>
+          ))}
+        </div>
+        
+        <div class="w-full md:w-auto">
+          <div class="relative group">
+            <input type="text" placeholder="Scan signals..." class="w-full md:w-80 pl-14 pr-8 py-4 bg-surface-container-low border border-outline-variant/30 rounded-2xl text-sm font-bold text-primary placeholder:text-primary/20 focus:outline-none focus:ring-4 focus:ring-primary/5 transition-all">
+            <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-primary transition-colors">search</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FEED GRID -->
-  <section class="py-12 bg-gray-50 min-h-screen">
-    <div class="container mx-auto px-4 lg:px-8">
-      
-      <!-- Masonry-style Grid (CSS Columns) -->
-      <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-        {feeds.map(post => (
-          <article class="break-inside-avoid bg-white rounded-xl overflow-hidden card-shadow border border-gray-100 group">
-            
-            <!-- Media (if present) -->
-            {post.media_url && (
-              <div class="relative aspect-video max-h-[600px] overflow-hidden bg-black">
-                <img src={post.media_url} alt="" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" loading="lazy" />
-                <div class="absolute top-3 right-3">
-                  <span class="bg-black/50 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">
-                    {post.content_type}
-                  </span>
+    <!-- FEED GRID -->
+    <section class="py-24 bg-surface px-6 lg:px-12 min-h-screen">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="columns-1 md:columns-2 xl:columns-3 gap-10 space-y-10">
+          {feeds.map(post => (
+            <article class="break-inside-avoid bg-surface-container-low rounded-[2.5rem] overflow-hidden group border border-outline-variant/30 fluid-shadow hover:bg-surface-container-lowest transition-all">
+              
+              <!-- Media -->
+              {post.media_url && (
+                <div class="relative aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                  <img src={post.media_url} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" loading="lazy" />
+                  <div class="absolute top-6 right-6">
+                    <span class="bg-black/40 backdrop-blur-xl text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full border border-white/10">
+                      {post.content_type}
+                    </span>
+                  </div>
+                </div>
+              )}
+              
+              <div class="p-10 space-y-8">
+                <!-- Author Row -->
+                <div class="flex items-center gap-5">
+                  <div class="w-14 h-14 rounded-2xl overflow-hidden fluid-shadow border-2 border-primary/5">
+                    <img src={post.author_pic} alt={post.author_name} class="w-full h-full object-cover" />
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-lg font-black text-primary font-headline tracking-tight leading-none uppercase">{post.author_name}</p>
+                    <p class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest opacity-40 leading-none">
+                      {post.club_name} • {new Date(post.posted_at).toLocaleDateString('en-IN', {month:'short', day:'numeric'})}
+                    </p>
+                  </div>
+                </div>
+                
+                <!-- Content -->
+                <p class="text-on-surface-variant text-base font-medium leading-relaxed opacity-70 italic font-body">
+                  "{post.caption}"
+                </p>
+                
+                <!-- Interaction buttons -->
+                <div class="flex items-center justify-between pt-8 border-t border-primary/5">
+                  <button class="flex items-center gap-3 text-primary/40 hover:text-red-500 transition-all group/btn">
+                    <span class="material-symbols-outlined text-2xl group-hover/btn:scale-125 transition-transform">favorite</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest">Protocol Like</span>
+                  </button>
+                  <button class="w-12 h-12 rounded-full bg-primary/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                    <span class="material-symbols-outlined text-xl">ios_share</span>
+                  </button>
                 </div>
               </div>
-            )}
-            
-            <div class="p-5">
-              <!-- Author Row -->
-              <div class="flex items-center mb-4">
-                <img src={post.author_pic} alt={post.author_name} class="w-10 h-10 rounded-full border border-gray-200" />
-                <div class="ml-3">
-                  <p class="text-sm font-bold text-gray-900 leading-none">{post.author_name}</p>
-                  <p class="text-xs text-gray-500 mt-1">{post.club_name} &bull; {new Date(post.posted_at).toLocaleDateString('en-IN', {month:'short', day:'numeric'})}</p>
-                </div>
-              </div>
-              
-              <!-- Content -->
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                {post.caption}
-              </p>
-              
-              <!-- Interaction buttons -->
-              <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                <button class="flex items-center text-gray-400 hover:text-red-500 transition-colors group/btn">
-                  <svg class="w-5 h-5 mr-1 group-hover/btn:fill-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                  <span class="text-xs font-medium">Like</span>
-                </button>
-                <button class="text-gray-400 hover:text-[#003F8A] transition-colors">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
-                </button>
-              </div>
-            </div>
-            
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
+        
+        <!-- Pagination -->
+        <div class="mt-32 text-center">
+          <button class="bg-surface-container-high text-primary px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary hover:text-on-primary transition-all fluid-shadow">
+            Expand Signal Horizon
+          </button>
+        </div>
       </div>
-      
-      <!-- Infinite Scroll Placeholder -->
-      <div class="mt-16 text-center">
-        <button class="bg-white border text-sm font-semibold border-gray-200 text-gray-600 px-6 py-2.5 rounded-full hover:bg-gray-50 shadow-sm transition-colors">
-          Load More Posts
-        </button>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 48px -12px rgba(13, 65, 116, 0.06);
+  }
+</style>

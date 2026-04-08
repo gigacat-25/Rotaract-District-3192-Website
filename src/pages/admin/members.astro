@@ -5,96 +5,118 @@ import membersData from '../../mock/members.json';
 const members = membersData;
 ---
 
-<Layout title="Member Directory - Admin">
-  
-  <div class="flex min-h-screen bg-gray-50">
+<Layout title="Node Directory | District Admin">
+  <div class="flex min-h-screen bg-surface">
     
-    <!-- Admin Sidebar -->
-    <aside class="w-64 bg-gray-900 text-gray-400 flex flex-col fixed inset-y-0 z-50">
-      <div class="p-6 border-b border-gray-800">
-        <a href="/" class="flex flex-col">
-          <span class="font-bold text-2xl tracking-tight text-white leading-tight">Rotaract<span class="text-[#F5A623]">3192</span></span>
-          <span class="text-[10px] uppercase tracking-widest font-bold leading-none mt-1 text-gray-500">Access: District Admin</span>
+    <!-- Cinematic Admin Sidebar -->
+    <aside class="w-80 bg-primary text-white flex flex-col fixed inset-y-0 z-50 border-r border-white/5 shadow-2xl relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full aqueous-gradient opacity-10 blur-3xl"></div>
+      </div>
+      
+      <div class="p-10 border-b border-white/5 relative z-10">
+        <a href="/" class="flex flex-col group">
+          <span class="font-black text-3xl tracking-tighter font-headline uppercase leading-tight italic">Terminal<span class="text-white/40">3192</span></span>
+          <span class="text-[8px] font-black uppercase tracking-[0.4em] mt-2 text-white/40 italic">Hierarchy: District Controller</span>
         </a>
       </div>
       
-      <nav class="flex-grow p-4 space-y-1">
-        <a href="/admin" class="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-          Dashboard
+      <nav class="flex-grow p-6 space-y-3 relative z-10">
+        <a href="/admin" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">space_dashboard</span>
+          Core Dashboard
         </a>
-        <a href="/admin/members" class="flex items-center px-4 py-3 bg-[#003F8A] text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-          Members Directory
+        <a href="/admin/members" class="flex items-center px-6 py-4 bg-white/10 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all border border-white/10 fluid-shadow italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-60">group</span>
+          Node Directory
         </a>
-        <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-xl font-medium text-sm transition-colors">
-          <svg class="w-5 h-5 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          Events Approval
+        <a href="#" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">event</span>
+          Signal Approval
+        </a>
+        <a href="#" class="flex items-center px-6 py-4 text-white/50 hover:text-white hover:bg-white/5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all italic">
+          <span class="material-symbols-outlined mr-4 text-xl opacity-40">account_balance_wallet</span>
+          Capital Inflow
         </a>
       </nav>
+
+      <div class="p-8 border-t border-white/5 relative z-10">
+         <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+            <p class="text-[8px] font-black uppercase tracking-[0.3em] text-white/30 italic">System Integrity</p>
+            <p class="text-xs font-black text-white mt-1 italic tracking-widest uppercase">98.2% Nominal</p>
+         </div>
+      </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-grow pl-64 flex flex-col min-h-screen">
+    <!-- Main Command Content -->
+    <main class="flex-grow pl-80 flex flex-col min-h-screen">
       
-      <header class="bg-white px-8 py-5 border-b border-gray-200 flex items-center justify-between sticky top-0 z-40">
-        <div>
-          <h1 class="text-xl font-bold text-gray-900">Members Directory</h1>
-          <p class="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-widest">{members.length} Total Users</p>
+      <header class="bg-surface/80 backdrop-blur-xl px-12 py-8 border-b border-outline-variant/30 flex items-center justify-between sticky top-0 z-40">
+        <div class="space-y-1">
+          <h1 class="text-2xl font-black text-primary font-headline tracking-tighter uppercase italic leading-none">Node Directory</h1>
+          <p class="text-[9px] font-black text-primary/30 uppercase tracking-[0.4em] italic">{members.length} Unique Identifiers Recognized</p>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="relative w-64 hidden md:block">
-            <input type="text" placeholder="Search members..." class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#003F8A] focus:border-[#003F8A] py-2 pl-9 pr-3 shadow-sm" />
-            <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <div class="flex items-center gap-6">
+          <div class="relative group">
+            <input type="text" placeholder="Identify Node..." class="w-72 bg-surface-container-low border border-outline-variant/30 text-primary text-[10px] font-black uppercase tracking-[0.2em] rounded-xl py-3 pl-12 pr-4 focus:ring-4 focus:ring-primary/5 focus:outline-none transition-all placeholder-primary/20" />
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary opacity-30 group-focus-within:opacity-100 transition-opacity text-base">search</span>
           </div>
-          <button class="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-[#003F8A] font-bold text-sm px-4 py-2 rounded-lg transition-colors shadow-sm flex items-center">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-            Export CSV
+          <button class="bg-white border border-outline-variant/30 text-primary font-black text-[9px] uppercase tracking-[0.3em] px-6 py-3 rounded-xl shadow-sm hover:bg-primary/5 transition-all flex items-center gap-3">
+            <span class="material-symbols-outlined text-base">cloud_download</span>
+            Extract CSV
           </button>
         </div>
       </header>
 
-      <div class="p-8 flex-grow">
+      <div class="p-12">
         
-        <div class="bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden">
+        <div class="bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="bg-gray-50 border-b border-gray-100">
-                <tr>
-                  <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Member</th>
-                  <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Club</th>
-                  <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Role</th>
-                  <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Points/Auth</th>
-                  <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-widest text-right">Actions</th>
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-surface-container-lowest border-b border-primary/5">
+                  <th class="py-8 px-12 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic leading-none">Identity Header</th>
+                  <th class="py-8 px-12 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic leading-none">Node Origin</th>
+                  <th class="py-8 px-12 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic leading-none text-center">Protocol Role</th>
+                  <th class="py-8 px-12 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic leading-none">Authentication</th>
+                  <th class="py-8 px-12 text-[9px] font-black text-primary/40 uppercase tracking-[0.4em] italic leading-none text-right">Synchronization</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-100">
+              <tbody class="divide-y divide-primary/5">
                 {members.map(member => (
-                  <tr class="hover:bg-blue-50/50 transition-colors group">
-                    <td class="px-6 py-4">
-                      <div class="flex items-center">
-                        <img src={member.profile_pic_url} class="w-10 h-10 rounded-full mr-4 border border-gray-200" />
-                        <div>
-                          <p class="font-bold text-gray-900 text-sm group-hover:text-[#003F8A] transition-colors">{member.name}</p>
-                          <p class="text-xs text-gray-500 font-medium">{member.email}</p>
+                  <tr class="hover:bg-surface-container-lowest transition-all group">
+                    <td class="py-8 px-12">
+                      <div class="flex items-center gap-6">
+                        <div class="relative">
+                           <img src={member.profile_pic_url} class="w-14 h-14 rounded-2xl grayscale group-hover:grayscale-0 transition-all border-2 border-primary/5 shadow-xl" />
+                           <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="space-y-1">
+                          <p class="text-lg font-black text-primary font-headline uppercase leading-none tracking-tight">{member.name}</p>
+                          <p class="text-[10px] text-on-surface-variant font-black uppercase tracking-widest opacity-40 italic">{member.email}</p>
                         </div>
                       </div>
                     </td>
-                    <td class="px-6 py-4 font-semibold text-gray-700 text-sm">{member.club_id}</td>
-                    <td class="px-6 py-4">
-                      <span class={`inline-flex items-center px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-widest
-                        ${member.role === 'district_core' ? 'bg-[#F5A623]/20 text-[#003F8A] border border-[#F5A623]/50' :
-                          member.role.includes('pres') ? 'bg-blue-100 text-[#003F8A]' : 'bg-gray-100 text-gray-600'}`}>
+                    <td class="py-8 px-12">
+                       <span class="text-[10px] font-black text-on-surface-variant/60 uppercase tracking-widest italic">{member.club_id}</span>
+                    </td>
+                    <td class="py-8 px-12 text-center">
+                      <span class={`inline-flex items-center px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.2em] border
+                        ${member.role === 'district_core' ? 'bg-primary/5 text-primary border-primary/20 shadow-lg shadow-primary/5' :
+                          member.role.includes('pres') ? 'bg-secondary/5 text-secondary border-secondary/20' : 'bg-surface/50 text-on-surface-variant/40 border-outline-variant/10'}`}>
                         {member.role.replace('_', ' ')}
                       </span>
                     </td>
-                    <td class="px-6 py-4 space-y-1">
-                      <p class="font-bold text-gray-900 text-sm">{member.points} pts</p>
-                      <p class="text-[10px] font-bold text-green-500 uppercase">Verified</p>
+                    <td class="py-8 px-12 space-y-1.5">
+                      <p class="text-base font-black text-primary font-headline tracking-tighter italic uppercase">{member.points}<span class="text-[9px] ml-1 opacity-30">PTX</span></p>
+                      <div class="flex items-center gap-1.5">
+                         <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                         <span class="text-[8px] font-black text-green-600 uppercase tracking-widest italic">Auth-High</span>
+                      </div>
                     </td>
-                    <td class="px-6 py-4 text-right">
-                      <button class="bg-white border border-gray-200 text-gray-600 hover:text-[#003F8A] hover:border-[#003F8A] font-semibold text-xs px-3 py-1.5 rounded-lg transition-colors shadow-sm">
-                        Edit
+                    <td class="py-8 px-12 text-right">
+                      <button class="bg-white border border-outline-variant/30 text-primary font-black text-[9px] uppercase tracking-[0.3em] px-5 py-2.5 rounded-xl shadow-sm hover:translate-y-[-2px] hover:bg-primary hover:text-white transition-all">
+                        Sync Node
                       </button>
                     </td>
                   </tr>
@@ -103,11 +125,15 @@ const members = membersData;
             </table>
           </div>
           
-          <div class="bg-gray-50 border-t border-gray-200 px-6 py-4 flex items-center justify-between text-sm text-gray-500 font-medium">
-            <p>Showing 1 to {members.length} of {members.length} entries</p>
-            <div class="flex space-x-2">
-              <button disabled class="px-3 py-1 rounded border border-gray-200 bg-white text-gray-400 opacity-50 cursor-not-allowed">Previous</button>
-              <button disabled class="px-3 py-1 rounded border border-gray-200 bg-white text-gray-400 opacity-50 cursor-not-allowed">Next</button>
+          <div class="bg-surface-container-lowest border-t border-primary/5 px-12 py-8 flex items-center justify-between">
+            <p class="text-[9px] font-black text-primary/30 uppercase tracking-[0.4em] italic">Displaying active identifiers 1 - {members.length} / Total Clusters</p>
+            <div class="flex items-center gap-3">
+              <button disabled class="w-10 h-10 rounded-xl border border-outline-variant/30 bg-white text-primary/20 cursor-not-allowed flex items-center justify-center">
+                <span class="material-symbols-outlined">navigate_before</span>
+              </button>
+              <button disabled class="w-10 h-10 rounded-xl border border-outline-variant/30 bg-white text-primary/20 cursor-not-allowed flex items-center justify-center">
+                <span class="material-symbols-outlined">navigate_next</span>
+              </button>
             </div>
           </div>
 
@@ -118,5 +144,10 @@ const members = membersData;
     </main>
 
   </div>
-
 </Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 64px -12px rgba(13, 65, 116, 0.08);
+  }
+</style>

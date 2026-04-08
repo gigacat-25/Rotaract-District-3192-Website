@@ -6,150 +6,159 @@ import membersData from '../mock/members.json';
 const user = membersData[0];
 ---
 
-<Layout title="Member Dashboard">
-  
-  <div class="bg-gray-50 min-h-screen pb-24">
-    
-    <!-- Dash Header -->
-    <header class="bg-[#003F8A] text-white pt-12 pb-24 px-4 lg:px-8 border-b-4 border-[#F5A623]">
-      <div class="container mx-auto max-w-6xl">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <img src={user.profile_pic_url} alt={user.name} class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white/20 shadow-xl mr-5" />
-            <div>
-              <h1 class="text-2xl md:text-3xl font-bold tracking-tight mb-1">Welcome back, {user.name.split(' ')[0]}!</h1>
-              <p class="text-blue-200 text-sm font-medium">{user.role.replace('_', ' ').toUpperCase()} • Rotaract Club of Chennai</p>
+<Layout title="Member Command Center">
+  <main class="pt-20 bg-surface min-h-screen">
+    <!-- DASHBOARD HEADER -->
+    <header class="bg-primary text-white pt-24 pb-48 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
+      </div>
+      
+      <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10 text-center md:text-left">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="relative group">
+            <div class="absolute inset-[-10%] bg-white/10 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <img src={user.profile_pic_url} alt={user.name} class="w-24 h-24 md:w-32 md:h-32 rounded-[2.5rem] border-4 border-white/20 shadow-2xl relative z-10" />
+            <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-2xl border-4 border-primary flex items-center justify-center shadow-xl relative z-20">
+               <span class="material-symbols-outlined text-white text-base">verified_user</span>
             </div>
           </div>
-          <div class="hidden md:block text-right">
-            <p class="text-[10px] font-bold uppercase tracking-widest text-[#F5A623] mb-1">Engage Score</p>
-            <p class="text-4xl font-black">{user.points}</p>
+          <div class="space-y-3">
+             <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-white text-[9px] font-black tracking-[.2em] uppercase font-headline border border-white/10">Active Session</span>
+             <h1 class="text-4xl md:text-6xl font-black tracking-tighter font-headline uppercase leading-none italic">Greetings, {user.name.split(' ')[0]}</h1>
+             <p class="text-sm md:text-lg text-white/50 font-black uppercase tracking-[0.3em] font-headline">{user.role.replace('_', ' ')} • <span class="italic underline decoration-white/20">RC Chennai</span></p>
+          </div>
+        </div>
+        
+        <div class="shrink-0 space-y-2 group">
+          <p class="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 group-hover:text-white/60 transition-colors">Protocol Status</p>
+          <div class="bg-white/5 backdrop-blur-xl p-6 rounded-[2rem] border border-white/10 flex items-center gap-8 fluid-shadow">
+            <div class="text-center">
+              <p class="text-4xl font-black font-headline tracking-tighter leading-none italic">{user.points}</p>
+              <p class="text-[8px] font-black uppercase tracking-widest opacity-40 mt-1">Pulse Score</p>
+            </div>
+            <div class="w-px h-12 bg-white/10"></div>
+            <div class="text-center">
+               <p class="text-4xl font-black font-headline tracking-tighter leading-none italic">#04</p>
+               <p class="text-[8px] font-black uppercase tracking-widest opacity-40 mt-1">Global Rank</p>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Area -->
-    <div class="container mx-auto px-4 lg:px-8 max-w-6xl -mt-12 relative z-10 space-y-8">
+    <!-- CONTENT GRID -->
+    <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 -mt-32 relative z-20 pb-32 space-y-12">
       
-      <!-- Quick Stats Row -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        
-        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
-          <div class="text-gray-400 mb-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <!-- Stats Architecture -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { label: 'Network Points', val: user.points, icon: 'analytics' },
+          { label: 'Event Attendance', val: '14/20', icon: 'stadium' },
+          { label: 'LMS Certifications', val: '02', icon: 'workspace_premium' },
+          { label: 'Active Tasks', val: '05', icon: 'token' }
+        ].map(stat => (
+          <div class="bg-surface-container-low p-8 rounded-[2.5rem] border border-outline-variant/30 fluid-shadow flex flex-col justify-between h-48 group hover:bg-surface-container-lowest transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">{stat.icon}</span>
+            </div>
+            <div>
+              <p class="text-4xl font-black text-primary font-headline tracking-tighter leading-none uppercase italic">{stat.val}</p>
+              <p class="text-[9px] font-black text-on-surface-variant uppercase tracking-[0.3em] opacity-40 mt-2">{stat.label}</p>
+            </div>
           </div>
-          <div>
-            <p class="text-2xl font-black text-gray-900 leading-none">14</p>
-            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Events Attended</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
-          <div class="text-gray-400 mb-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002 2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-          </div>
-          <div>
-            <p class="text-2xl font-black text-gray-900 leading-none">2</p>
-            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">LMS Certs</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100 flex flex-col justify-between md:hidden">
-          <div class="text-[#F5A623] mb-2">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-          </div>
-          <div>
-            <p class="text-2xl font-black text-gray-900 leading-none">{user.points}</p>
-            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Total Points</p>
-          </div>
-        </div>
-
-        <a href="/profile" class="col-span-2 md:col-span-2 bg-[#F5A623] hover:bg-[#e0941a] rounded-2xl p-5 card-shadow border justify-center items-center text-center transition-colors flex flex-col group">
-          <p class="text-[#003F8A] font-bold">Update Profile & Settings →</p>
-        </a>
-
+        ))}
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-12">
         
-        <!-- Action Center / Shortcuts -->
-        <div class="lg:col-span-1 space-y-6">
-          <h2 class="text-lg font-bold text-gray-900">Action Center</h2>
+        <!-- Action Terminal -->
+        <div class="xl:col-span-4 space-y-8">
+          <div class="space-y-4">
+            <span class="text-primary font-black text-[10px] tracking-[.4em] uppercase opacity-40 leading-none">System Ops</span>
+            <h2 class="text-3xl font-black text-primary font-headline tracking-tighter uppercase flex items-center gap-6">Action Terminal <span class="h-0.5 flex-grow bg-primary/5 rounded-full"></span></h2>
+          </div>
           
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow space-y-3">
-            <a href="/lms" class="flex items-center p-3 rounded-xl hover:bg-blue-50 transition-colors group border border-transparent hover:border-blue-100">
-              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-sm">Learning Center</h4>
-                <p class="text-xs text-gray-500 mt-0.5">Resume your courses</p>
-              </div>
-            </a>
-
-            <a href="/mom" class="flex items-center p-3 rounded-xl hover:bg-green-50 transition-colors group border border-transparent hover:border-green-100">
-              <div class="w-10 h-10 rounded-lg bg-green-100 text-green-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-sm">MOM Recorder</h4>
-                <p class="text-xs text-gray-500 mt-0.5">AI transcribed meetings</p>
-              </div>
-            </a>
-
-            <a href="/mentorship" class="flex items-center p-3 rounded-xl hover:bg-purple-50 transition-colors group border border-transparent hover:border-purple-100">
-              <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-sm">Mentorship Hub</h4>
-                <p class="text-xs text-gray-500 mt-0.5">Book an expert session</p>
-              </div>
-            </a>
+          <div class="bg-surface-container-low rounded-[3rem] p-10 border border-outline-variant/30 fluid-shadow space-y-4">
+            {[
+              { label: 'Learning Center', path: '/lms', icon: 'school', color: 'bg-blue-500/5 text-blue-600', desc: 'Sync knowledge protocols' },
+              { label: 'MOM Recorder', path: '/mom', icon: 'graphic_eq', color: 'bg-green-500/5 text-green-600', desc: 'Transcribe meeting reality' },
+              { label: 'Mentorship Hub', path: '/mentorship', icon: 'diversity_3', color: 'bg-purple-500/5 text-purple-600', desc: 'Connect with core nodes' },
+              { label: 'Profile Settings', path: '/profile', icon: 'settings_inner', color: 'bg-orange-500/5 text-orange-600', desc: 'Modify identity parameters' }
+            ].map(link => (
+              <a href={link.path} class="flex items-center gap-6 p-6 rounded-[2rem] hover:bg-surface-container-lowest transition-all group border border-transparent hover:border-outline-variant/30">
+                <div class={`w-16 h-16 rounded-[1.5rem] ${link.color} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
+                  <span class="material-symbols-outlined text-3xl">{link.icon}</span>
+                </div>
+                <div class="space-y-1">
+                  <h4 class="text-lg font-black text-primary font-headline uppercase tracking-tight">{link.label}</h4>
+                  <p class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest opacity-40 italic">{link.desc} →</p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
-        <!-- Upcoming Registered Events -->
-        <div class="lg:col-span-2 space-y-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-bold text-gray-900">Your Upcoming Events</h2>
-            <a href="/events" class="text-sm font-semibold text-[#003F8A] hover:underline">Browse All</a>
+        <!-- Registered Signals -->
+        <div class="xl:col-span-8 space-y-8">
+          <div class="flex items-center justify-between px-4">
+             <div class="space-y-2">
+                <span class="text-primary font-black text-[10px] tracking-[.4em] uppercase opacity-40 leading-none">Imminent Realities</span>
+                <h2 class="text-3xl font-black text-primary font-headline tracking-tighter uppercase italic self-start">Active Registrations</h2>
+             </div>
+             <a href="/events" class="text-[10px] font-black text-primary uppercase tracking-[0.3em] px-8 py-4 bg-primary/5 rounded-2xl hover:bg-primary hover:text-white transition-all">Scan All Horizon →</a>
           </div>
 
-          <!-- Mock registered event -->
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow flex flex-col sm:flex-row gap-6 items-center">
+          <!-- Active Event Component -->
+          <div class="bg-surface-container-low rounded-[3.5rem] p-12 border border-outline-variant/30 fluid-shadow flex flex-col lg:flex-row gap-12 items-center group overflow-hidden relative">
+            <div class="absolute inset-0 aqueous-gradient opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none"></div>
             
-            <div class="w-full sm:w-1/3 bg-gray-100 rounded-2xl aspect-video overflow-hidden relative shrink-0">
-              <img src="https://placehold.co/1200x600/003F8A/FFFFFF?text=Coastal+Cleanup" class="w-full h-full object-cover opacity-90" />
+            <div class="w-full lg:w-2/5 aspect-video overflow-hidden rounded-[2.5rem] relative shrink-0 fluid-shadow grayscale group-hover:grayscale-0 transition-all duration-700">
+               <img src="https://placehold.co/1200x600/0D4174/FFFFFF?text=Coastal+Cleanup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+               <div class="absolute top-6 left-6 bg-white/40 backdrop-blur-xl text-primary text-[10px] font-black px-4 py-2 rounded-full border border-white/20 uppercase tracking-widest">Reality: Confirmed</div>
             </div>
 
-            <div class="w-full sm:w-2/3 flex flex-col h-full justify-center">
-              <div class="flex items-center text-xs font-bold uppercase tracking-widest text-[#F5A623] mb-2">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Registered
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight">Coastal Cleanup Drive</h3>
-              <p class="text-sm text-gray-500 mb-4 line-clamp-2">Join us for our annual Marina beach coastal cleanup. Let's make an impact!</p>
-              
-              <div class="mt-auto flex items-center justify-between">
-                <p class="text-xs font-semibold text-gray-400">June 15, 2026 • 06:00 AM</p>
-                <button class="text-sm font-bold bg-gray-100 text-gray-600 px-4 py-2 rounded-lg border border-gray-200">View Ticket</button>
-              </div>
+            <div class="w-full lg:w-3/5 space-y-8">
+               <div class="space-y-4">
+                  <div class="flex items-center gap-3">
+                     <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                     <span class="text-[10px] font-black uppercase tracking-[0.4em] text-primary/40">Sequence: Coastal Cleanup Drive</span>
+                  </div>
+                  <h3 class="text-5xl font-black text-primary font-headline tracking-tighter uppercase leading-none italic">Impact Logistics</h3>
+                  <p class="text-on-surface-variant text-base font-medium leading-relaxed opacity-70 italic font-body max-w-lg">
+                    Collective cleanup efforts at Marina Signal Terminal. Ensure protective gear is synchronized.
+                  </p>
+               </div>
+               
+               <div class="flex flex-col sm:flex-row items-center gap-6 justify-between pt-8 border-t border-primary/5">
+                  <div class="space-y-1 text-center sm:text-left">
+                     <p class="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Temporal Frame</p>
+                     <p class="text-sm font-black text-primary/40 uppercase tracking-widest">June 15, 2026 • 06:00 AM</p>
+                  </div>
+                  <button class="bg-primary text-on-primary font-black px-12 py-5 rounded-2xl uppercase tracking-widest text-[10px] shadow-2xl hover:translate-y-[-4px] active:translate-y-0 transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-lg">qr_code_2</span>
+                    Retrieve Access Ticket
+                  </button>
+               </div>
             </div>
-
           </div>
 
-          <!-- Mock Feed from Club -->
-          <div class="mt-12">
-            <h2 class="text-lg font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Latest From Your Club</h2>
+          <!-- Network Signals -->
+          <div class="pt-8 space-y-8">
+            <h2 class="text-3xl font-black text-primary font-headline tracking-tighter uppercase flex items-center gap-6 italic">Network Intel <span class="h-0.5 flex-grow bg-primary/5 rounded-full"></span></h2>
             
-            <div class="bg-white rounded-3xl p-6 border border-gray-100 card-shadow flex gap-4">
-              <img src="https://ui-avatars.com/api/?name=Club+Pres&background=random" class="w-10 h-10 rounded-full" />
-              <div>
-                <p class="text-xs font-bold text-gray-500 mb-1">Club President posted an update</p>
-                <p class="text-sm text-gray-800 leading-relaxed">
-                  Thank you to everyone who attended the general body meeting last week! The MOM has been auto-transcribed and is now available in the portal. Please review your action items!
+            <div class="bg-surface-container-low rounded-[2.5rem] p-10 border border-outline-variant/30 fluid-shadow flex gap-8 items-start hover:bg-surface-container-lowest transition-all">
+              <div class="w-16 h-16 rounded-[1.5rem] bg-primary/5 flex items-center justify-center shrink-0">
+                 <img src="https://ui-avatars.com/api/?name=CP&background=0D4174&color=fff" class="w-full h-full object-cover rounded-[1.5rem]" />
+              </div>
+              <div class="space-y-4">
+                <div class="space-y-1">
+                   <p class="text-[10px] font-black text-primary uppercase tracking-[.4em] opacity-40 italic">Signal from Terminal Controller</p>
+                   <p class="text-xl font-black text-primary font-headline tracking-tighter uppercase leading-none italic truncate">Intel: General body meeting protocol complete</p>
+                </div>
+                <p class="text-on-surface-variant font-medium text-sm leading-relaxed italic opacity-70 border-l-4 border-primary/10 pl-6 py-1">
+                   "All protocols established during the Chennai sequence are now archived. Review action tokens in the command center terminal immediately."
                 </p>
               </div>
             </div>
@@ -159,6 +168,11 @@ const user = membersData[0];
 
       </div>
     </div>
-  </div>
-
+  </main>
 </Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 64px -12px rgba(13, 65, 116, 0.08);
+  }
+</style>

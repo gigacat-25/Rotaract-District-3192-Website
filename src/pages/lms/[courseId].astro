@@ -13,90 +13,123 @@ export async function getStaticPaths() {
 const { course } = Astro.props;
 ---
 
-<Layout title={`${course.title} - Learning`}>
-  
-  <div class="bg-gray-50 min-h-screen">
+<Layout title={`${course.title} - Intellectual Synchronization`}>
+  <main class="pt-20 min-h-screen bg-surface">
     
-    <header class="bg-[#003F8A] text-white pt-12 pb-24 border-b-4 border-[#F5A623]">
-      <div class="container mx-auto px-4 max-w-5xl">
-        <a href="/lms" class="text-sm font-semibold text-blue-200 hover:text-white transition-colors mb-6 inline-block">&larr; Back to Academy</a>
+    <header class="bg-primary text-white pt-24 pb-32 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
+      </div>
+      <div class="max-w-screen-2xl mx-auto relative z-10 space-y-6">
+        <a href="/lms" class="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-white/50 hover:text-white transition-all group">
+          <span class="material-symbols-outlined text-lg group-hover:translate-x-[-4px] transition-transform">arrow_back</span>
+          Terminate Protocol / Exit Academy
+        </a>
         
-        <div class="flex items-center space-x-3 mb-4">
-          <span class="text-xs font-bold bg-[#F5A623] text-[#003F8A] px-2.5 py-1 rounded shadow-sm uppercase tracking-widest">{course.category}</span>
+        <div class="flex items-center gap-4">
+          <span class="px-5 py-2 rounded-full bg-white/10 text-white text-[9px] font-black tracking-[0.3em] uppercase border border-white/10">{course.category}</span>
           {course.is_ri_cert && (
-            <span class="text-xs font-bold bg-white/10 text-white px-2.5 py-1 rounded border border-white/20 uppercase tracking-widest">RI Certificate</span>
+            <span class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container text-[9px] font-black tracking-[0.3em] uppercase border border-primary/20">RI Authorized</span>
           )}
         </div>
         
-        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">{course.title}</h1>
-        <p class="text-blue-100 text-lg max-w-3xl leading-relaxed">{course.description}</p>
+        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter font-headline uppercase leading-none italic">{course.title}</h1>
+        <p class="text-xl text-white/70 max-w-3xl font-body font-medium italic leading-relaxed">"{course.description}"</p>
       </div>
     </header>
 
-    <div class="container mx-auto px-4 max-w-5xl -mt-12 relative z-10 pb-24">
-      <div class="flex flex-col md:flex-row gap-8">
-        
-        <!-- Video Player Column -->
-        <div class="md:w-2/3">
-          <div class="bg-black rounded-3xl aspect-video w-full shadow-2xl overflow-hidden border border-gray-800 flex items-center justify-center">
-            <!-- Simulated video player -->
-            <div class="text-center text-gray-500">
-              <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              <p class="text-sm font-medium">Select a module to begin playback.</p>
+    <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 -mt-20 relative z-20 pb-32 flex flex-col xl:flex-row gap-12">
+      
+      <!-- Video Terminal -->
+      <div class="xl:w-2/3 space-y-8">
+        <div class="bg-surface-container-lowest rounded-[3.5rem] aspect-video w-full shadow-2xl overflow-hidden border border-outline-variant/30 flex items-center justify-center relative group">
+          <div class="absolute inset-0 aqueous-gradient opacity-5"></div>
+          <!-- Simulated video player interface -->
+          <div class="text-center relative z-10 space-y-6">
+            <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center backdrop-blur-xl border border-primary/20 mx-auto group-hover:scale-110 transition-transform duration-700">
+               <span class="material-symbols-outlined text-primary text-5xl translate-x-1">play_arrow</span>
             </div>
+            <div class="space-y-2 px-8">
+               <p class="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Protocol Execution Required</p>
+               <p class="text-on-surface-variant font-medium text-sm italic opacity-60">Select a synchronization node from the manifest to begin data transmission.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-surface-container-low rounded-[3rem] p-10 lg:p-12 border border-outline-variant/30 fluid-shadow space-y-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 aqueous-gradient opacity-5 blur-3xl pointer-events-none"></div>
+          <div class="flex items-center justify-between">
+            <h2 class="text-3xl font-black text-primary font-headline tracking-tighter uppercase italic">Sync Status</h2>
+            <p class="text-[10px] font-black text-primary uppercase tracking-[.4em] opacity-40">33% Calibrated</p>
           </div>
           
-          <div class="mt-8 bg-white rounded-3xl p-8 border border-gray-100 card-shadow">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Course Progress</h2>
-            
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
-              <div class="bg-[#22c55e] h-3 rounded-full" style="width: 33%"></div>
-            </div>
-            <p class="text-sm font-semibold text-gray-500 text-right">33% Complete (1 / 3 Modules)</p>
+          <div class="w-full bg-surface-container-highest rounded-full h-4 relative overflow-hidden shadow-inner">
+            <div class="absolute inset-y-0 left-0 aqueous-gradient rounded-full transition-all duration-1000" style="width: 33%"></div>
           </div>
+          <p class="text-[10px] font-black text-on-surface-variant uppercase tracking-[.4em] opacity-40 italic">Calibration Profile: 01 / 03 Integration Nodes Synchronized</p>
         </div>
-
-        <!-- Modules List Sidebar -->
-        <div class="md:w-1/3">
-          <div class="bg-white rounded-3xl border border-gray-100 card-shadow overflow-hidden">
-            <div class="p-6 border-b border-gray-100 bg-gray-50">
-              <h3 class="font-bold text-gray-900 text-lg">Modules</h3>
-            </div>
-            
-            <div class="divide-y divide-gray-100 max-h-[500px] overflow-y-auto">
-              {course.lessons.map((lesson: any, idx: number) => (
-                <button class={`w-full text-left p-5 transition-colors flex items-start gap-4 hover:bg-gray-50 group
-                  ${idx === 0 ? 'bg-blue-50/50' : ''}
-                `}>
-                  <div class={`shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold
-                    ${idx === 0 ? 'border-green-500 bg-green-500 text-white' : 
-                      idx === 1 ? 'border-[#003F8A] text-[#003F8A]' : 'border-gray-300 text-gray-400'}
-                  `}>
-                    {idx === 0 ? <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> : lesson.order_index}
-                  </div>
-                  <div>
-                    <h4 class={`font-semibold text-sm leading-tight mb-1 group-hover:text-[#003F8A] transition-colors
-                      ${idx === 0 ? 'text-gray-900' : 'text-gray-600'}
-                    `}>{lesson.title}</h4>
-                    <p class="text-xs text-gray-400 font-medium">8:45 mins</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-            
-            {course.is_ri_cert && (
-              <div class="p-6 border-t border-gray-100 text-center">
-                <button disabled class="w-full bg-gray-100 text-gray-400 font-bold py-3 rounded-xl text-sm border border-gray-200 shadow-inner cursor-not-allowed">
-                  Claim Certificate
-                </button>
-                <p class="text-[10px] text-gray-400 mt-2">Complete all modules to unlock.</p>
-              </div>
-            )}
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
 
+      <!-- Manifest Sidebar -->
+      <div class="xl:w-1/3">
+        <div class="bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden sticky top-32">
+          <div class="p-10 border-b border-primary/5 bg-surface-container-lowest">
+            <h3 class="text-2xl font-black text-primary font-headline tracking-tighter uppercase flex items-center gap-4 italic leading-none">
+              <span class="material-symbols-outlined text-primary/30">list_alt</span>
+              Protocol Nodes
+            </h3>
+          </div>
+          
+          <div class="divide-y divide-primary/5 max-h-[600px] overflow-y-auto custom-scrollbar">
+            {course.lessons.map((lesson: any, idx: number) => (
+              <button class={`w-full text-left p-8 transition-all flex items-start gap-6 group
+                ${idx === 0 ? 'bg-primary/5' : 'hover:bg-surface-container-highest'}
+              `}>
+                <div class={`shrink-0 w-10 h-10 rounded-2xl border-2 flex items-center justify-center text-xs font-black transition-all
+                  ${idx === 0 ? 'border-green-500 bg-green-500 text-white shadow-lg' : 
+                    idx === 1 ? 'border-primary text-primary' : 'border-outline-variant/50 text-on-surface-variant/40'}
+                `}>
+                  {idx === 0 ? <span class="material-symbols-outlined text-base">check</span> : lesson.order_index}
+                </div>
+                <div class="space-y-1">
+                  <h4 class={`text-base font-black uppercase tracking-tight font-headline group-hover:text-primary transition-colors
+                    ${idx === 0 ? 'text-primary' : 'text-on-surface'}
+                  `}>{lesson.title}</h4>
+                  <p class="text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest italic flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[12px]">timer</span>
+                    08:45 Transmission Time
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+          
+          {course.is_ri_cert && (
+            <div class="p-10 border-t border-primary/5 bg-surface-container-lowest text-center space-y-4">
+              <button disabled class="w-full bg-surface-container-highest text-primary/20 font-black py-5 rounded-2xl uppercase tracking-[0.2em] text-[10px] border border-primary/5 shadow-inner cursor-not-allowed italic">
+                Initialize Certificate Generation
+              </button>
+              <p class="text-[9px] font-black text-on-surface-variant/30 uppercase tracking-widest italic">Synchronization of all core nodes required for authorization.</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 64px -12px rgba(13, 65, 116, 0.08);
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(13, 65, 116, 0.1);
+    border-radius: 10px;
+  }
+</style>
+
