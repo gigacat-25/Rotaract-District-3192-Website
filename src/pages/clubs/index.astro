@@ -3,98 +3,110 @@ import Layout from '../../layouts/Layout.astro';
 import clubsData from '../../mock/clubs.json';
 
 const clubs = clubsData;
-const activeClubs = clubs.filter(c => c.status === 'active');
+const activeClubs = clubs.filter((c: any) => c.status === 'active');
 ---
 
 <Layout title="Club Directory">
-  
-  <header class="bg-[#003F8A] text-white pt-24 pb-16 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 mix-blend-overlay pointer-events-none"></div>
-    <div class="container mx-auto px-4 lg:px-8 max-w-5xl relative z-10 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Club Directory</h1>
-      <p class="text-xl text-blue-100 max-w-2xl mx-auto font-light">Explore the {activeClubs.length} active Rotaract clubs shaping communities across District 3192.</p>
-    </div>
-  </header>
-
-  <section class="py-12 bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm relative z-20">
-    <div class="container mx-auto px-4 lg:px-8 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="w-full md:w-96 relative">
-        <input type="text" placeholder="Search clubs by name or city..." class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-[#003F8A]/50 focus:border-[#003F8A] transition-all card-shadow">
-        <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+  <main class="pt-20">
+    <header class="bg-primary text-white pt-32 pb-24 relative overflow-hidden px-6 lg:px-12">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
       </div>
+      <div class="container mx-auto max-w-screen-2xl relative z-10 text-center space-y-6">
+        <span class="inline-block px-5 py-2 rounded-full bg-white/10 text-white text-[10px] font-black tracking-[0.3em] uppercase font-headline border border-white/10">
+          Connectivity
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter font-headline">Club Directory</h1>
+        <p class="text-xl text-white/70 max-w-2xl mx-auto font-body font-medium italic">Explore the {activeClubs.length} active Rotaract clubs shaping communities across District 3192.</p>
+      </div>
+    </header>
 
-      <div class="flex items-center space-x-3 w-full md:w-auto">
-        <select class="form-select bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-full focus:ring-[#003F8A] focus:border-[#003F8A] py-2 px-4 shadow-sm appearance-none pr-8 bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23111827%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:10px_10px]">
-          <option value="all">All Cities</option>
-          <option value="chennai">Chennai</option>
-          <option value="bengaluru">Bengaluru</option>
-          <option value="coimbatore">Coimbatore</option>
-          <option value="mysuru">Mysuru</option>
-        </select>
-        
-        <div class="flex bg-gray-100 p-1 rounded-full border border-gray-200">
-          <button class="bg-white text-gray-900 shadow-sm px-3 py-1.5 rounded-full text-sm font-medium flex items-center">
-            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-            Grid
-          </button>
-          <button class="text-gray-500 hover:text-gray-900 px-3 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center">
-            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Map Map
-          </button>
+    <!-- Filters Section (Tonal Layering) -->
+    <section class="py-12 bg-surface-container-low border-b border-outline-variant/30 sticky top-20 z-30 shadow-sm px-6 lg:px-12">
+      <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="w-full md:w-[400px] relative">
+          <input type="text" placeholder="Search clubs by name or city..." class="w-full pl-14 pr-6 py-4 bg-surface-container-lowest rounded-2xl text-sm font-bold focus:outline-none focus:ring-4 focus:ring-primary/5 transition-all fluid-shadow">
+          <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary opacity-40">search</span>
+        </div>
+
+        <div class="flex items-center gap-4 w-full md:w-auto">
+          <div class="relative flex-grow md:flex-grow-0">
+            <select class="w-full md:w-56 appearance-none bg-surface-container-lowest py-4 pl-6 pr-12 rounded-2xl text-xs font-black uppercase tracking-widest text-primary focus:outline-none fluid-shadow">
+              <option value="all">All Regions</option>
+              <option value="bengaluru">Bengaluru</option>
+              <option value="central">Central</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-xl">expand_more</span>
+          </div>
+          
+          <div class="flex bg-surface-container-high p-1.5 rounded-2xl">
+            <button class="bg-surface-container-lowest text-primary shadow-lg px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+              <span class="material-symbols-outlined text-lg">grid_view</span>
+              Grid
+            </button>
+            <button class="text-on-surface-variant hover:text-primary px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2">
+              <span class="material-symbols-outlined text-lg">map</span>
+              Map
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-16 bg-gray-50 min-h-[50vh]">
-    <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        {activeClubs.map((club, index) => (
-          <a href={`/clubs/${club.slug}`} class={`group relative bg-white rounded-2xl overflow-hidden card-shadow border border-gray-100 fade-in-up stagger-${(index % 4) + 1} flex flex-col h-full hover:border-[#003F8A]/30 transition-all`}>
-            
-            <!-- Abstract Header -->
-            <div class="h-24 opacity-80" style={`background: linear-gradient(135deg, ${club.theme_color} 0%, transparent 100%)`}></div>
-            
-            <div class="flex-grow p-6 pt-0 relative flex flex-col">
+    <section class="py-24 bg-surface px-6 lg:px-12 min-h-[50vh]">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          
+          {activeClubs.map((club: any, index: number) => (
+            <a href={`/clubs/${club.slug}`} class={`group bg-surface-container-lowest rounded-[2.5rem] overflow-hidden fluid-shadow hover:translate-y-[-8px] transition-all duration-500 flex flex-col h-full fade-in-up`} style={`animation-delay: ${0.05 * index}s`}>
               
-              <!-- Logo overlapping -->
-              <div class="-mt-12 mb-4 w-20 h-20 rounded-2xl bg-white p-1.5 shadow-lg border border-gray-100 flex-shrink-0">
-                <img src={club.logo_url} alt={club.name} class="w-full h-full object-contain rounded-xl" />
-              </div>
+              <!-- Abstract Header -->
+              <div class="h-32 opacity-10 transition-opacity group-hover:opacity-20" style={`background: linear-gradient(135deg, ${club.theme_color || '#174174'} 0%, transparent 100%)`}></div>
               
-              <div class="flex items-start justify-between mb-2">
-                <h3 class="text-xl font-bold text-gray-900 group-hover:text-[#003F8A] transition-colors leading-tight">{club.name}</h3>
-              </div>
-              
-              <div class="flex items-center text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
-                <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                {club.city}
-              </div>
-              
-              <div class="flex items-center mt-auto border-t border-gray-100 pt-4">
-                <div class="flex -space-x-2 mr-3">
-                  {[...Array(Math.min(3, club.member_count))].map((_, i) => (
-                    <img class="w-6 h-6 rounded-full border-2 border-white bg-gray-200" src={`https://ui-avatars.com/api/?name=M+${i}&background=random`} alt="Member" />
-                  ))}
+              <div class="flex-grow p-10 pt-0 relative flex flex-col">
+                <!-- Logo overlapping -->
+                <div class="-mt-12 mb-8 w-24 h-24 rounded-[2rem] bg-white p-2 shadow-2xl border-4 border-surface-container-lowest">
+                  <img src={club.logo_url} alt={club.name} class="w-full h-full object-contain rounded-2xl" />
                 </div>
-                <span class="text-xs font-medium text-gray-500">{club.member_count} Members</span>
                 
-                <span class="ml-auto inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-[#003F8A] group-hover:text-white transition-colors">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </span>
+                <div class="space-y-4 mb-8">
+                  <h3 class="text-2xl font-black text-primary group-hover:text-primary-container transition-colors leading-tight font-headline tracking-tighter">{club.name}</h3>
+                  <div class="flex items-center gap-2 text-[10px] font-black text-on-surface-variant uppercase tracking-widest opacity-50">
+                    <span class="material-symbols-outlined text-sm">location_on</span>
+                    {club.city}
+                  </div>
+                </div>
+                
+                <div class="mt-auto pt-8 border-t border-primary/5 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="flex -space-x-3">
+                      {[...Array(3)].map((_, i) => (
+                        <div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest aqueous-gradient opacity-80 ring-2 ring-transparent group-hover:ring-primary/10 transition-all flex items-center justify-center text-[8px] font-bold text-white">R</div>
+                      ))}
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant opacity-40">{club.member_count} Members</span>
+                  </div>
+                  
+                  <span class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                  </span>
+                </div>
               </div>
-              
-            </div>
-            
-            <!-- Bottom color bar -->
-            <div class="h-1 w-full absolute bottom-0 left-0" style={`background-color: ${club.theme_color}`}></div>
-            
-          </a>
-        ))}
+            </a>
+          ))}
 
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .fluid-shadow {
+    box-shadow: 0 32px 48px -12px rgba(13, 65, 116, 0.06);
+  }
+</style>
+
 
 </Layout>
