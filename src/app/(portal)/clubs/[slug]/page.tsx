@@ -1,5 +1,6 @@
 import clubsData from "@/mock/clubs.json";
 import eventsData from "@/mock/events.json";
+export const runtime = 'edge';
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {

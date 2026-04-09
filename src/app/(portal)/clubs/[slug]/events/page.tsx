@@ -3,6 +3,8 @@ import eventsData from "@/mock/events.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
+export const runtime = 'edge';
+
 export function generateStaticParams() {
   return clubsData.map((club: any) => ({
     slug: club.slug,

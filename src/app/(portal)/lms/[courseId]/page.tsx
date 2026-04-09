@@ -2,6 +2,8 @@ import coursesData from "@/mock/courses.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
+export const runtime = 'edge';
+
 export function generateStaticParams() {
   return coursesData.map((course: any) => ({
     courseId: course.id,
