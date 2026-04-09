@@ -1,5 +1,5 @@
 import momsData from "@/mock/moms.json";
-export const runtime = 'edge';
+export const dynamicParams = false;
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
