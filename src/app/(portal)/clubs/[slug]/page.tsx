@@ -2,13 +2,8 @@ import clubsData from "@/mock/clubs.json";
 import eventsData from "@/mock/events.json";
 import { notFound } from "next/navigation";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return clubsData.map((club: any) => ({
-    slug: club.slug,
-  }));
-}
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export default function ClubDetailPage({ params }: { params: { slug: string } }) {
   const club = clubsData.find((c: any) => c.slug === params.slug);

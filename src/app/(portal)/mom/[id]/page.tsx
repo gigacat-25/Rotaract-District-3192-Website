@@ -1,13 +1,9 @@
 import momsData from "@/mock/moms.json";
-export const dynamicParams = false;
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export function generateStaticParams() {
-  return momsData.map((mom: any) => ({
-    id: mom.id,
-  }));
-}
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export default function MOMDetailPage({ params }: { params: { id: string } }) {
   const mom = momsData.find((m: any) => m.id === params.id);
