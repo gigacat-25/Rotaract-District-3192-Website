@@ -7,7 +7,7 @@ export default function ClubsDirectoryPage() {
   return (
     <main className="lg:ml-64 pt-24 pb-12 px-4 md:px-12 bg-surface min-h-screen">
       {/* Header Section */}
-      <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
         <div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-3">Clubs Directory</h1>
           <p className="text-on-surface-variant text-lg max-w-2xl leading-relaxed">Connect with {activeClubs.length} clubs across the district. Monitor performance, engagement, and growth in real-time.</p>

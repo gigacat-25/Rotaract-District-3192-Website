@@ -27,7 +27,7 @@ export default function EventsDirectoryPage() {
         </div>
         <div className="flex flex-wrap gap-3">
           <div className="relative">
-            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(108,43,217,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
+            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
               <option>Category: All</option>
               <option>Service Project</option>
               <option>Professional Dev</option>
@@ -36,7 +36,7 @@ export default function EventsDirectoryPage() {
             <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">keyboard_arrow_down</span>
           </div>
           <div className="relative">
-            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(108,43,217,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
+            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
               <option>Date: Anytime</option>
               <option>This Weekend</option>
               <option>Next 30 Days</option>
@@ -50,7 +50,7 @@ export default function EventsDirectoryPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
         {/* Featured Card */}
         {featuredEvent && (
-          <div className="lg:col-span-2 group relative overflow-hidden rounded-[2.5rem] bg-surface-container-lowest shadow-[0_10px_40px_rgba(108,43,217,0.06)] hover:translate-y-[-4px] transition-all duration-500 h-[450px]">
+          <div className="lg:col-span-2 group relative overflow-hidden rounded-[2.5rem] bg-surface-container-lowest shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:translate-y-[-4px] transition-all duration-500 h-[450px]">
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
             <div className="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-1000">
               <img className="w-full h-full object-cover" src={featuredEvent.banner_url} alt={featuredEvent.title} />

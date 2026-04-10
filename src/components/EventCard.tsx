@@ -20,8 +20,8 @@ export default function EventCard({
   statusBadge 
 }: EventCardProps) {
   return (
-    <div className="flex-shrink-0 w-full sm:w-[350px] snap-start rounded-xl bg-surface-container-lowest p-4 shadow-[0_10px_40px_rgba(108,43,217,0.06)] hover:-translate-y-2 transition-all duration-300 group">
-      <div className="h-48 w-full rounded-lg mb-6 overflow-hidden bg-slate-200">
+    <div className="flex-shrink-0 w-full sm:w-[350px] snap-start rounded-xl bg-surface-container-lowest p-4 shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:-translate-y-2 transition-all duration-300 group">
+      <div className="h-48 w-full rounded-lg mb-6 overflow-hidden bg-surface-container-high">
         <img 
           src={image} 
           alt={title} 

@@ -4,19 +4,15 @@ export default function AboutPage() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section className="relative py-32 px-6 overflow-hidden bg-slate-950">
-        {/* Decor */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-600/20 to-transparent"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
-
+      <section className="relative py-32 px-6 overflow-hidden bg-primary-container">
         <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-violet-400 uppercase tracking-[.3em] mb-8 inline-block animate-fade-in">
+          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-secondary uppercase tracking-[.3em] mb-8 inline-block">
             The District Authority
           </span>
-          <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter mb-8 leading-none animate-fade-in-up">
-            Architecting <br/> <span className="text-blue-400">Social Change.</span>
+          <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter mb-8 leading-none">
+            Architecting <br/> <span className="text-secondary">Social Change.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <p className="text-lg md:text-xl text-surface-container-highest max-w-2xl mx-auto font-medium leading-relaxed">
             Rotaract District 3192 is a thriving network of young leaders committed to institutional excellence and sustainable community impact.
           </p>
         </div>
@@ -67,7 +63,7 @@ export default function AboutPage() {
               { name: "Sneha Venkatesh", role: "District Treasurer", img: "https://ui-avatars.com/api/?name=Sneha+Venkatesh&background=6c2bd9&color=fff&size=400" },
               { name: "Karthik Reddy", role: "Professional Service Chair", img: "https://ui-avatars.com/api/?name=Karthik+Reddy&background=316bf3&color=fff&size=400" }
             ].map((leader, idx) => (
-              <div key={idx} className="group bg-surface-container-lowest rounded-3xl p-6 shadow-[0_10px_40px_rgba(108,43,217,0.06)] hover:-translate-y-2 transition-all duration-300">
+              <div key={idx} className="group bg-surface-container-lowest rounded-3xl p-6 shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:-translate-y-2 transition-all duration-300">
                 <div className="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-200">
                   <img src={leader.img} alt={leader.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>

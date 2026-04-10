@@ -11,7 +11,7 @@ export default function ProfilePage() {
 
       {/* Profile Hero Section */}
       <section className="mb-12">
-        <div className="bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(108,43,217,0.06)] border border-white/20 flex flex-col md:flex-row items-center gap-10">
+        <div className="bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(2,47,86,0.06)] border border-white/20 flex flex-col md:flex-row items-center gap-10">
           <div className="relative">
             <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center overflow-hidden p-1 shadow-lg">
               <div className="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden">

@@ -21,11 +21,11 @@ export default function Navbar() {
   const dashboardLink = userRole === 'district_admin' ? '/admin' : '/dashboard';
 
   return (
-    <nav className="sticky top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(108,43,217,0.06)] h-20 flex items-center">
+    <nav className="sticky top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(2,47,86,0.06)] h-20 flex items-center">
       <div className="flex justify-between items-center px-8 w-full max-w-7xl mx-auto font-body tracking-tight">
         
         {/* Logo / Brand */}
-        <Link href="/" className="text-2xl font-bold tracking-tighter bg-gradient-to-br from-violet-600 to-blue-500 bg-clip-text text-transparent">
+        <Link href="/" className="text-2xl font-bold tracking-tighter bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent">
           Rotaract Portal
         </Link>
 
@@ -37,7 +37,7 @@ export default function Navbar() {
               <Link 
                 key={link.href}
                 href={link.href} 
-                className={`font-medium transition-all duration-300 hover:text-violet-500 hover:-translate-y-0.5 ${isActive ? 'text-violet-600 font-semibold border-b-2 border-violet-600 pb-1' : 'text-slate-600'}`}
+                className={`font-medium transition-all duration-300 hover:text-secondary hover:-translate-y-0.5 ${isActive ? 'text-primary font-semibold border-b-2 border-primary pb-1' : 'text-on-surface-variant'}`}
               >
                 {link.name}
               </Link>
@@ -46,17 +46,17 @@ export default function Navbar() {
           
           {/* More Dropdown */}
           <div className="relative group">
-            <button className="text-slate-600 group-hover:text-violet-500 font-medium flex items-center gap-1 transition-all">
+            <button className="text-on-surface-variant group-hover:text-secondary font-medium flex items-center gap-1 transition-all">
               Office
               <span className="material-symbols-outlined text-lg leading-none transform group-hover:rotate-180 transition-transform">expand_more</span>
             </button>
             <div className="absolute top-full -left-10 w-56 bg-surface-container-lowest shadow-2xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4 border border-outline-variant">
-              <Link href="/news" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">District News</Link>
-              <Link href="/newsletter" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">Newsletters</Link>
-              <Link href="/jobs" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">Jobs</Link>
-              <Link href="/brand-centre" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">Brand Hub</Link>
-              <Link href="/hall-of-fame" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">Hall of Fame</Link>
-              <Link href="/leaderboard" className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-surface-container-low hover:text-primary font-bold">Leaderboard</Link>
+              <Link href="/news" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">District News</Link>
+              <Link href="/newsletter" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Newsletters</Link>
+              <Link href="/jobs" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Jobs</Link>
+              <Link href="/brand-centre" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Brand Hub</Link>
+              <Link href="/hall-of-fame" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Hall of Fame</Link>
+              <Link href="/leaderboard" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Leaderboard</Link>
             </div>
           </div>
         </div>
@@ -64,11 +64,11 @@ export default function Navbar() {
         {/* Auth / Actions */}
         <div className="flex items-center gap-6">
           {isLoggedIn ? (
-            <Link href={dashboardLink} className="material-symbols-outlined text-slate-600 hover:text-primary hover:scale-110 transition-all text-3xl cursor-pointer">
+            <Link href={dashboardLink} className="material-symbols-outlined text-on-surface-variant hover:text-primary hover:scale-110 transition-all text-3xl cursor-pointer">
               account_circle
             </Link>
           ) : (
-            <Link href="/login" className="px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white rounded-xl font-semibold shadow-[0_4px_20px_rgba(108,43,217,0.3)] active:scale-95 duration-200 transition-all">
+            <Link href="/login" className="px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white rounded-xl font-semibold shadow-[0_4px_20px_rgba(2,47,86,0.3)] active:scale-95 duration-200 transition-all">
               Login
             </Link>
           )}
@@ -95,7 +95,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href} 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-xl font-bold ${isActive ? 'text-violet-600' : 'text-slate-600'}`}
+                className={`block text-xl font-bold ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
               >
                 {link.name}
               </Link>

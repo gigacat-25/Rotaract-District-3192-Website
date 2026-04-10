@@ -4,26 +4,28 @@
   --font-headline: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
 
-  --color-primary: #5300b9;
-  --color-primary-container: #6c2bd9;
-  --color-on-primary-container: #dac7ff;
+  --color-primary: #022F56; /* Prussian Blue */
+  --color-primary-container: #02182E; /* Maastricht Blue */
+  --color-on-primary-container: #85C4E4; /* Sky Blue */
   
-  --color-secondary: #0051d5;
-  --color-secondary-container: #316bf3;
+  --color-secondary: #488DB4; /* Steel Blue */
+  --color-secondary-container: #85C4E4; /* Sky Blue */
 
-  --color-surface: #faf8ff;
-  --color-surface-container-low: #f2f3ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-high: #e2e7ff;
-  --color-surface-container-highest: #dae2fd;
+  --color-tertiary: #CCDEE4; /* Spiro Disco Ball */
 
-  --color-on-surface: #131b2e;
-  --color-on-surface-variant: #4a4455;
+  --color-surface: #F4F7F9; /* Off-white tint of Spiro */
+  --color-surface-container-low: #EBF0F4;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-high: #CCDEE4; /* Spiro Disco Ball */
+  --color-surface-container-highest: #85C4E4; /* Sky Blue */
 
-  --color-outline-variant: #ccc3d7;
+  --color-on-surface: #02182E; /* Maastricht Blue */
+  --color-on-surface-variant: #022F56; /* Prussian Blue */
 
-  --color-rotaract-gold: #F5A623;
-  --color-club-accent: var(--club-color, #5300b9);
+  --color-outline-variant: #CCDEE4; /* Spiro Disco Ball */
+
+  --color-rotaract-gold: #488DB4; /* Replaced marigold with Steel Blue */
+  --color-club-accent: var(--club-color, #488DB4); /* Steel Blue */
 }
 
 /* Global Styles */
@@ -49,7 +51,7 @@ h6,
 }
 
 .aqueous-gradient {
-  background: linear-gradient(135deg, #174174 0%, #33588d 100%);
+  background: linear-gradient(135deg, #02182E 0%, #022F56 100%);
 }
 
 .glass-nav {
@@ -59,7 +61,7 @@ h6,
 }
 
 .fluid-shadow {
-  box-shadow: 0 32px 48px -12px rgba(23, 65, 116, 0.06);
+  box-shadow: 0 32px 48px -12px rgba(2, 47, 86, 0.06);
 }
 
 /* Page transitions / interactions */

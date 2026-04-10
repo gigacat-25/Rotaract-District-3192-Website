@@ -22,12 +22,12 @@ export default function ClubCard({
   icon = 'stars' 
 }: ClubCardProps) {
   const iconColor = type === 'secondary' ? 'text-secondary' : 'text-primary';
-  const engagementColor = type === 'secondary' ? 'text-secondary' : 'text-violet-600';
+  const engagementColor = type === 'secondary' ? 'text-secondary' : 'text-primary';
   const btnClass = type === 'secondary' ? 'bg-secondary-container' : 'bg-primary-container glow-primary';
-  const badgeClass = type === 'secondary' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700';
+  const badgeClass = type === 'secondary' ? 'bg-secondary/20 text-secondary' : 'bg-primary/10 text-primary';
 
   return (
-    <div className="group relative bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0_10px_40px_rgba(108,43,217,0.06)] hover:translate-y-[-4px] transition-all duration-300 overflow-hidden">
+    <div className="group relative bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:shadow-2xl hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
       <div className={`absolute -top-12 -right-12 w-32 h-32 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 ${type === 'secondary' ? 'bg-secondary-container/5' : 'bg-primary-container/5'}`}></div>
       
       <div className="flex justify-between items-start mb-6">
@@ -48,16 +48,16 @@ export default function ClubCard({
 
       <div className="grid grid-cols-2 gap-4 mb-8">
         <div className="bg-surface-container-low/50 p-4 rounded-2xl">
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Members</p>
+          <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Members</p>
           <p className="text-2xl font-black text-on-surface">{members}</p>
         </div>
         <div className="bg-surface-container-low/50 p-4 rounded-2xl">
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Engagement</p>
+          <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Engagement</p>
           <p className={`text-2xl font-black ${engagementColor}`}>{engagement}%</p>
         </div>
       </div>
 
-      <Link href={`/clubs/${slug}`} className={`w-full py-4 text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all ${btnClass}`}>
+      <Link href={`/clubs/${slug}`} className={`w-full py-4 text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg transition-all duration-300 ${btnClass}`}>
         <span>View Details</span>
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
       </Link>
