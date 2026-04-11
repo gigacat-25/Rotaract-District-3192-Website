@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
+import WaveBackground from "@/components/WaveBackground";
+import RippleProvider from "@/components/RippleProvider";
 
 export const metadata: Metadata = {
   title: "Rotaract District 3192 Portal",
@@ -21,10 +17,23 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className={`${inter.className} bg-surface text-on-surface antialiased min-h-screen flex flex-col`}>
-        {children}
+      <body
+        className="antialiased min-h-screen flex flex-col"
+        style={{ backgroundColor: "var(--bg-page)", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}
+      >
+        {/* Global wave canvas — fixed behind everything */}
+        <WaveBackground />
+        {/* Ripple on click */}
+        <RippleProvider />
+        {/* Page content sits above canvas */}
+        <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column" }}>
+          {children}
+        </div>
       </body>
     </html>
   );

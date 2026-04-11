@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
+import React from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -9,6 +10,7 @@ interface ScrollRevealProps {
   delay?: number;
   duration?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default function ScrollReveal({ 
@@ -17,6 +19,7 @@ export default function ScrollReveal({
   delay = 0, 
   duration = 0.8,
   className = "",
+  style,
 }: ScrollRevealProps) {
   
   const variants: Variants = {
@@ -44,6 +47,7 @@ export default function ScrollReveal({
       viewport={{ once: true, margin: "-100px" }} // Triggers slightly before element enters view
       variants={variants}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

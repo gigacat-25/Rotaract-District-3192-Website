@@ -1,31 +1,59 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+  const [scrolled, setScrolled] = useState(false);
+
   const isLoggedIn = true; // Mock Auth
-  const userRole = 'district_admin'; // Mock Role
-  
+  const userRole = "district_admin"; // Mock Role
+
   const mainNavLinks = [
-    { name: 'District', href: '/about' },
-    { name: 'Clubs', href: '/clubs' },
-    { name: 'Events', href: '/events' },
-    { name: 'Resources', href: '/resources' },
+    { name: "District", href: "/about" },
+    { name: "Clubs", href: "/clubs" },
+    { name: "Events", href: "/events" },
+    { name: "Resources", href: "/resources" },
   ];
 
-  const dashboardLink = userRole === 'district_admin' ? '/admin' : '/dashboard';
+  const dashboardLink = userRole === "district_admin" ? "/admin" : "/dashboard";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(2,47,86,0.06)] h-20 flex items-center">
-      <div className="flex justify-between items-center px-8 w-full max-w-7xl mx-auto font-body tracking-tight">
-        
-        {/* Logo / Brand */}
-        <Link href="/" className="text-2xl font-bold tracking-tighter bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent">
+    <nav
+      className={`sticky top-0 w-full z-50 h-20 flex items-center transition-all duration-300 ${
+        scrolled ? "nav-scrolled" : ""
+      }`}
+      style={{
+        background: scrolled
+          ? "rgba(2, 11, 24, 0.95)"
+          : "rgba(2, 11, 24, 0.8)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(14, 107, 168, 0.3)",
+      }}
+    >
+      <div className="flex justify-between items-center px-8 w-full max-w-7xl mx-auto">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-tight"
+          style={{
+            background: "linear-gradient(90deg, #00b4d8, #caf0f8)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            textDecoration: "none",
+          }}
+        >
           Rotaract Portal
         </Link>
 
@@ -34,94 +62,149 @@ export default function Navbar() {
           {mainNavLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <Link 
+              <Link
                 key={link.href}
-                href={link.href} 
-                className={`font-medium transition-all duration-300 hover:text-secondary hover:-translate-y-0.5 ${isActive ? 'text-primary font-semibold border-b-2 border-primary pb-1' : 'text-on-surface-variant'}`}
+                href={link.href}
+                style={{
+                  color: isActive ? "var(--color-reef)" : "var(--color-foam)",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "color 0.2s ease",
+                  borderBottom: isActive
+                    ? "2px solid var(--color-reef)"
+                    : "2px solid transparent",
+                  paddingBottom: "2px",
+                }}
               >
                 {link.name}
               </Link>
             );
           })}
-          
+
           {/* More Dropdown */}
           <div className="relative group">
-            <button className="text-on-surface-variant group-hover:text-secondary font-medium flex items-center gap-1 transition-all">
+            <button
+              style={{ color: "var(--color-foam)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}
+              className="transition-colors group-hover:text-[var(--color-reef)]"
+            >
               Office
-              <span className="material-symbols-outlined text-lg leading-none transform group-hover:rotate-180 transition-transform">expand_more</span>
+              <span className="material-symbols-outlined text-lg leading-none transform group-hover:rotate-180 transition-transform">
+                expand_more
+              </span>
             </button>
-            <div className="absolute top-full -left-10 w-56 bg-surface-container-lowest shadow-2xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4 border border-outline-variant">
-              <Link href="/news" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">District News</Link>
-              <Link href="/newsletter" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Newsletters</Link>
-              <Link href="/jobs" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Jobs</Link>
-              <Link href="/brand-centre" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Brand Hub</Link>
-              <Link href="/hall-of-fame" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Hall of Fame</Link>
-              <Link href="/leaderboard" className="block px-6 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-bold">Leaderboard</Link>
+            <div
+              className="absolute top-full -left-10 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4"
+              style={{
+                background: "rgba(5, 30, 56, 0.97)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(14, 107, 168, 0.3)",
+                borderRadius: "12px",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
+              }}
+            >
+              {[
+                { label: "District News", href: "/news" },
+                { label: "Newsletters", href: "/newsletter" },
+                { label: "Jobs", href: "/jobs" },
+                { label: "Brand Hub", href: "/brand-centre" },
+                { label: "Hall of Fame", href: "/hall-of-fame" },
+                { label: "Leaderboard", href: "/leaderboard" },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-6 py-2.5 text-sm font-semibold transition-colors"
+                  style={{ color: "var(--color-foam)", textDecoration: "none" }}
+                  onMouseEnter={(e) =>
+                    ((e.target as HTMLElement).style.color = "var(--color-reef)")
+                  }
+                  onMouseLeave={(e) =>
+                    ((e.target as HTMLElement).style.color = "var(--color-foam)")
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Auth / Actions */}
+        {/* Auth */}
         <div className="flex items-center gap-6">
           {isLoggedIn ? (
-            <Link href={dashboardLink} className="material-symbols-outlined text-on-surface-variant hover:text-primary hover:scale-110 transition-all text-3xl cursor-pointer">
+            <Link
+              href={dashboardLink}
+              className="material-symbols-outlined text-3xl cursor-pointer transition-all hover:scale-110"
+              style={{ color: "var(--color-foam)", textDecoration: "none" }}
+            >
               account_circle
             </Link>
           ) : (
-            <Link href="/login" className="px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white rounded-xl font-semibold shadow-[0_4px_20px_rgba(2,47,86,0.3)] active:scale-95 duration-200 transition-all">
+            <Link
+              href="/login"
+              className="btn-primary"
+              style={{ textDecoration: "none", borderRadius: "10px" }}
+            >
               Login
             </Link>
           )}
-          
+
           {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-primary" 
+          <button
+            className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
+            style={{ color: "var(--color-reef)", background: "none", border: "none", cursor: "pointer" }}
           >
             <span className="material-symbols-outlined text-3xl">menu</span>
           </button>
         </div>
-
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} absolute top-20 left-0 w-full bg-white border-t border-outline-variant z-50`}>
-        <div className="px-8 py-8 space-y-6">
-          {mainNavLinks.map((link) => {
-             const isActive = pathname === link.href;
-             return (
-              <Link 
-                key={link.href}
-                href={link.href} 
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden absolute top-20 left-0 w-full z-50"
+          style={{
+            background: "rgba(2, 11, 24, 0.98)",
+            backdropFilter: "blur(20px)",
+            borderBottom: "1px solid rgba(14, 107, 168, 0.3)",
+          }}
+        >
+          <div className="px-8 py-8 space-y-6">
+            {mainNavLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-xl font-bold"
+                  style={{
+                    color: isActive ? "var(--color-reef)" : "var(--color-foam)",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+            <div
+              className="pt-6"
+              style={{ borderTop: "1px solid rgba(14, 107, 168, 0.3)" }}
+            >
+              <Link
+                href={dashboardLink}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-xl font-bold ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-          <div className="pt-6 border-t border-outline-variant">
-            {isLoggedIn ? (
-              <Link 
-                href={dashboardLink} 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-8 py-4 bg-gradient-to-br from-primary-container to-secondary-container text-white text-center rounded-xl font-bold"
+                className="btn-primary block text-center w-full"
+                style={{ textDecoration: "none" }}
               >
                 Dashboard
               </Link>
-            ) : (
-              <Link 
-                href="/login" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-8 py-4 bg-gradient-to-br from-primary-container to-secondary-container text-white text-center rounded-xl font-bold"
-              >
-                Login
-              </Link>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }
