@@ -1,8 +1,14 @@
 import clubsData from "@/mock/clubs.json";
-import ClubEventsWrapper from "./ClubEventsWrapper";
+import ClubEventsClient from "./ClubEventsClient";
 
-export const runtime = 'edge';
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return clubsData.map((club) => ({
+    slug: club.slug,
+  }));
+}
 
 export default function ClubEventsPage({ params }: { params: { slug: string } }) {
-  return <ClubEventsWrapper slug={params.slug} />;
+  return <ClubEventsClient slug={params.slug} />;
 }

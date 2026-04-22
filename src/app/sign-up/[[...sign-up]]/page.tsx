@@ -1,7 +1,6 @@
 import SignUpWrapper from './SignUpWrapper';
 
 export const runtime = 'edge';
-export const dynamicParams = false;
 
 export default function Page() {
   return (
