@@ -2,8 +2,6 @@ import clubsData from "@/mock/clubs.json";
 import eventsData from "@/mock/events.json";
 import { notFound } from "next/navigation";
 
-export const runtime = 'edge';
-
 export default function ClubDetailPage({ params }: { params: { slug: string } }) {
   const club = clubsData.find((c: any) => c.slug === params.slug);
 
