@@ -1,4 +1,9 @@
-import { SignUp } from '@clerk/nextjs';
+import dynamic from 'next/dynamic';
+
+const SignUp = dynamic(() => import('@clerk/nextjs').then(mod => mod.SignUp), { ssr: false });
+
+export const runtime = 'edge';
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return [{ 'sign-up': [] }];

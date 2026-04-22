@@ -1,5 +1,10 @@
 import clubsData from "@/mock/clubs.json";
-import ClubEventsClient from "./ClubEventsClient";
+import dynamic from "next/dynamic";
+
+const ClubEventsClient = dynamic(() => import("./ClubEventsClient"), { ssr: false });
+
+export const runtime = 'edge';
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return clubsData.map((club) => ({

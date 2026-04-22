@@ -2,6 +2,9 @@ import momsData from "@/mock/moms.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
+export const runtime = 'edge';
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return momsData.map((mom) => ({
     id: mom.id,
