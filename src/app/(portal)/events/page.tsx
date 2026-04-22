@@ -14,7 +14,7 @@ export default function EventsDirectoryPage() {
   const otherEvents = sortedEvents.slice(1);
 
   return (
-    <main className="lg:ml-64 p-6 md:p-12 min-h-screen relative overflow-hidden bg-surface">
+    <main className="lg:ml-64 p-6 md:p-12 min-h-screen relative overflow-hidden ">
       {/* Background Abstract Elements */}
       <div className="absolute top-[-10%] right-[-5%] w-[40rem] h-[40rem] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[-5%] w-[30rem] h-[30rem] bg-secondary-container/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -27,7 +27,7 @@ export default function EventsDirectoryPage() {
         </div>
         <div className="flex flex-wrap gap-3">
           <div className="relative">
-            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
+            <select className="appearance-none -container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
               <option>Category: All</option>
               <option>Service Project</option>
               <option>Professional Dev</option>
@@ -36,7 +36,7 @@ export default function EventsDirectoryPage() {
             <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">keyboard_arrow_down</span>
           </div>
           <div className="relative">
-            <select className="appearance-none bg-surface-container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
+            <select className="appearance-none -container-lowest border-none rounded-xl px-6 py-3 pr-10 font-medium text-sm shadow-[0_10px_40px_rgba(2,47,86,0.06)] focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer focus:outline-none">
               <option>Date: Anytime</option>
               <option>This Weekend</option>
               <option>Next 30 Days</option>
@@ -50,7 +50,7 @@ export default function EventsDirectoryPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
         {/* Featured Card */}
         {featuredEvent && (
-          <div className="lg:col-span-2 group relative overflow-hidden rounded-[2.5rem] bg-surface-container-lowest shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:translate-y-[-4px] transition-all duration-500 h-[450px]">
+          <div className="lg:col-span-2 group relative overflow-hidden rounded-[2.5rem] -container-lowest shadow-[0_10px_40px_rgba(2,47,86,0.06)] hover:translate-y-[-4px] transition-all duration-500 h-[450px]">
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
             <div className="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-1000">
               <img className="w-full h-full object-cover" src={featuredEvent.banner_url} alt={featuredEvent.title} />
@@ -103,7 +103,7 @@ export default function EventsDirectoryPage() {
           </div>
           <button className="relative z-10 bg-white text-primary px-8 py-4 rounded-2xl font-black shadow-xl hover:scale-105 transition-all whitespace-nowrap">Enable Alerts</button>
         </div>
-        <div className="bg-surface-container-high/50 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center">
+        <div className="-container-high/50 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center">
           <span className="material-symbols-outlined text-5xl text-primary mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>stars</span>
           <h5 className="text-xl font-bold text-on-surface mb-2">Member Rewards</h5>
           <p className="text-on-surface-variant text-sm leading-relaxed">Participate in 3+ events this month to earn the 'Active Leader' badge.</p>

@@ -1,16 +1,33 @@
+"use client";
+
+import { useRef } from "react";
 import ClubCard from "@/components/ClubCard";
 import clubsData from "@/mock/clubs.json";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function ClubsDirectoryPage() {
   const activeClubs = clubsData.filter((c: any) => c.status === "active");
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.from(".animate-stagger", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.08,
+      duration: 1.2,
+      ease: "power4.out",
+    });
+  }, { scope: containerRef });
 
   return (
     <main
+      ref={containerRef}
       className="lg:ml-64 min-h-screen pt-24 pb-12 px-4 md:px-12"
-      style={{ background: "var(--color-abyss)" }}
+      
     >
       {/* Header */}
-      <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
+      <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10 animate-stagger">
         <div>
           <h1
             className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3"
@@ -45,7 +62,7 @@ export default function ClubsDirectoryPage() {
       </header>
 
       {/* Search & Filter Bar */}
-      <section className="mb-10 flex flex-wrap items-center gap-4">
+      <section className="mb-10 flex flex-wrap items-center gap-4 animate-stagger">
         <div className="flex-1 min-w-[300px] relative">
           <span
             className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2"
@@ -95,22 +112,23 @@ export default function ClubsDirectoryPage() {
       {/* Clubs Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {activeClubs.map((club: any, idx: number) => (
-          <ClubCard
-            key={idx}
-            name={club.name}
-            city={club.city}
-            members={Number(club.member_count)}
-            engagement={Number(Math.floor(Math.random() * 20) + 80)}
-            badge={idx % 4 === 0 ? "Top Performing" : "Active Chapter"}
-            type={idx % 2 === 0 ? "primary" : "secondary"}
-            slug={club.slug}
-            icon={idx % 3 === 0 ? "stars" : idx % 3 === 1 ? "school" : "waves"}
-          />
+          <div key={idx} className="animate-stagger">
+            <ClubCard
+              name={club.name}
+              city={club.city}
+              members={Number(club.member_count)}
+              engagement={Number(Math.floor(Math.random() * 20) + 80)}
+              badge={idx % 4 === 0 ? "Top Performing" : "Active Chapter"}
+              type={idx % 2 === 0 ? "primary" : "secondary"}
+              slug={club.slug}
+              icon={idx % 3 === 0 ? "stars" : idx % 3 === 1 ? "school" : "waves"}
+            />
+          </div>
         ))}
 
         {/* Charter CTA Card */}
         <div
-          className="relative rounded-[2rem] p-8 flex flex-col items-center justify-center text-center overflow-hidden min-h-[400px]"
+          className="animate-stagger relative rounded-[2rem] p-8 flex flex-col items-center justify-center text-center overflow-hidden min-h-[400px]"
           style={{
             background: "linear-gradient(135deg, rgba(14,107,168,0.3) 0%, rgba(5,30,56,0.95) 100%)",
             border: "1px solid rgba(0, 180, 216, 0.3)",

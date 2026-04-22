@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NewMOMPage() {
   return (
-    <main className="min-h-screen bg-surface pt-20">
+    <main className="min-h-screen pt-20">
       <header className="bg-primary text-white pt-24 pb-20 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
@@ -23,9 +23,9 @@ export default function NewMOMPage() {
       <section className="py-24 px-6 lg:px-12 min-h-[70vh]">
         <div className="max-w-4xl mx-auto">
           
-          <div className="bg-surface-container-low rounded-[4rem] border border-outline-variant/30 fluid-shadow overflow-hidden group">
+          <div className="-container-low rounded-[4rem] border border-outline-variant/30 fluid-shadow overflow-hidden group">
             
-            <div className="p-12 lg:p-16 border-b border-primary/5 bg-surface-container-lowest">
+            <div className="p-12 lg:p-16 border-b border-primary/5 -container-lowest">
               <div className="space-y-10">
                 <input 
                   type="text" 
@@ -50,7 +50,7 @@ export default function NewMOMPage() {
               </div>
             </div>
             
-            <div className="p-16 lg:p-24 bg-surface-container-low flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+            <div className="p-16 lg:p-24 -container-low flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
               <div className="absolute inset-0 aqueous-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-1000"></div>
               
               {/* Capture Node */}

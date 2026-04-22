@@ -1,6 +1,6 @@
 export default function LoginPage() {
   return (
-    <main className="min-h-screen relative overflow-hidden flex items-center justify-center p-6 bg-surface">
+    <main className="min-h-screen relative overflow-hidden flex items-center justify-center p-6 ">
       {/* Abstract Background Elements */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-container/10 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-secondary-container/10 rounded-full blur-[120px] -z-10"></div>
@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-primary-container to-secondary-container rounded-full opacity-20 blur-2xl"></div>
         
         {/* Login Card */}
-        <div className="bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-14 shadow-2xl border border-white/40 relative overflow-hidden">
+        <div className="-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-14 shadow-2xl border border-white/40 relative overflow-hidden">
           <div className="relative z-10">
             <div className="mb-10 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-container to-secondary-container mb-6 shadow-lg shadow-primary-container/20">
@@ -31,7 +31,7 @@ export default function LoginPage() {
                   <input 
                     type="text" 
                     placeholder="name@example.com" 
-                    className="w-full bg-surface-container-low border-none rounded-xl px-5 py-4 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all hover:bg-surface-container"
+                    className="w-full bg-surface-container-low border-none rounded-xl px-5 py-4 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all hover:-container"
                   />
                 </div>
               </div>
@@ -45,7 +45,7 @@ export default function LoginPage() {
                   <input 
                     type="password" 
                     placeholder="••••••••" 
-                    className="w-full bg-surface-container-low border-none rounded-xl px-5 py-4 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all hover:bg-surface-container"
+                    className="w-full bg-surface-container-low border-none rounded-xl px-5 py-4 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all hover:-container"
                   />
                 </div>
               </div>

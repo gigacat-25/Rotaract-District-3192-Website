@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>District 3192 | Member Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#041329",
+                        "on-tertiary": "#452b00",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-highest": "#27354c",
+                        "surface-variant": "#27354c",
+                        "on-primary-fixed-variant": "#0c448f",
+                        "on-secondary-container": "#aab8dc",
+                        "surface-dim": "#041329",
+                        "primary-container": "#003f8a",
+                        "inverse-primary": "#305da9",
+                        "primary-fixed-dim": "#adc6ff",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#010e24",
+                        "secondary-fixed-dim": "#b8c6ea",
+                        "on-error": "#690005",
+                        "surface-container-low": "#0d1c32",
+                        "surface-bright": "#2c3951",
+                        "on-secondary-fixed": "#0b1b37",
+                        "inverse-on-surface": "#233148",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-surface": "#d6e3ff",
+                        "on-surface-variant": "#c3c6d3",
+                        "inverse-surface": "#d6e3ff",
+                        "on-tertiary-container": "#ec9f1a",
+                        "surface-container": "#112036",
+                        "secondary": "#b8c6ea",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#3b4967",
+                        "surface-container-high": "#1c2a41",
+                        "tertiary": "#ffb955",
+                        "error": "#ffb4ab",
+                        "outline": "#8d909c",
+                        "primary-fixed": "#d8e2ff",
+                        "on-background": "#d6e3ff",
+                        "tertiary-container": "#5d3b00",
+                        "on-primary-fixed": "#001a41",
+                        "on-primary": "#002e69",
+                        "surface-tint": "#adc6ff",
+                        "outline-variant": "#434751",
+                        "on-secondary-fixed-variant": "#384764",
+                        "primary": "#adc6ff",
+                        "on-tertiary-fixed": "#291800",
+                        "surface": "#041329",
+                        "on-secondary": "#22304d",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-primary-container": "#85aeff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #041329;
+            color: #d6e3ff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-slate-950/80 backdrop-blur-xl fixed top-0 z-50 w-full shadow-[0px_12px_32px_rgba(0,0,0,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400" data-icon="grid_view">grid_view</span>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tight text-xl text-on-surface">Dashboard</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-blue-400 font-bold font-['Space_Grotesk'] text-sm uppercase tracking-wider" href="#">Home</a>
+<a class="text-slate-400 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-blue-300 transition-colors" href="#">Events</a>
+<a class="text-slate-400 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-blue-300 transition-colors" href="#">Impact</a>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Member Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a professional man with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR1n6zvXYGhu92iu1zjevxQkB7BgvTabpp8kQI5-Ru4zxy7UnD0rsXYvtsBkeQ0KbQshOBa80j5ax7c_2OiuJPKzYbvniucc8kOpqh5r9HspfgMvnCpDlarK33_LSw5MHnSUrcHj1ApvmHJiE-MoKxdbjLj4VoZ2f9O_RnsrqdZeNefk3rWbJ7JyUZ_8qIolivj5GSvNmSHHhbQHZ1IXTYMOGRZhEIFEcqigblENHmyl8ww1rC5YL5_ciSfKg39XfmC6Se-nguhEVe"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-6 pt-24 space-y-12">
+<!-- Welcoming Hero -->
+<section class="relative overflow-hidden rounded-lg bg-surface-container-low p-8 md:p-12 mt-4">
+<div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<span class="font-label text-tertiary text-xs font-bold uppercase tracking-[0.2em]">Rotaract District 3192</span>
+<h2 class="font-display text-4xl md:text-5xl font-bold tracking-tighter text-on-surface">Welcome back, Arjun</h2>
+<p class="font-body text-on-surface-variant text-lg max-w-md">You have 2 pending event approvals that require your attention today.</p>
+</div>
+<button class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 flex items-center gap-2 group">
+                    Take Action
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Quick Actions Grid -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-display text-2xl font-bold tracking-tight">Quick Actions</h3>
+<span class="text-xs font-label uppercase tracking-widest text-outline">Frequent Tasks</span>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<a class="group bg-surface-container-lowest hover:bg-surface-container transition-colors p-6 rounded-lg flex flex-col gap-4 active:scale-[0.98]" href="#">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+</div>
+<span class="font-display font-bold text-lg leading-tight">Log Hours</span>
+</a>
+<a class="group bg-surface-container-lowest hover:bg-surface-container transition-colors p-6 rounded-lg flex flex-col gap-4 active:scale-[0.98]" href="#">
+<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+</div>
+<span class="font-display font-bold text-lg leading-tight">Register for Event</span>
+</a>
+<a class="group bg-surface-container-lowest hover:bg-surface-container transition-colors p-6 rounded-lg flex flex-col gap-4 active:scale-[0.98]" href="#">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="contacts">contacts</span>
+</div>
+<span class="font-display font-bold text-lg leading-tight">View Directory</span>
+</a>
+<a class="group bg-surface-container-lowest hover:bg-surface-container transition-colors p-6 rounded-lg flex flex-col gap-4 active:scale-[0.98]" href="#">
+<div class="w-12 h-12 rounded-lg bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-all">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<span class="font-display font-bold text-lg leading-tight">Submit Report</span>
+</a>
+</div>
+</section>
+<!-- Upcoming Events Horizontal Scroll -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-display text-2xl font-bold tracking-tight">Upcoming Events</h3>
+<a class="text-primary font-label text-sm uppercase tracking-widest hover:underline" href="#">View All</a>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar snap-x">
+<!-- Event Card 1 -->
+<div class="min-w-[280px] md:min-w-[340px] snap-start bg-surface-container-low rounded-lg overflow-hidden group">
+<div class="h-40 relative">
+<img alt="District Assembly" class="w-full h-full object-cover" data-alt="Large audience in a professional conference hall with blue ambient stage lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3dfOjAhTlLUkuZ6zTVv8cVAqAaIZemK5u0SeEAb3nveX0ZzDCl07K8hHKYTVhLgAz2kRE5EQXXU1-MDc6ZoHwCHvbL0_XaZRdn7afxFlfLX5OLaToIAHqcsB2wvyjbaKuWqoV-aRjVmoyYWS0OP4f5SOrDWBJWUgxa9JKJc-HF5QRWJ8WthJbIDC0l-kTDj0Uveh0g5qWf5jzPRK1Oe5Yl5NmX-vMqnD_4rGXopGuXPLtdpXIJId8zBRKJRavf7WNGjsgyWp_FPXz"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+</div>
+<div class="p-6 space-y-3">
+<span class="bg-primary-container text-on-primary-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">Oct 24</span>
+<h4 class="font-display text-xl font-bold">District Assembly</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Bangalore International Centre
+                        </p>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="min-w-[280px] md:min-w-[340px] snap-start bg-surface-container-low rounded-lg overflow-hidden group">
+<div class="h-40 relative">
+<img alt="Blood Drive" class="w-full h-full object-cover" data-alt="Modern medical facility with clean aesthetic and blue accents, medical equipment in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxO-bxuFiOzGj5Il0qsEjQtHHft03I6KQAoN7z1whBaKmJO0iUkgkMvD5xjRBpLKodqJ0JexjPlSRNqW19Lj6io86IUkKPDWJ0DCY1PFOcVui2NeY2tE5OwLN1FoAdTJDOk3d1Av01PPWC3g0tnUwLpIMsuYtMeQmeI709D827CBpQ_jqJ1R8wsUY75Uq24ILfAdd4MpBUigIF6DMBJQ8oo-W8khlGKwJo2x0gG95JN41rHMOPzQ5mskCtLxhzRNEyyvWEs2um2RkG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+</div>
+<div class="p-6 space-y-3">
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">Oct 30</span>
+<h4 class="font-display text-xl font-bold">Blood Drive</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Victoria Hospital, City Centre
+                        </p>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="min-w-[280px] md:min-w-[340px] snap-start bg-surface-container-low rounded-lg overflow-hidden group">
+<div class="h-40 relative">
+<img alt="Beach Clean-up" class="w-full h-full object-cover" data-alt="Group of volunteers working together at sunset on a sandy beach, warm atmospheric light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPqIvsZofSxDnDt-eksOb5T4How7628Ox04uEWa3sK_EozhVMxj-ma_L1fhVEyZ9rgmmAcB9tAadQ4Qtt5z-ljMKh7CEh6LwBG6XbBeMLLaoRPCfP4cpU-xdTiCTl1pP8_N57oWCKDMC4glOjgceTosqjFSfOfvL1FW6z-wrgvaUloiax1TE8rTEk6PLOplI1W-UjS5zhcO0q8FPBgEeXjhoImNFBP1Lai122th9ynMN0UO2b6c3zdqhW6WVDvIVxxv79KzZKHvlKE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+</div>
+<div class="p-6 space-y-3">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">Nov 05</span>
+<h4 class="font-display text-xl font-bold">Nature Walk &amp; Clean-up</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Cubbon Park Entrance
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- My Impact Stats Row -->
+<section class="bg-surface-container-lowest rounded-lg p-8">
+<div class="mb-8">
+<h3 class="font-display text-2xl font-bold tracking-tight">My Impact</h3>
+<p class="text-on-surface-variant text-sm">Your contribution to the district this year</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-1 border-l-2 border-primary pl-6">
+<span class="font-display text-4xl font-bold text-on-surface">120</span>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-outline">Hours Logged</span>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-tertiary pl-6">
+<span class="font-display text-4xl font-bold text-on-surface">15</span>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-outline">Events Attended</span>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-secondary pl-6">
+<span class="font-display text-4xl font-bold text-on-surface">₹50k</span>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-outline">Funds Raised</span>
+</div>
+</div>
+</section>
+<!-- Club Updates -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-display text-2xl font-bold tracking-tight">Club Updates</h3>
+<span class="font-body text-sm text-outline">Rotaract Club of Bangalore West</span>
+</div>
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-low rounded-lg flex items-start gap-4 hover:translate-x-1 transition-transform cursor-pointer">
+<div class="bg-primary/20 p-3 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">New Board Nominations Open</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Applications for the upcoming tenure 2024-25 are now open. Interested members please contact the Secretary.</p>
+<span class="text-[10px] font-label text-outline uppercase mt-3 inline-block tracking-widest">2 hours ago</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg flex items-start gap-4 hover:translate-x-1 transition-transform cursor-pointer">
+<div class="bg-tertiary/20 p-3 rounded-full text-tertiary shrink-0">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Weekly Meeting Location Change</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">This week's meeting will be held at the Community Center instead of the usual club house.</p>
+<span class="text-[10px] font-label text-outline uppercase mt-3 inline-block tracking-widest">Yesterday</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-900/70 backdrop-blur-lg flex justify-around items-center px-4 pb-6 pt-3 md:hidden shadow-[0px_-8px_24px_rgba(0,0,0,0.1)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-amber-500 bg-amber-500/10 rounded-xl px-4 py-1 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-[0.05em] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-4 py-1 transition-all hover:text-blue-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="event_upcoming">event_upcoming</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-[0.05em] mt-1">Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-4 py-1 transition-all hover:text-blue-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="Insights">insights</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-[0.05em] mt-1">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-4 py-1 transition-all hover:text-blue-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-[0.05em] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,71 +1,121 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
+
+const TOTAL_FRAMES = 229;
+const FRAME_PATH = (n: number) =>
+  `/frames/ezgif-frame-${String(n).padStart(3, "0")}.jpg`;
 
 export default function WaveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const currentFrameRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+  const loadedCountRef = useRef(0);
+  const isReadyRef = useRef(false);
 
-  useEffect(() => {
+  // Draw a specific frame to canvas, covering the full viewport (object-fit: cover)
+  const drawFrame = useCallback((index: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId: number;
-    let t = 0;
+    const img = imagesRef.current[index];
+    if (!img || !img.complete || img.naturalWidth === 0) return;
+
+    const cw = canvas.width;
+    const ch = canvas.height;
+    const iw = img.naturalWidth;
+    const ih = img.naturalHeight;
+
+    // Object-fit: cover math
+    const scale = Math.max(cw / iw, ch / ih);
+    const sw = iw * scale;
+    const sh = ih * scale;
+    const sx = (cw - sw) / 2;
+    const sy = (ch - sh) / 2;
+
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, sx, sy, sw, sh);
+  }, []);
+
+  // Preload all frames
+  useEffect(() => {
+    const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
+    imagesRef.current = images;
+
+    // Preload first frame immediately for instant display
+    const firstImg = new Image();
+    firstImg.src = FRAME_PATH(1);
+    firstImg.onload = () => {
+      images[0] = firstImg;
+      loadedCountRef.current += 1;
+      drawFrame(0);
+    };
+
+    // Load rest in background
+    for (let i = 2; i <= TOTAL_FRAMES; i++) {
+      const img = new Image();
+      const frameIndex = i - 1;
+      img.src = FRAME_PATH(i);
+      img.onload = () => {
+        images[frameIndex] = img;
+        loadedCountRef.current += 1;
+        if (loadedCountRef.current >= TOTAL_FRAMES) {
+          isReadyRef.current = true;
+        }
+      };
+    }
+  }, [drawFrame]);
+
+  // Resize handler
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    };
-
-    const drawWave = (
-      phase: number,
-      amplitude: number,
-      frequency: number,
-      speed: number,
-      color: string
-    ) => {
-      ctx.beginPath();
-      ctx.moveTo(0, canvas.height);
-      for (let x = 0; x <= canvas.width; x += 2) {
-        const y =
-          canvas.height * 0.55 +
-          Math.sin(x * frequency + t * speed + phase) * amplitude;
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(canvas.width, canvas.height);
-      ctx.lineTo(0, canvas.height);
-      ctx.closePath();
-      ctx.fillStyle = color;
-      ctx.fill();
-    };
-
-    const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Layer 1 — slow, tall
-      drawWave(0, 60, 0.003, 0.3, "rgba(14, 107, 168, 0.18)");
-      // Layer 2 — medium, medium height, phase π
-      drawWave(Math.PI, 35, 0.005, 0.5, "rgba(0, 180, 216, 0.12)");
-      // Layer 3 — fast, shallow, phase π/2
-      drawWave(Math.PI / 2, 18, 0.008, 0.8, "rgba(144, 224, 239, 0.07)");
-
-      t += 0.016;
-      animationId = requestAnimationFrame(render);
+      drawFrame(currentFrameRef.current);
     };
 
     resize();
-    render();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, [drawFrame]);
 
-    const handleResize = () => resize();
-    window.addEventListener("resize", handleResize);
+  // Scroll → frame scrub with RAF throttling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (rafRef.current !== null) return; // already scheduled
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", handleResize);
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+
+        const scrollTop = window.scrollY;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        // Clamp progress to [0, 1]
+        const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+        // Map to frame index
+        const frameIndex = Math.round(progress * (TOTAL_FRAMES - 1));
+
+        if (frameIndex !== currentFrameRef.current) {
+          currentFrameRef.current = frameIndex;
+          drawFrame(frameIndex);
+        }
+      });
     };
-  }, []);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
+  }, [drawFrame]);
 
   return (
     <div
@@ -79,7 +129,14 @@ export default function WaveBackground() {
     >
       <canvas
         ref={canvasRef}
-        style={{ display: "block", width: "100%", height: "100%", willChange: "transform" }}
+        style={{
+          display: "block",
+          width: "100%",
+          height: "100%",
+          willChange: "transform",
+          // Subtle overlay so content stays readable on light theme
+          opacity: 0.35,
+        }}
       />
     </div>
   );

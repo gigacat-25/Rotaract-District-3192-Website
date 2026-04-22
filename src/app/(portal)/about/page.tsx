@@ -2,12 +2,11 @@ import BentoCard from "@/components/BentoCard";
 
 export default function AboutPage() {
   return (
-    <main style={{ background: "var(--color-abyss)" }}>
+    <main >
       {/* HERO SECTION */}
       <section
         className="relative py-32 px-6 overflow-hidden"
         style={{
-          background: "radial-gradient(ellipse at 50% 0%, #0a3560 0%, #020b18 70%)",
           borderBottom: "1px solid var(--border-subtle)",
         }}
       >
@@ -41,7 +40,7 @@ export default function AboutPage() {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="py-32 px-6" style={{ background: "var(--color-abyss)" }}>
+      <section className="py-32 px-6" >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             <BentoCard
@@ -88,7 +87,7 @@ export default function AboutPage() {
       </section>
 
       {/* LEADERSHIP */}
-      <section className="py-32 px-6" style={{ background: "var(--color-deep)" }}>
+      <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <span
@@ -139,7 +138,7 @@ export default function AboutPage() {
       </section>
 
       {/* HISTORY */}
-      <section className="py-32 px-6" style={{ background: "var(--color-abyss)" }}>
+      <section className="py-32 px-6" >
         <div className="max-w-4xl mx-auto text-center">
           <h2
             className="text-5xl font-black tracking-tighter mb-12"

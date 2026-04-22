@@ -1,6 +1,6 @@
 export default function BrandCentrePage() {
   return (
-    <main className="lg:ml-64 p-6 md:p-12 min-h-screen relative overflow-visible bg-surface">
+    <main className="lg:ml-64 p-6 md:p-12 min-h-screen relative overflow-visible ">
       {/* Abstract Background Ornaments */}
       <div className="absolute top-[-5%] right-[-5%] w-[400px] h-[400px] bg-primary-container/10 rounded-full blur-[100px] -z-10"></div>
       <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[120px] -z-10"></div>
@@ -24,7 +24,7 @@ export default function BrandCentrePage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Logo variant: Master */}
-          <div className="bg-surface-container-low/50 rounded-[2.5rem] p-10 border border-white/20 shadow-sm group hover:bg-white transition-all">
+          <div className="-container-low/50 rounded-[2.5rem] p-10 border border-white/20 shadow-sm group hover:bg-white transition-all">
             <div className="aspect-video bg-white rounded-3xl mb-10 flex flex-col items-center justify-center border border-outline/5 transition-transform group-hover:scale-95 duration-500">
                <div className="text-center">
                 <span className="block font-black text-3xl tracking-tighter text-primary font-headline uppercase leading-none">Rotaract</span>
@@ -38,7 +38,7 @@ export default function BrandCentrePage() {
               </div>
               <div className="flex gap-4">
                 <button className="flex-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl shadow-lg hover:-translate-y-1 transition-all">PNG</button>
-                <button className="flex-1 bg-surface-container-high text-primary text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl hover:bg-primary hover:text-white transition-all">SVG</button>
+                <button className="flex-1 -container-high text-primary text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl hover:bg-primary hover:text-white transition-all">SVG</button>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function BrandCentrePage() {
           </div>
 
           {/* Logo variant: Tonal */}
-          <div className="bg-surface-container-low/50 rounded-[2.5rem] p-10 border border-white/20 shadow-sm group hover:bg-white transition-all">
+          <div className="-container-low/50 rounded-[2.5rem] p-10 border border-white/20 shadow-sm group hover:bg-white transition-all">
             <div className="aspect-video bg-secondary-container/5 backdrop-blur-md rounded-3xl mb-10 flex flex-col items-center justify-center border border-secondary-container/10 transition-transform group-hover:scale-95 duration-500">
               <div className="text-center">
                 <span className="block font-black text-3xl tracking-tighter text-secondary font-headline uppercase leading-none">Rotaract</span>
@@ -78,7 +78,7 @@ export default function BrandCentrePage() {
               </div>
               <div className="flex gap-4">
                 <button className="flex-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl shadow-lg hover:-translate-y-1 transition-all">PNG</button>
-                <button className="flex-1 bg-surface-container-high text-primary text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl hover:bg-primary hover:text-white transition-all">SVG</button>
+                <button className="flex-1 -container-high text-primary text-[10px] font-bold uppercase tracking-widest py-4 rounded-2xl hover:bg-primary hover:text-white transition-all">SVG</button>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function BrandCentrePage() {
             Typography GUIDES
           </h3>
           
-          <div className="bg-surface-container-low/50 rounded-[2.5rem] p-10 border border-white/20 space-y-12 shadow-sm">
+          <div className="-container-low/50 rounded-[2.5rem] p-10 border border-white/20 space-y-12 shadow-sm">
             <div className="space-y-4">
               <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest opacity-60">System Font</p>
               <h3 className="text-4xl font-black text-primary tracking-tight uppercase leading-none">Inter Variable</h3>

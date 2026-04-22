@@ -4,7 +4,7 @@ export default function NewsletterPage() {
   const newsletters = newslettersData;
 
   return (
-    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 bg-surface">
+    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 ">
       {/* Background Accents */}
       <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
       <div className="fixed bottom-0 left-64 w-[400px] h-[400px] bg-secondary-container/5 rounded-full blur-[100px] -z-10"></div>
@@ -22,7 +22,7 @@ export default function NewsletterPage() {
           {newsletters.map((nl, index) => (
             <div key={index} className="group flex flex-col gap-6">
               {/* Issue Cover */}
-              <div className="relative bg-surface-container-lowest rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 aspect-[3/4] border border-white/40 group-hover:-translate-y-2">
+              <div className="relative -container-lowest rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 aspect-[3/4] border border-white/40 group-hover:-translate-y-2">
                 <img src={nl.thumbnail_url} alt={nl.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" />
                 
                 {/* Download Overlay */}

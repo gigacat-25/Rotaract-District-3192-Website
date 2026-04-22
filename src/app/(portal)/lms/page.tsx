@@ -9,7 +9,7 @@ export default function LMSPage() {
       <header className="bg-primary text-white pt-32 pb-24 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 /5 rounded-tr-[15rem] blur-2xl"></div>
         </div>
         <div className="container mx-auto max-w-screen-2xl relative z-10 text-center space-y-6">
           <span className="inline-block px-5 py-2 rounded-full bg-white/10 text-white text-[10px] font-black tracking-[0.3em] uppercase font-headline border border-white/10">
@@ -20,7 +20,7 @@ export default function LMSPage() {
         </div>
       </header>
 
-      <section className="py-12 bg-surface px-6 lg:px-12 border-b border-outline-variant/30 sticky top-20 z-30 backdrop-blur-xl bg-surface/80">
+      <section className="py-12 bg-surface px-6 lg:px-12 border-b border-outline-variant/30 sticky top-20 z-30 backdrop-blur-xl /80">
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2">
             <button className="px-8 py-3 rounded-xl bg-primary text-on-primary font-black text-[10px] uppercase tracking-widest shadow-xl transition-all">All Protocols</button>
@@ -31,11 +31,11 @@ export default function LMSPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-surface px-6 lg:px-12 min-h-screen">
+      <section className="py-24 px-6 lg:px-12 min-h-screen">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {courses.map((course: any, idx: number) => (
-              <Link key={idx} href={`/lms/${course.id}`} className="group flex flex-col bg-surface-container-low rounded-[3rem] overflow-hidden border border-outline-variant/30 fluid-shadow hover:bg-surface-container-lowest hover:translate-y-[-8px] transition-all duration-500">
+              <Link key={idx} href={`/lms/${course.id}`} className="group flex flex-col bg-surface-container-low rounded-[3rem] overflow-hidden border border-outline-variant/30 fluid-shadow hover:-container-lowest hover:translate-y-[-8px] transition-all duration-500">
                 <div className="relative aspect-video overflow-hidden">
                   <img src={course.thumbnail_url} alt={course.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
                   {course.is_ri_cert && (

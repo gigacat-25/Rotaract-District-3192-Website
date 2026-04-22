@@ -9,7 +9,7 @@ export default function MentorshipPage() {
   }));
 
   return (
-    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 bg-surface">
+    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 ">
       {/* Background Accents */}
       <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
       <div className="fixed bottom-0 left-64 w-[400px] h-[400px] bg-secondary-container/5 rounded-full blur-[100px] -z-10"></div>
@@ -30,7 +30,7 @@ export default function MentorshipPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {mentors.map((mentor, idx) => (
-            <div key={idx} className="group bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-10 border border-white/40 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-500 flex flex-col lg:flex-row gap-10">
+            <div key={idx} className="group -container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-10 border border-white/40 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-500 flex flex-col lg:flex-row gap-10">
               <div className="shrink-0 flex flex-col items-center lg:items-start gap-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -47,7 +47,7 @@ export default function MentorshipPage() {
 
                 <div className="flex flex-wrap gap-2">
                   {mentor.expertise.map((skill: string, sIdx: number) => (
-                    <span key={sIdx} className="text-[9px] font-bold uppercase tracking-widest bg-surface-container-low text-primary px-3 py-1.5 rounded-lg border border-white/40 shadow-sm">
+                    <span key={sIdx} className="text-[9px] font-bold uppercase tracking-widest -container-low text-primary px-3 py-1.5 rounded-lg border border-white/40 shadow-sm">
                       {skill}
                     </span>
                   ))}

@@ -27,7 +27,7 @@ const categories = [
 
 export default function ResourcesPage() {
   return (
-    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 bg-surface">
+    <main className="lg:ml-64 min-h-screen relative overflow-visible pb-24 ">
       {/* Background Accents */}
       <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
       <div className="fixed bottom-0 left-64 w-[400px] h-[400px] bg-secondary-container/5 rounded-full blur-[100px] -z-10"></div>
@@ -45,7 +45,7 @@ export default function ResourcesPage() {
           
           {/* Sidebar Navigation */}
           <div className="lg:col-span-3 hidden lg:block">
-            <div className="sticky top-12 bg-surface-container-low/50 backdrop-blur-md rounded-[2.5rem] p-8 border border-white/20 shadow-sm">
+            <div className="sticky top-12 -container-low/50 backdrop-blur-md rounded-[2.5rem] p-8 border border-white/20 shadow-sm">
               <h3 className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-6 opacity-60">Categories</h3>
               <ul className="space-y-4">
                 {categories.map((cat, i) => (
@@ -71,7 +71,7 @@ export default function ResourcesPage() {
                 
                 <div className="grid gap-6">
                   {cat.docs.map((doc, dIdx) => (
-                    <div key={dIdx} className="group p-8 bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] border border-white/40 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                    <div key={dIdx} className="group p-8 -container-lowest/70 backdrop-blur-xl rounded-[2.5rem] border border-white/40 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                       <div className="flex items-center gap-6">
                         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-transform group-hover:scale-110
                           ${doc.type === 'PDF' ? 'bg-red-500/10 text-red-600' : 

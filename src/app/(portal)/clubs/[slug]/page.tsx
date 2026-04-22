@@ -54,7 +54,7 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
       </header>
 
       {/* CONTENT */}
-      <section className="py-32 px-6 lg:px-12 bg-surface">
+      <section className="py-32 px-6 lg:px-12 ">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
             
@@ -80,10 +80,10 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {clubEvents.map((event: any, idx: number) => (
-                      <a key={idx} href={`/events/${event.slug}`} className="group bg-surface-container-low rounded-[2.5rem] overflow-hidden fluid-shadow hover:translate-y-[-4px] transition-all duration-500 block">
+                      <a key={idx} href={`/events/${event.slug}`} className="group -container-low rounded-[2.5rem] overflow-hidden fluid-shadow hover:translate-y-[-4px] transition-all duration-500 block">
                         <div className="h-48 overflow-hidden relative">
                           <img src={event.banner_url} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                          <div className="absolute bottom-4 left-6 bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2 rounded-xl">
+                          <div className="absolute bottom-4 left-6 -container-lowest/90 backdrop-blur-md px-4 py-2 rounded-xl">
                             <span className="text-[10px] font-black text-primary uppercase tracking-widest">{new Date(event.start_at).toLocaleDateString()}</span>
                           </div>
                         </div>
@@ -100,7 +100,7 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
 
             {/* Sidebar */}
             <div className="lg:col-span-4 space-y-12">
-              <div className="bg-surface-container-low rounded-[3rem] p-12 space-y-10 fluid-shadow sticky top-32">
+              <div className="-container-low rounded-[3rem] p-12 space-y-10 fluid-shadow sticky top-32">
                 <div className="space-y-2">
                   <h3 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] opacity-40 text-center">Social Radius</h3>
                   <p className="text-3xl font-black text-primary font-headline tracking-tighter text-center">Get Connected</p>
@@ -108,7 +108,7 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
                 
                 <div className="space-y-6">
                   {club.instagram_url && (
-                    <a href={club.instagram_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 bg-surface-container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
+                    <a href={club.instagram_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 -container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
                       <div className="flex items-center gap-4">
                         <span className="material-symbols-outlined text-2xl opacity-40 group-hover:opacity-100">travel_explore</span>
                         <span className="font-black uppercase tracking-widest text-[10px]">Instagram</span>
@@ -118,7 +118,7 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
                   )}
 
                   {club.linkedin_url && (
-                    <a href={club.linkedin_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 bg-surface-container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
+                    <a href={club.linkedin_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 -container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
                       <div className="flex items-center gap-4">
                         <span className="material-symbols-outlined text-2xl opacity-40 group-hover:opacity-100">business_center</span>
                         <span className="font-black uppercase tracking-widest text-[10px]">LinkedIn</span>
@@ -128,7 +128,7 @@ export default function ClubDetailPage({ params }: { params: { slug: string } })
                   )}
                   
                   {club.whatsapp_group_url && (
-                    <a href={club.whatsapp_group_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 bg-surface-container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
+                    <a href={club.whatsapp_group_url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-6 -container-lowest rounded-2xl group transition-all hover:bg-primary hover:text-on-primary">
                       <div className="flex items-center gap-4">
                         <span className="material-symbols-outlined text-2xl opacity-40 group-hover:opacity-100">chat</span>
                         <span className="font-black uppercase tracking-widest text-[10px]">WhatsApp Group</span>

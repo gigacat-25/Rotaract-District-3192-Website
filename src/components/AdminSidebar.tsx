@@ -21,14 +21,14 @@ export default function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-64 fixed inset-y-0 left-0 bg-surface-container-low border-r border-outline/10 z-50 flex flex-col">
+    <aside className="w-64 fixed inset-y-0 left-0 bg-surface-container-low z-50 flex flex-col">
       <div className="p-8 flex items-center gap-3">
-        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg">
+        <div className="w-10 h-10 gradient-brand rounded-xl flex items-center justify-center text-white shadow-lg">
           <span className="material-symbols-outlined">terminal</span>
         </div>
         <div className="flex flex-col">
-          <span className="font-black text-primary leading-none tracking-tight">ADMIN</span>
-          <span className="text-[9px] font-bold text-outline uppercase tracking-widest mt-1">Terminal 3192</span>
+          <span className="font-headline font-black text-on-background leading-none tracking-tight">ADMIN</span>
+          <span className="font-label text-[9px] font-bold text-on-surface-variant uppercase tracking-widest mt-1">Terminal 3192</span>
         </div>
       </div>
 
@@ -39,10 +39,10 @@ export default function AdminSidebar() {
             <Link 
               key={item.href}
               href={item.href} 
-              className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all ${
+              className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-label font-bold text-xs uppercase tracking-widest transition-all ${
                 isActive 
-                  ? 'bg-primary text-white shadow-xl shadow-primary/20' 
-                  : 'text-on-surface-variant hover:text-primary hover:bg-primary/5'
+                  ? 'gradient-brand text-white shadow-xl shadow-primary/20' 
+                  : 'text-on-surface-variant hover:text-primary hover:bg-surface-container-highest'
               }`}
             >
               <span className={`material-symbols-outlined text-xl ${isActive ? '' : 'opacity-60'}`}>
@@ -54,9 +54,9 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      <div className="p-6 border-t border-outline/5 mt-auto">
-        <div className="bg-surface-container-high/50 p-4 rounded-2xl border border-white/40">
-           <p className="text-[8px] font-bold text-on-surface-variant uppercase tracking-widest opacity-60">System Protocol</p>
+      <div className="p-6 mt-auto">
+        <div className="bg-surface-container-lowest p-4 rounded-2xl shadow-ambient">
+           <p className="font-label text-[8px] font-bold text-on-surface-variant uppercase tracking-widest opacity-60">System Protocol</p>
            <div className="flex items-center gap-2 mt-2">
              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
              <p className="text-[10px] font-black text-on-surface uppercase tracking-tight">Active Node</p>

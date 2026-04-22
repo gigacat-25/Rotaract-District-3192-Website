@@ -13,12 +13,12 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
   }
 
   return (
-    <main className="pt-20 min-h-screen bg-surface">
+    <main className="pt-20 min-h-screen ">
       
       <header className="bg-primary text-white pt-24 pb-32 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 /5 rounded-tr-[15rem] blur-2xl"></div>
         </div>
         <div className="max-w-screen-2xl mx-auto relative z-10 space-y-6">
           <Link href="/lms" className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-white/50 hover:text-white transition-all group">
@@ -42,7 +42,7 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
         
         {/* Video Terminal */}
         <div className="xl:w-2/3 space-y-8">
-          <div className="bg-surface-container-lowest rounded-[3.5rem] aspect-video w-full shadow-2xl overflow-hidden border border-outline-variant/30 flex items-center justify-center relative group">
+          <div className="-container-lowest rounded-[3.5rem] aspect-video w-full shadow-2xl overflow-hidden border border-outline-variant/30 flex items-center justify-center relative group">
             <div className="absolute inset-0 aqueous-gradient opacity-5"></div>
             {/* Simulated video player interface */}
             <div className="text-center relative z-10 space-y-6">
@@ -56,14 +56,14 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
             </div>
           </div>
           
-          <div className="bg-surface-container-low rounded-[3rem] p-10 lg:p-12 border border-outline-variant/30 fluid-shadow space-y-6 relative overflow-hidden">
+          <div className="-container-low rounded-[3rem] p-10 lg:p-12 border border-outline-variant/30 fluid-shadow space-y-6 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 aqueous-gradient opacity-5 blur-3xl pointer-events-none"></div>
             <div className="flex items-center justify-between">
               <h2 className="text-3xl font-black text-primary font-headline tracking-tighter uppercase italic">Sync Status</h2>
               <p className="text-[10px] font-black text-primary uppercase tracking-[.4em] opacity-40">33% Calibrated</p>
             </div>
             
-            <div className="w-full bg-surface-container-highest rounded-full h-4 relative overflow-hidden shadow-inner">
+            <div className="w-full -container-highest rounded-full h-4 relative overflow-hidden shadow-inner">
               <div className="absolute inset-y-0 left-0 aqueous-gradient rounded-full transition-all duration-1000" style={{ width: '33%' }}></div>
             </div>
             <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-[.4em] opacity-40 italic">Calibration Profile: 01 / 03 Integration Nodes Synchronized</p>
@@ -72,8 +72,8 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
 
         {/* Manifest Sidebar */}
         <div className="xl:w-1/3">
-          <div className="bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden sticky top-32">
-            <div className="p-10 border-b border-primary/5 bg-surface-container-lowest">
+          <div className="-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow overflow-hidden sticky top-32">
+            <div className="p-10 border-b border-primary/5 -container-lowest">
               <h3 className="text-2xl font-black text-primary font-headline tracking-tighter uppercase flex items-center gap-4 italic leading-none">
                 <span className="material-symbols-outlined text-primary/30">list_alt</span>
                 Protocol Nodes
@@ -83,7 +83,7 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
             <div className="divide-y divide-primary/5 max-h-[600px] overflow-y-auto no-scrollbar">
               {course.lessons.map((lesson: any, idx: number) => (
                 <button key={idx} className={`w-full text-left p-8 transition-all flex items-start gap-6 group
-                  ${idx === 0 ? 'bg-primary/5' : 'hover:bg-surface-container-highest'}
+                  ${idx === 0 ? 'bg-primary/5' : 'hover:-container-highest'}
                 `}>
                   <div className={`shrink-0 w-10 h-10 rounded-2xl border-2 flex items-center justify-center text-xs font-black transition-all
                     ${idx === 0 ? 'border-green-500 bg-green-500 text-white shadow-lg' : 
@@ -105,8 +105,8 @@ export default function CourseDetailPage({ params }: { params: { courseId: strin
             </div>
             
             {course.is_ri_cert && (
-              <div className="p-10 border-t border-primary/5 bg-surface-container-lowest text-center space-y-4">
-                <button disabled className="w-full bg-surface-container-highest text-primary/20 font-black py-5 rounded-2xl uppercase tracking-[0.2em] text-[10px] border border-primary/5 shadow-inner cursor-not-allowed italic">
+              <div className="p-10 border-t border-primary/5 -container-lowest text-center space-y-4">
+                <button disabled className="w-full -container-highest text-primary/20 font-black py-5 rounded-2xl uppercase tracking-[0.2em] text-[10px] border border-primary/5 shadow-inner cursor-not-allowed italic">
                   Initialize Certificate Generation
                 </button>
                 <p className="text-[9px] font-black text-on-surface-variant/30 uppercase tracking-widest italic">Synchronization of all core nodes required for authorization.</p>

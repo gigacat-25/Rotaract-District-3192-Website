@@ -1,0 +1,16 @@
+{
+  "projectId": "11890576069547666570",
+  "name": "projects/11890576069547666570",
+  "title": "Rotaract District Portal",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "DARK",
+    "font": "SPACE_GROTESK",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#003F8A",
+    "headlineFont": "SPACE_GROTESK",
+    "bodyFont": "MANROPE",
+    "labelFont": "MANROPE"
+  },
+  "screens": {}
+}

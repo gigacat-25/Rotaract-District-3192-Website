@@ -13,12 +13,12 @@ export default function MOMDetailPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main className="min-h-screen ">
       {/* MOM HEADER */}
       <header className="bg-primary text-white pt-32 pb-24 relative overflow-hidden px-6 lg:px-12 border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-2/3 h-full aqueous-gradient opacity-20 rounded-bl-[10rem] blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-surface/5 rounded-tr-[15rem] blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 /5 rounded-tr-[15rem] blur-2xl"></div>
         </div>
         
         <div className="max-w-screen-2xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-12 relative z-10">
@@ -64,8 +64,8 @@ export default function MOMDetailPage({ params }: { params: { id: string } }) {
             </div>
 
             {/* The Minutes */}
-            <div className="bg-surface-container-low rounded-[4rem] border border-outline-variant/30 fluid-shadow overflow-hidden">
-              <div className="p-12 lg:p-16 border-b border-primary/5 bg-surface-container-lowest">
+            <div className="-container-low rounded-[4rem] border border-outline-variant/30 fluid-shadow overflow-hidden">
+              <div className="p-12 lg:p-16 border-b border-primary/5 -container-lowest">
                 <h2 className="text-3xl font-black text-primary font-headline tracking-tighter uppercase italic leading-none">Session Chronicles</h2>
               </div>
               <div className="p-12 lg:p-16 space-y-12">
@@ -114,7 +114,7 @@ export default function MOMDetailPage({ params }: { params: { id: string } }) {
 
           {/* Sidebar Tokens */}
           <div className="xl:w-1/3">
-            <div className="bg-surface-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow sticky top-32 overflow-hidden">
+            <div className="-container-low rounded-[3.5rem] border border-outline-variant/30 fluid-shadow sticky top-32 overflow-hidden">
               <div className="p-10 border-b border-primary/5 bg-primary text-white">
                 <h3 className="text-2xl font-black font-headline tracking-tighter uppercase flex items-center gap-4 italic leading-none">
                   <span className="material-symbols-outlined text-white/50 text-3xl">token</span>
@@ -127,7 +127,7 @@ export default function MOMDetailPage({ params }: { params: { id: string } }) {
                   <div key={idx} className={`p-8 rounded-[2.5rem] border transition-all flex flex-col gap-6 relative group overflow-hidden
                     ${item.completed 
                       ? 'bg-surface/50 border-outline-variant/10 opacity-40 grayscale' 
-                      : 'bg-white border-outline-variant/30 hover:bg-surface-container-lowest fluid-shadow'}`}>
+                      : 'bg-white border-outline-variant/30 hover:-container-lowest fluid-shadow'}`}>
                     
                     <div className="flex items-center justify-between relative z-10">
                        <span className={`text-[8px] font-black uppercase tracking-[.4em] px-3 py-1 rounded-full border

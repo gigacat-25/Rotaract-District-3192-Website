@@ -1,181 +1,246 @@
-import MemberSidebar from "@/components/MemberSidebar";
-import membersData from "@/mock/members.json";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Dashboard | District 3192",
+};
 
 export default function DashboardPage() {
-  // Use a mock member for phase 1
-  const user = membersData[0];
-
   return (
-    <div className="min-h-screen bg-surface flex text-on-surface">
-      <MemberSidebar />
-
-      {/* Main Content */}
-      <main className="flex-1 ml-64 p-8 md:p-12 space-y-12 overflow-x-hidden relative">
-        {/* Decorative Blobs */}
-        <div className="absolute -top-40 -right-40 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        <div className="absolute top-20 left-1/3 w-80 h-80 bg-secondary/5 rounded-full blur-[80px] pointer-events-none -z-10"></div>
-
-        <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative z-10">
-          <div className="space-y-2">
-            <h1 className="text-5xl font-black tracking-tight text-on-surface leading-none">Welcome back, {user.name.split(' ')[0]} 👋</h1>
-            <p className="text-lg text-on-surface-variant font-medium max-w-xl italic opacity-60">Explore events and make an impact in your community today.</p>
+    <div className="w-full min-h-screen bg-background font-body text-on-background selection:bg-primary-container selection:text-primary">
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
+        {/* Welcoming Hero */}
+        <section className="relative overflow-hidden rounded-3xl -container-low p-8 md:p-12 mt-4 shadow-xl">
+          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-2">
+              <span className="font-label text-tertiary text-xs font-bold uppercase tracking-[0.2em]">
+                Rotaract District 3192
+              </span>
+              <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter text-on-surface">
+                Welcome back, Arjun
+              </h2>
+              <p className="font-body text-on-surface-variant text-lg max-w-md">
+                You have 2 pending event approvals that require your attention today.
+              </p>
+            </div>
+            <button className="bg-primary hover:bg-primary-fixed-dim text-on-primary font-bold py-3 px-8 rounded-xl transition-all active:scale-95 flex items-center gap-2 group">
+              Take Action
+              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </button>
           </div>
-          <div className="bg-white/40 backdrop-blur-xl border border-white/40 p-6 rounded-[2.5rem] flex items-center gap-6 shadow-2xl">
-            <div className="text-right">
-              <p className="text-3xl font-black text-primary leading-none tracking-tighter">{user.points}</p>
-              <p className="text-[10px] uppercase font-black tracking-[0.2em] text-on-surface-variant mt-2 opacity-40">Total Points</p>
-            </div>
-            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shadow-inner">
-              <span className="material-symbols-outlined text-2xl">analytics</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Activity Snapshot */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-          {[
-            { label: 'Events Attended', val: '12', icon: 'event_available', color: 'from-primary to-blue-600' },
-            { label: 'Projects Led', val: '04', icon: 'stars', color: 'from-secondary to-purple-600' },
-            { label: 'Certificates', val: '06', icon: 'card_membership', color: 'from-tertiary to-orange-600' }
-          ].map((stat, idx) => (
-            <div key={idx} className="bg-surface-container-low/40 backdrop-blur-md p-8 rounded-[2.5rem] flex items-center gap-6 hover:-translate-y-2 transition-all duration-500 border border-white/20 shadow-xl group">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                <span className="material-symbols-outlined text-2xl">{stat.icon}</span>
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant opacity-40 leading-none mb-2">{stat.label}</p>
-                <p className="text-3xl font-black text-on-surface tracking-tighter">{stat.val}</p>
-              </div>
-            </div>
-          ))}
+          {/* Decorative background element */}
+          <div className="absolute -right-16 -top-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
-          {/* Main Scroll Area */}
-          <div className="lg:col-span-8 space-y-16">
-            {/* Featured Events */}
-            <section>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-black text-on-surface uppercase tracking-tight flex items-center gap-4">
-                  <span className="w-2 h-8 bg-primary rounded-full"></span>
-                  Featured Initiatives
-                </h2>
-                <a href="/events" className="text-primary font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 hover:gap-4 transition-all">
-                  Access Archives <span className="material-symbols-outlined text-base">arrow_forward</span>
-                </a>
-              </div>
-              <div className="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x px-4">
-                {[
-                  { title: 'Food for All Drive', date: 'Oct 24, 2024', tag: 'Community', img: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=800' },
-                  { title: 'Lead the Change', date: 'Nov 05, 2024', tag: 'Leadership', img: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800' }
-                ].map((evt, idx) => (
-                  <div key={idx} className="flex-none w-[340px] md:w-[420px] group">
-                    <div className="bg-white rounded-[3rem] overflow-hidden border border-outline/5 shadow-2xl group-hover:-translate-y-4 transition-all duration-700">
-                      <div className="h-64 w-full relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-                        <img src={evt.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={evt.title} />
-                        <span className="absolute top-6 left-6 z-20 px-4 py-1.5 bg-white/20 backdrop-blur-md rounded-full text-[9px] font-black text-white uppercase tracking-widest border border-white/30">{evt.tag}</span>
-                        <div className="absolute bottom-6 left-6 z-20 space-y-1">
-                          <h3 className="text-2xl font-black text-white uppercase tracking-tight leading-none">{evt.title}</h3>
-                          <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 italic">
-                            <span className="material-symbols-outlined text-xs">calendar_today</span> {evt.date}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="p-10">
-                        <p className="text-on-surface-variant text-sm mb-10 line-clamp-2 italic opacity-60 leading-relaxed font-medium">Join us for our flagship district-wide initiative to create lasting community impact.</p>
-                        <button className="w-full py-4 rounded-3xl border border-primary text-primary font-black text-[10px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-xl shadow-primary/5">Analyze Logistics</button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Recommended */}
-            <section>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-black text-on-surface uppercase tracking-tight flex items-center gap-4">
-                  <span className="w-2 h-8 bg-secondary rounded-full"></span>
-                  Recommended Vectors
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                  { title: 'Ocean Clean-up Drive', type: 'Service Project', interest: 'Environment', loc: 'Marina Bay' },
-                  { title: 'Digital Literacy Workshop', type: 'Development', interest: 'Education', loc: 'Hybrid' }
-                ].map((rec, idx) => (
-                  <div key={idx} className="bg-white/50 backdrop-blur-xl p-8 rounded-[3rem] border border-white/40 shadow-xl hover:border-primary transition-all group cursor-pointer">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="px-4 py-1.5 bg-primary/10 text-primary rounded-xl text-[9px] font-black uppercase tracking-widest border border-primary/10">{rec.type}</div>
-                      <span className="material-symbols-outlined text-outline group-hover:text-primary transition-all">bookmark</span>
-                    </div>
-                    <h4 className="font-black text-xl text-on-surface uppercase tracking-tight mb-2 group-hover:text-primary transition-colors">{rec.title}</h4>
-                    <p className="text-xs text-on-surface-variant font-medium opacity-60 mb-8 italic">Optimized for your interest in {rec.interest}.</p>
-                    <div className="flex items-center justify-between pt-6 border-t border-outline/5 mt-auto">
-                      <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest flex items-center gap-2 opacity-40">
-                        <span className="material-symbols-outlined text-sm">location_on</span> {rec.loc}
-                      </span>
-                      <button className="text-primary font-black text-[10px] uppercase tracking-widest hover:tracking-[0.2em] transition-all">Join Node</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+        {/* Quick Actions Grid */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-headline text-2xl font-bold tracking-tight">Quick Actions</h3>
+            <span className="text-xs font-label uppercase tracking-widest text-outline">
+              Frequent Tasks
+            </span>
           </div>
-
-          {/* Sidebar Area */}
-          <div className="lg:col-span-4 space-y-12">
-            <section className="bg-white/40 backdrop-blur-2xl rounded-[3rem] p-10 border border-white/40 shadow-2xl space-y-10 border-outline/5">
-              <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary opacity-60">Upcoming Temporal Sequence</h2>
-              <div className="space-y-6">
-                {[
-                  { day: '28', mon: 'OCT', title: 'District Board Meet', time: '18:30 PM' },
-                  { day: '02', mon: 'NOV', title: 'Food Drive Prep', time: '10:00 AM' },
-                  { day: '15', mon: 'NOV', title: 'Youth Mentorship', time: '14:00 PM' }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-6 items-center group cursor-pointer">
-                    <div className="flex-none w-16 h-16 rounded-3xl bg-white shadow-xl flex flex-col items-center justify-center border border-outline/5 transition-transform group-hover:scale-110 duration-500">
-                      <span className="text-[9px] font-black text-primary leading-none mb-1">{item.mon}</span>
-                      <span className="text-2xl font-black text-on-surface leading-none">{item.day}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-black text-on-surface uppercase tracking-tight group-hover:text-primary transition-colors truncate">{item.title}</h4>
-                      <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest opacity-40 flex items-center gap-2 mt-1">
-                        <span className="material-symbols-outlined text-xs">alarm</span> {item.time}
-                      </p>
-                    </div>
-                    <span className="material-symbols-outlined text-outline opacity-20 group-hover:translate-x-1 group-hover:opacity-100 transition-all">chevron_right</span>
-                  </div>
-                ))}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="#"
+              className="group bg-surface-container-lowest hover:-container transition-colors p-6 rounded-2xl flex flex-col gap-4 active:scale-[0.98] border border-outline-variant/10 shadow-sm"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                <span className="material-symbols-outlined">timer</span>
               </div>
-            </section>
-
-            {/* Quick Actions */}
-            <div className="bg-gradient-to-br from-primary to-secondary rounded-[3.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
-              <div className="relative z-10 space-y-8">
-                <h4 className="font-black text-2xl uppercase tracking-tight italic leading-none">Quick Protocols</h4>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'New Project', icon: 'add_circle' },
-                    { label: 'MOM Access', icon: 'description' },
-                    { label: 'Academic Hub', icon: 'school' },
-                    { label: 'Help Desk', icon: 'support_agent' }
-                  ].map((action, idx) => (
-                    <button key={idx} className="p-6 bg-white/10 backdrop-blur-md rounded-3xl flex flex-col items-center gap-3 hover:bg-white/20 transition-all hover:scale-105 duration-500 border border-white/5">
-                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                        <span className="material-symbols-outlined text-xl">{action.icon}</span>
-                      </div>
-                      <span className="text-[8px] font-black uppercase tracking-[0.2em]">{action.label}</span>
-                    </button>
-                  ))}
-                </div>
+              <span className="font-headline font-bold text-lg leading-tight">Log Hours</span>
+            </Link>
+            <Link
+              href="#"
+              className="group bg-surface-container-lowest hover:-container transition-colors p-6 rounded-2xl flex flex-col gap-4 active:scale-[0.98] border border-outline-variant/10 shadow-sm"
+            >
+              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all">
+                <span className="material-symbols-outlined">event_available</span>
               </div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+              <span className="font-headline font-bold text-lg leading-tight">
+                Register for Event
+              </span>
+            </Link>
+            <Link
+              href="/clubs"
+              className="group bg-surface-container-lowest hover:-container transition-colors p-6 rounded-2xl flex flex-col gap-4 active:scale-[0.98] border border-outline-variant/10 shadow-sm"
+            >
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+                <span className="material-symbols-outlined">contacts</span>
+              </div>
+              <span className="font-headline font-bold text-lg leading-tight">
+                View Directory
+              </span>
+            </Link>
+            <Link
+              href="#"
+              className="group bg-surface-container-lowest hover:-container transition-colors p-6 rounded-2xl flex flex-col gap-4 active:scale-[0.98] border border-outline-variant/10 shadow-sm"
+            >
+              <div className="w-12 h-12 rounded-xl bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-all">
+                <span className="material-symbols-outlined">description</span>
+              </div>
+              <span className="font-headline font-bold text-lg leading-tight">Submit Report</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Upcoming Events Horizontal Scroll */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-headline text-2xl font-bold tracking-tight">Upcoming Events</h3>
+            <Link
+              href="/events"
+              className="text-primary font-label text-sm uppercase tracking-widest hover:underline"
+            >
+              View All
+            </Link>
+          </div>
+          <div className="flex overflow-x-auto gap-6 pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 snap-x hide-scrollbar">
+            {/* Event Card 1 */}
+            <div className="min-w-[280px] md:min-w-[340px] snap-start -container-low rounded-2xl overflow-hidden group border border-outline-variant/10 shadow-md">
+              <div className="h-40 relative">
+                <Image
+                  alt="District Assembly"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3dfOjAhTlLUkuZ6zTVv8cVAqAaIZemK5u0SeEAb3nveX0ZzDCl07K8hHKYTVhLgAz2kRE5EQXXU1-MDc6ZoHwCHvbL0_XaZRdn7afxFlfLX5OLaToIAHqcsB2wvyjbaKuWqoV-aRjVmoyYWS0OP4f5SOrDWBJWUgxa9JKJc-HF5QRWJ8WthJbIDC0l-kTDj0Uveh0g5qWf5jzPRK1Oe5Yl5NmX-vMqnD_4rGXopGuXPLtdpXIJId8zBRKJRavf7WNGjsgyWp_FPXz"
+                  width={400}
+                  height={200}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent opacity-80"></div>
+              </div>
+              <div className="p-6 space-y-3 relative z-10 -mt-8">
+                <span className="bg-primary-container text-on-primary-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">
+                  Oct 24
+                </span>
+                <h4 className="font-headline text-xl font-bold">District Assembly</h4>
+                <p className="text-sm text-on-surface-variant flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm">location_on</span>
+                  Bangalore International Centre
+                </p>
+              </div>
+            </div>
+            {/* Event Card 2 */}
+            <div className="min-w-[280px] md:min-w-[340px] snap-start -container-low rounded-2xl overflow-hidden group border border-outline-variant/10 shadow-md">
+              <div className="h-40 relative">
+                <Image
+                  alt="Blood Drive"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxO-bxuFiOzGj5Il0qsEjQtHHft03I6KQAoN7z1whBaKmJO0iUkgkMvD5xjRBpLKodqJ0JexjPlSRNqW19Lj6io86IUkKPDWJ0DCY1PFOcVui2NeY2tE5OwLN1FoAdTJDOk3d1Av01PPWC3g0tnUwLpIMsuYtMeQmeI709D827CBpQ_jqJ1R8wsUY75Uq24ILfAdd4MpBUigIF6DMBJQ8oo-W8khlGKwJo2x0gG95JN41rHMOPzQ5mskCtLxhzRNEyyvWEs2um2RkG"
+                  width={400}
+                  height={200}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent opacity-80"></div>
+              </div>
+              <div className="p-6 space-y-3 relative z-10 -mt-8">
+                <span className="bg-error-container text-on-error-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">
+                  Oct 30
+                </span>
+                <h4 className="font-headline text-xl font-bold">Blood Drive</h4>
+                <p className="text-sm text-on-surface-variant flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm">location_on</span>
+                  Victoria Hospital, City Centre
+                </p>
+              </div>
+            </div>
+            {/* Event Card 3 */}
+            <div className="min-w-[280px] md:min-w-[340px] snap-start -container-low rounded-2xl overflow-hidden group border border-outline-variant/10 shadow-md">
+              <div className="h-40 relative">
+                <Image
+                  alt="Nature Walk & Clean-up"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPqIvsZofSxDnDt-eksOb5T4How7628Ox04uEWa3sK_EozhVMxj-ma_L1fhVEyZ9rgmmAcB9tAadQ4Qtt5z-ljMKh7CEh6LwBG6XbBeMLLaoRPCfP4cpU-xdTiCTl1pP8_N57oWCKDMC4glOjgceTosqjFSfOfvL1FW6z-wrgvaUloiax1TE8rTEk6PLOplI1W-UjS5zhcO0q8FPBgEeXjhoImNFBP1Lai122th9ynMN0UO2b6c3zdqhW6WVDvIVxxv79KzZKHvlKE"
+                  width={400}
+                  height={200}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent opacity-80"></div>
+              </div>
+              <div className="p-6 space-y-3 relative z-10 -mt-8">
+                <span className="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-1 rounded font-label font-bold uppercase tracking-widest">
+                  Nov 05
+                </span>
+                <h4 className="font-headline text-xl font-bold">Nature Walk & Clean-up</h4>
+                <p className="text-sm text-on-surface-variant flex items-center gap-1">
+                  <span className="material-symbols-outlined text-sm">location_on</span>
+                  Cubbon Park Entrance
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* My Impact Stats Row */}
+        <section className="-container-lowest rounded-3xl p-8 border border-outline-variant/5 shadow-xl">
+          <div className="mb-8 flex justify-between items-end">
+            <div>
+              <h3 className="font-headline text-2xl font-bold tracking-tight text-on-surface">My Impact</h3>
+              <p className="text-on-surface-variant text-sm">Your contribution to the district this year</p>
+            </div>
+            <Link href="/profile" className="text-primary font-bold text-sm hover:underline">
+              Detailed Profile
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col gap-1 border-l-2 border-primary pl-6">
+              <span className="font-headline text-4xl font-bold text-on-surface">120</span>
+              <span className="font-label text-xs uppercase tracking-[0.2em] text-outline">
+                Hours Logged
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 border-l-2 border-tertiary pl-6">
+              <span className="font-headline text-4xl font-bold text-on-surface">15</span>
+              <span className="font-label text-xs uppercase tracking-[0.2em] text-outline">
+                Events Attended
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 border-l-2 border-secondary pl-6">
+              <span className="font-headline text-4xl font-bold text-on-surface">₹50k</span>
+              <span className="font-label text-xs uppercase tracking-[0.2em] text-outline">
+                Funds Raised
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Club Updates */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-headline text-2xl font-bold tracking-tight">Club Updates</h3>
+            <span className="font-body text-sm text-outline">Rotaract Club of Bangalore West</span>
+          </div>
+          <div className="space-y-4">
+            <div className="p-6 bg-surface-container-low hover:-container rounded-2xl flex items-start gap-4 hover:translate-x-1 transition-all cursor-pointer border border-outline-variant/10 shadow-sm">
+              <div className="bg-primary/20 p-3 rounded-full text-primary shrink-0">
+                <span className="material-symbols-outlined">campaign</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-on-surface mb-1">New Board Nominations Open</h4>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  Applications for the upcoming tenure 2024-25 are now open. Interested members please contact the Secretary.
+                </p>
+                <span className="text-[10px] font-label text-outline uppercase mt-3 inline-block tracking-widest">
+                  2 hours ago
+                </span>
+              </div>
+            </div>
+            <div className="p-6 bg-surface-container-low hover:-container rounded-2xl flex items-start gap-4 hover:translate-x-1 transition-all cursor-pointer border border-outline-variant/10 shadow-sm">
+              <div className="bg-tertiary/20 p-3 rounded-full text-tertiary shrink-0">
+                <span className="material-symbols-outlined">volunteer_activism</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-on-surface mb-1">Weekly Meeting Location Change</h4>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  This week&apos;s meeting will be held at the Community Center instead of the usual club house.
+                </p>
+                <span className="text-[10px] font-label text-outline uppercase mt-3 inline-block tracking-widest">
+                  Yesterday
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

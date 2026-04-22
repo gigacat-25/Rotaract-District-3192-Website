@@ -61,7 +61,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
       </header>
 
       {/* CONTENT */}
-      <section className="py-32 px-6 lg:px-12 bg-surface">
+      <section className="py-32 px-6 lg:px-12 ">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
             
@@ -76,7 +76,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
                   <p>{event.description}</p>
                 </div>
                 
-                <div className="bg-surface-container-low p-10 rounded-[2.5rem] flex items-center gap-6 border border-outline-variant/30 max-w-lg">
+                <div className="-container-low p-10 rounded-[2.5rem] flex items-center gap-6 border border-outline-variant/30 max-w-lg">
                   <img src={`https://ui-avatars.com/api/?name=${event.club_name.replace(/ /g, '+')}&background=174174&color=fff`} className="w-16 h-16 rounded-[1.2rem] fluid-shadow" alt={event.club_name} />
                   <div className="space-y-1">
                     <p className="text-[10px] font-black text-primary uppercase tracking-widest opacity-40">Organized By</p>
@@ -88,7 +88,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
 
             {/* Checkout Column */}
             <div className="lg:col-span-4 sticky top-32">
-              <div className="bg-surface-container-low rounded-[3rem] p-12 space-y-10 fluid-shadow border border-outline-variant/30">
+              <div className="-container-low rounded-[3rem] p-12 space-y-10 fluid-shadow border border-outline-variant/30">
                 <div className="space-y-2 text-center">
                   <h3 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] opacity-40">Admission</h3>
                   <p className="text-3xl font-black text-primary font-headline tracking-tighter">Access Tiers</p>
@@ -96,7 +96,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
 
                 <div className="space-y-4">
                   {event.ticket_tiers.map((tier: any, idx: number) => (
-                    <div key={idx} className="p-6 bg-surface-container-lowest rounded-2xl flex justify-between items-center group hover:bg-primary transition-all">
+                    <div key={idx} className="p-6 -container-lowest rounded-2xl flex justify-between items-center group hover:bg-primary transition-all">
                       <div className="space-y-1">
                         <p className="font-black text-primary uppercase tracking-widest text-[11px] group-hover:text-on-primary transition-colors">{tier.name}</p>
                         <p className="text-on-surface-variant text-[10px] font-bold group-hover:text-on-primary/60 transition-colors">{tier.capacity} Open Seats</p>
@@ -115,7 +115,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
                     </button>
                   </Link>
                 ) : (
-                  <button className="w-full bg-surface-container-highest text-on-surface-variant/50 px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] cursor-not-allowed">
+                  <button className="w-full -container-highest text-on-surface-variant/50 px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] cursor-not-allowed">
                     Closed Registration
                   </button>
                 )}

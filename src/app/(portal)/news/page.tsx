@@ -5,7 +5,7 @@ export default function NewsPage() {
   const types = [...new Set(feeds.map((f: any) => f.content_type))];
 
   return (
-    <main className="lg:ml-64 min-h-screen relative overflow-visible bg-surface">
+    <main className="lg:ml-64 min-h-screen relative overflow-visible ">
       {/* Background Accents */}
       <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
       <div className="fixed bottom-0 left-64 w-[400px] h-[400px] bg-secondary-container/5 rounded-full blur-[100px] -z-10"></div>
@@ -22,13 +22,13 @@ export default function NewsPage() {
           <div className="flex items-center gap-3 overflow-x-auto w-full md:w-auto pb-4 md:pb-0 no-scrollbar">
             <button className="px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/20 transition-all whitespace-nowrap">Source: All</button>
             {types.map((type, idx) => (
-              <button key={idx} className="px-6 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-primary font-bold text-xs uppercase tracking-widest transition-all whitespace-nowrap border border-white/10 hover:bg-white">{type}</button>
+              <button key={idx} className="px-6 py-2.5 rounded-xl -container-low text-on-surface-variant hover:text-primary font-bold text-xs uppercase tracking-widest transition-all whitespace-nowrap border border-white/10 hover:bg-white">{type}</button>
             ))}
           </div>
           
           <div className="w-full md:w-auto">
             <div className="relative group">
-              <input type="text" placeholder="Scan signals..." className="w-full md:w-80 pl-12 pr-6 py-3 bg-surface-container-low border-none rounded-2xl text-sm font-bold text-on-surface placeholder:text-outline focus:outline-none focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all shadow-sm" />
+              <input type="text" placeholder="Scan signals..." className="w-full md:w-80 pl-12 pr-6 py-3 -container-low border-none rounded-2xl text-sm font-bold text-on-surface placeholder:text-outline focus:outline-none focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all shadow-sm" />
               <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function NewsPage() {
       <section className="p-8 md:p-12">
         <div className="columns-1 md:columns-2 xl:columns-3 gap-8 space-y-8">
           {feeds.map((post, idx) => (
-            <article key={idx} className="break-inside-avoid bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2rem] overflow-hidden group border border-white/40 shadow-sm hover:shadow-xl hover:bg-white transition-all duration-500">
+            <article key={idx} className="break-inside-avoid -container-lowest/70 backdrop-blur-xl rounded-[2rem] overflow-hidden group border border-white/40 shadow-sm hover:shadow-xl hover:bg-white transition-all duration-500">
               
               {/* Media */}
               {post.media_url && (
@@ -79,7 +79,7 @@ export default function NewsPage() {
                     <span className="material-symbols-outlined text-2xl group-hover/btn:scale-110 transition-transform">favorite</span>
                     <span className="text-[10px] font-bold uppercase tracking-widest">Protocol Like</span>
                   </button>
-                  <button className="w-10 h-10 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm">
+                  <button className="w-10 h-10 rounded-xl -container-low text-on-surface-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm">
                     <span className="material-symbols-outlined text-xl">ios_share</span>
                   </button>
                 </div>
@@ -90,7 +90,7 @@ export default function NewsPage() {
         
         {/* Pagination */}
         <div className="mt-20 text-center pb-24">
-          <button className="px-10 py-4 bg-surface-container-high text-primary rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all shadow-lg shadow-black/5">
+          <button className="px-10 py-4 -container-high text-primary rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all shadow-lg shadow-black/5">
             Expand Signal Horizon
           </button>
         </div>

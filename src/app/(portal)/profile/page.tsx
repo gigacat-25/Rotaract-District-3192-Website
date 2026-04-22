@@ -1,181 +1,212 @@
-import membersData from "@/mock/members.json";
+import React from "react";
+import Image from "next/image";
+
+export const metadata = {
+  title: "My Profile | District 3192",
+};
 
 export default function ProfilePage() {
-  const user = membersData[0];
-
   return (
-    <main className="lg:ml-64 p-6 md:p-12 min-h-screen relative overflow-visible bg-surface">
-      {/* Abstract Background Ornaments */}
-      <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-primary-container/10 rounded-full blur-[100px] -z-10"></div>
-      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[120px] -z-10"></div>
-
-      {/* Profile Hero Section */}
-      <section className="mb-12">
-        <div className="bg-surface-container-lowest/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(2,47,86,0.06)] border border-white/20 flex flex-col md:flex-row items-center gap-10">
-          <div className="relative">
-            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center overflow-hidden p-1 shadow-lg">
-              <div className="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden">
-                <img src={user.profile_pic_url} alt={user.name} className="w-full h-full object-cover" />
-              </div>
-            </div>
-            <div className="absolute bottom-2 right-2 w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center border-4 border-surface-container-lowest">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-            </div>
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <div className="flex flex-col gap-1">
-              <span className="text-primary font-bold uppercase tracking-widest text-xs">Rotaractor Profile</span>
-              <h1 className="text-4xl md:text-5xl font-black tracking-tight text-on-surface">{user.name}</h1>
-              <p className="text-xl text-on-surface-variant font-medium">President & Strategic Planner</p>
-            </div>
-            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
-              <div className="px-4 py-2 bg-surface-container-low rounded-xl flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">apartment</span>
-                <span className="text-sm font-semibold">Rotaract Club of Chennai</span>
-              </div>
-              <div className="px-4 py-2 bg-surface-container-low rounded-xl flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">location_on</span>
-                <span className="text-sm font-semibold">Greater Metro Region</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <button className="px-8 py-3 bg-gradient-to-br from-primary-container to-secondary-container text-white rounded-xl font-bold shadow-xl hover:-translate-y-1 transition-all">
-              Edit Profile
-            </button>
-            <button className="px-8 py-3 bg-white border border-outline/10 text-on-surface rounded-xl font-bold hover:bg-surface-container-low transition-all">
-              Share Portfolio
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Bento Grid Activity Summary */}
-      <section className="mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Large Stats Card */}
-          <div className="md:col-span-2 bg-surface-container-low/50 rounded-[2rem] p-8 flex flex-col justify-between border border-white/20">
-            <div>
-              <h3 className="text-primary font-bold uppercase tracking-widest text-xs mb-4">Community Impact</h3>
-              <div className="text-5xl font-black text-on-surface mb-2">1,240<span className="text-primary-container">+</span></div>
-              <p className="text-on-surface-variant leading-relaxed">Volunteering hours recorded across 14 distinct community projects in this ROTA year.</p>
-            </div>
-            <div className="mt-8 flex gap-4 items-center">
-              <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-                <div className="h-full w-[85%] bg-primary-container rounded-full"></div>
-              </div>
-              <span className="text-xs font-bold text-primary whitespace-nowrap">85% Goal</span>
-            </div>
-          </div>
-          {/* Small Stats Cards */}
-          <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-outline/5 flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all">
-            <div className="w-14 h-14 bg-secondary-container/10 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-secondary-container" style={{ fontVariationSettings: "'FILL' 1" }}>event_available</span>
-            </div>
-            <div className="text-3xl font-black">42</div>
-            <div className="text-on-surface-variant text-sm font-medium">Events Attended</div>
-          </div>
-          <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-outline/5 flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all">
-            <div className="w-14 h-14 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
-            </div>
-            <div className="text-3xl font-black">08</div>
-            <div className="text-on-surface-variant text-sm font-medium">Awards Earned</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Events & Achievements Split */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Participated Events */}
-        <div className="lg:col-span-2">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-on-surface">Recent Participation</h2>
-              <p className="text-on-surface-variant">The latest milestones in your Rotaract journey.</p>
-            </div>
-            <a href="#" className="text-primary font-bold text-sm hover:underline">View Timeline</a>
-          </div>
-          <div className="space-y-6">
-            <div className="flex gap-6 p-6 bg-white rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-all group">
-              <div className="w-24 h-24 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0">
-                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover group-hover:scale-110 transition-all" />
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between items-start">
-                  <span className="px-3 py-1 bg-surface-container-high text-primary-container text-[10px] font-black uppercase rounded-lg">Summit</span>
-                  <span className="text-xs text-on-surface-variant font-medium">Oct 12, 2023</span>
-                </div>
-                <h4 className="text-lg font-bold mt-2">Annual Leadership Conclave</h4>
-                <p className="text-on-surface-variant text-sm line-clamp-1">Strategic workshop on member engagement and growth.</p>
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-secondary-container">stars</span>
-                  <span className="text-xs font-bold">Certificate Issued</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-6 p-6 bg-white rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-all group">
-              <div className="w-24 h-24 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover group-hover:scale-110 transition-all" />
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between items-start">
-                  <span className="px-3 py-1 bg-surface-container-high text-primary-container text-[10px] font-black uppercase rounded-lg">Community</span>
-                  <span className="text-xs text-on-surface-variant font-medium">Sep 28, 2023</span>
-                </div>
-                <h4 className="text-lg font-bold mt-2">Clean Ocean Initiative</h4>
-                <p className="text-on-surface-variant text-sm line-clamp-1">Environmental conservation project involving 200+ volunteers.</p>
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-secondary-container">stars</span>
-                  <span className="text-xs font-bold">12 Service Hours</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="w-full min-h-screen font-body text-on-background selection:bg-primary-container selection:text-primary">
+      <div className="max-w-3xl mx-auto pt-12 pb-32 px-6 space-y-10">
+        
+        {/* Header Title (optional since global navbar exists, but good for context) */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold font-headline tracking-tighter text-slate-100">
+            My Profile
+          </h1>
+          <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-colors active:scale-95 duration-200">
+            <span className="material-symbols-outlined text-primary">settings</span>
+          </button>
         </div>
 
-        {/* Achievements Sidebar */}
-        <div className="bg-surface-container-low/30 border border-white/20 rounded-[2.5rem] p-8">
-          <h2 className="text-2xl font-bold text-on-surface mb-8">Achievements</h2>
-          <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>military_tech</span>
-              </div>
-              <div>
-                <div className="text-sm font-bold">Distinguished Leader</div>
-                <div className="text-xs text-on-surface-variant">Top 5% performers in region</div>
-              </div>
+        {/* Hero Section: The Modern Statesman Entry */}
+        <section className="relative">
+          <div className="flex flex-col gap-6">
+            <div className="w-full aspect-[4/5] sm:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl relative group -container-low">
+              <Image
+                alt="Arjun Mehta"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQra2zvgn6aQemSR3sf_UlP4gxR_snXpuuAvMKn8o23aBogxuEz2CChsT9ojzANzqSHvLGZge19P3L19LITA9vIVTboQYMfvLTB1YMphJqW53xwMcZHUXCX3XN-QcFI_beiFyE2525s-FvH14121Ws7XoN0e7ycuPqDTHxJPvy-4Eh4MMwSOklA5cM7oJd0zo8lQhipO_v5dosqsKJ6Bxn7uXonBcSP54Ch2if5Wo7Tj9Bvrv10AHmgTdoHkATVouDQixdDKxCAqz"
+                width={800}
+                height={600}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>volunteer_activism</span>
-              </div>
-              <div>
-                <div className="text-sm font-bold">Philanthropy Master</div>
-                <div className="text-xs text-on-surface-variant">1000+ service hours milestone</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>groups</span>
-              </div>
-              <div>
-                <div className="text-sm font-bold">Team Anchor</div>
-                <div className="text-xs text-on-surface-variant">Recognized mentor for 10 members</div>
+            <div className="space-y-1">
+              <h2 className="text-4xl font-headline font-bold tracking-tight text-on-surface">
+                Arjun Mehta
+              </h2>
+              <p className="text-primary font-headline font-medium text-lg tracking-wide uppercase">
+                District Rotaract Representative
+              </p>
+              <div className="flex items-center gap-2 text-on-surface-variant">
+                <span className="material-symbols-outlined text-sm">apartment</span>
+                <span className="text-sm font-medium">Rotaract Club of Bangalore West</span>
               </div>
             </div>
           </div>
-          <div className="mt-12 p-6 bg-gradient-to-br from-primary-container to-secondary-container rounded-2xl text-white relative overflow-hidden shadow-lg">
-            <div className="relative z-10">
-              <h4 className="font-bold text-lg mb-2">Unlocked: Elite Status</h4>
-              <p className="text-white/80 text-xs mb-4">You have achieved the highest tier of engagement this quarter.</p>
-              <button className="w-full py-2 bg-white/20 backdrop-blur-md rounded-lg text-xs font-bold hover:bg-white/30 transition-colors">Claim Rewards</button>
+        </section>
+
+        {/* Service Hours: Visual Metric */}
+        <section className="-container-low p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-8">
+          <div className="relative w-48 h-48 flex items-center justify-center shrink-0">
+            {/* Circular Progress Background */}
+            <svg className="w-full h-full -rotate-90">
+              <circle
+                className="text-surface-container-highest"
+                cx="96"
+                cy="96"
+                fill="transparent"
+                r="88"
+                stroke="currentColor"
+                strokeWidth="8"
+              ></circle>
+              <circle
+                className="text-primary transition-all duration-1000 ease-out"
+                cx="96"
+                cy="96"
+                fill="transparent"
+                r="88"
+                stroke="currentColor"
+                strokeDasharray="552.92"
+                strokeDashoffset="110.58" /* (1 - 240/300) * 552.92 */
+                strokeLinecap="round"
+                strokeWidth="8"
+              ></circle>
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <span className="text-4xl font-headline font-bold text-on-surface">240</span>
+              <span className="text-[10px] font-label font-extrabold uppercase tracking-[0.2em] text-on-surface-variant">
+                of 300 Hours
+              </span>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
           </div>
-        </div>
-      </section>
-    </main>
+          <div className="space-y-2 max-w-sm">
+            <h3 className="text-2xl font-headline font-semibold text-on-surface">Service Impact</h3>
+            <p className="text-base text-on-surface-variant">
+              You are in the top 5% of contributors this legislative year. Your dedication has directly impacted 1,200+ lives in the local community.
+            </p>
+          </div>
+        </section>
+
+        {/* Achievements: Horizontal Badges */}
+        <section className="space-y-4">
+          <div className="flex justify-between items-end">
+            <h3 className="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">
+              Achievements
+            </h3>
+            <button className="text-xs font-bold text-primary hover:underline">View All</button>
+          </div>
+          <div className="flex overflow-x-auto gap-4 pb-4 -mx-6 px-6 sm:mx-0 sm:px-0">
+            {/* Badge 1 */}
+            <div className="flex-shrink-0 -container-lowest p-5 rounded-2xl flex flex-col items-center gap-3 w-32 shadow-sm border border-outline-variant/10">
+              <div className="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center">
+                <span
+                  className="material-symbols-outlined text-tertiary"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  rewarded_ads
+                </span>
+              </div>
+              <span className="text-[10px] font-label font-bold text-center leading-tight uppercase tracking-wider text-on-surface">
+                Top Fundraiser
+              </span>
+            </div>
+            {/* Badge 2 */}
+            <div className="flex-shrink-0 -container-lowest p-5 rounded-2xl flex flex-col items-center gap-3 w-32 shadow-sm border border-outline-variant/10">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <span
+                  className="material-symbols-outlined text-primary"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  verified
+                </span>
+              </div>
+              <span className="text-[10px] font-label font-bold text-center leading-tight uppercase tracking-wider text-on-surface">
+                100% Attendance
+              </span>
+            </div>
+            {/* Badge 3 */}
+            <div className="flex-shrink-0 -container-lowest p-5 rounded-2xl flex flex-col items-center gap-3 w-32 shadow-sm border border-outline-variant/10">
+              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                <span
+                  className="material-symbols-outlined text-secondary"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  auto_awesome
+                </span>
+              </div>
+              <span className="text-[10px] font-label font-bold text-center leading-tight uppercase tracking-wider text-on-surface">
+                Legacy Leader
+              </span>
+            </div>
+            {/* Badge 4 */}
+            <div className="flex-shrink-0 -container-lowest p-5 rounded-2xl flex flex-col items-center gap-3 w-32 shadow-sm border border-outline-variant/10">
+              <div className="w-12 h-12 rounded-full bg-on-surface-variant/10 flex items-center justify-center">
+                <span
+                  className="material-symbols-outlined text-on-surface-variant"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  diversity_3
+                </span>
+              </div>
+              <span className="text-[10px] font-label font-bold text-center leading-tight uppercase tracking-wider text-on-surface">
+                Unity Anchor
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Activity Timeline */}
+        <section className="space-y-6">
+          <h3 className="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">
+            Recent Activity
+          </h3>
+          <div className="space-y-2">
+            {/* Activity 1 */}
+            <div className="bg-surface-container-low hover:-container transition-colors cursor-pointer p-5 rounded-2xl flex gap-4 items-center">
+              <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-primary text-xl">gavel</span>
+              </div>
+              <div className="flex-grow">
+                <h4 className="font-headline font-bold text-on-surface">Chaired District Assembly</h4>
+                <p className="text-xs text-on-surface-variant font-medium">May 24, 2024 &bull; Governance</p>
+              </div>
+              <span className="material-symbols-outlined text-on-surface-variant text-lg">
+                chevron_right
+              </span>
+            </div>
+            {/* Activity 2 */}
+            <div className="bg-surface-container-low hover:-container transition-colors cursor-pointer p-5 rounded-2xl flex gap-4 items-center">
+              <div className="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-tertiary text-xl">menu_book</span>
+              </div>
+              <div className="flex-grow">
+                <h4 className="font-headline font-bold text-on-surface">Donated to Literacy Project</h4>
+                <p className="text-xs text-on-surface-variant font-medium">May 18, 2024 &bull; Community</p>
+              </div>
+              <span className="material-symbols-outlined text-on-surface-variant text-lg">
+                chevron_right
+              </span>
+            </div>
+            {/* Activity 3 */}
+            <div className="bg-surface-container-low hover:-container transition-colors cursor-pointer p-5 rounded-2xl flex gap-4 items-center">
+              <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-secondary text-xl">group</span>
+              </div>
+              <div className="flex-grow">
+                <h4 className="font-headline font-bold text-on-surface">Mentored 5 Interactors</h4>
+                <p className="text-xs text-on-surface-variant font-medium">May 12, 2024 &bull; Youth Service</p>
+              </div>
+              <span className="material-symbols-outlined text-on-surface-variant text-lg">
+                chevron_right
+              </span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
   );
 }

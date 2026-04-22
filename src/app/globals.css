@@ -1,54 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #003366;
+  --color-primary-container: #002244;
+  --color-secondary: #546E7A;
+  --color-secondary-container: #37474F;
+  --color-tertiary: #894600;
+  --color-error: #B00020;
+  --color-surface: #F8F9FA;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F1F3F5;
+  --color-surface-container: #E9ECEF;
+  --color-surface-container-high: #DEE2E6;
+  --color-on-background: #212529;
+  --color-on-surface: #212529;
+  --color-on-surface-variant: #495057;
+  --color-outline-variant: #CED4DA;
+
+  --font-inter: 'Space Grotesk', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-label: 'Manrope', sans-serif;
+}
+
 /* ============================================================
-   AQUEOUS CIVIC: WATER EDITION — CORE COLOR SYSTEM
+   THE MODERN STATESMAN — CORE COLOR SYSTEM
    ============================================================ */
 :root {
-  /* Core Water Palette */
-  --color-abyss:        #020b18;   /* deep ocean — page background */
-  --color-deep:         #051e38;   /* dark navy — card/surface base */
-  --color-mid:          #0a3560;   /* mid ocean — elevated surfaces */
-  --color-current:      #0e6ba8;   /* active current — primary interactive */
-  --color-reef:         #00b4d8;   /* reef blue — links, icons, highlights */
-  --color-foam:         #90e0ef;   /* sea foam — secondary text, subtle UI */
-  --color-crest:        #caf0f8;   /* wave crest — primary text */
-  --color-white:        #ffffff;
+  --color-background: #F8F9FA;
+  --color-surface: #F8F9FA;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F1F3F5;
+  --color-surface-container: #E9ECEF;
+  --color-surface-container-high: #DEE2E6;
 
-  /* Accent */
-  --color-gold:         #f0a500;   /* Rotaract gold — CTAs, badges, highlights */
-  --color-gold-dim:     #7a5200;   /* muted gold — hover states */
+  --color-primary: #003366;
+  --color-primary-container: #002244;
+  --color-secondary: #546E7A;
+  --color-secondary-container: #37474F;
+  --color-tertiary: #894600;
+  --color-error: #B00020;
 
-  /* Semantic */
-  --bg-page:            var(--color-abyss);
-  --bg-surface:         var(--color-deep);
-  --bg-elevated:        var(--color-mid);
-  --text-primary:       var(--color-crest);
-  --text-secondary:     var(--color-foam);
-  --text-muted:         #4a7fa5;
-  --border-subtle:      rgba(14, 107, 168, 0.25);
-  --accent-primary:     var(--color-reef);
-  --accent-cta:         var(--color-gold);
+  --color-on-background: #212529;
+  --color-on-surface: #212529;
+  --color-on-surface-variant: #495057;
+  --color-outline-variant: #CED4DA;
 
-  /* Legacy CSS vars re-mapped to water palette */
-  --color-primary:      var(--color-current);
-  --color-secondary:    var(--color-reef);
-  --color-tertiary:     var(--color-foam);
-  --color-surface:      var(--color-abyss);
-  --color-on-surface:   var(--color-crest);
-  --color-surface-container-low:     var(--color-deep);
-  --color-surface-container-lowest:  var(--color-deep);
-  --color-surface-container-high:    var(--color-mid);
-  --color-on-surface-variant:        var(--color-foam);
-  --color-primary-container:         var(--color-mid);
-  --color-secondary-container:       #073a5e;
-  --color-outline-variant:           var(--border-subtle);
+  /* Aliases for ease of use in Tailwind */
+  --bg-page: var(--color-background);
+  --bg-surface: var(--color-surface);
+  --text-primary: var(--color-on-background);
+  --text-secondary: var(--color-on-surface-variant);
+  --border-subtle: var(--color-outline-variant);
 }
 
 /* ============================================================
    HTML / BODY BASELINE
    ============================================================ */
-html, body {
+html,
+body {
   background-color: var(--bg-page);
   color: var(--text-primary);
 }
@@ -61,7 +73,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   color: var(--text-primary);
@@ -72,6 +89,7 @@ a {
   color: var(--color-reef);
   transition: color 0.2s ease;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -79,18 +97,42 @@ a:hover {
 /* ============================================================
    SCROLLBAR
    ============================================================ */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-abyss); }
-::-webkit-scrollbar-thumb { background: var(--color-current); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-reef); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-abyss);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-current);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-reef);
+}
 
 /* ============================================================
    RIPPLE ANIMATION
    ============================================================ */
 @keyframes ripple-expand {
-  0%   { width: 0; height: 0; opacity: 0.4; transform: translate(-50%, -50%) scale(0); }
-  100% { width: 200px; height: 200px; opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
+
 .ripple {
   position: fixed;
   border-radius: 50%;
@@ -104,11 +146,9 @@ a:hover {
    CARD SYSTEM
    ============================================================ */
 .card {
-  background: linear-gradient(
-    135deg,
-    rgba(5, 30, 56, 0.85) 0%,
-    rgba(10, 53, 96, 0.65) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(5, 30, 56, 0.85) 0%,
+      rgba(10, 53, 96, 0.65) 100%);
   border: 1px solid rgba(14, 107, 168, 0.3);
   border-radius: 16px;
   backdrop-filter: blur(12px);
@@ -117,6 +157,7 @@ a:hover {
     0 0 0 1px rgba(0, 180, 216, 0.08) inset;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
 .card:hover {
   box-shadow:
     0 8px 40px rgba(0, 180, 216, 0.2),
@@ -141,6 +182,7 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
 }
+
 .btn-primary:hover {
   box-shadow: 0 6px 24px rgba(240, 165, 0, 0.55);
   transform: translateY(-1px);
@@ -160,6 +202,7 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
 }
+
 .btn-secondary:hover {
   background: rgba(0, 180, 216, 0.12);
   text-decoration: none;
@@ -169,45 +212,105 @@ a:hover {
 /* ============================================================
    INPUT FIELDS
    ============================================================ */
-input, textarea, select {
+input,
+textarea,
+select {
   background: rgba(10, 53, 96, 0.5) !important;
   border: 1px solid var(--color-current) !important;
   color: var(--text-primary) !important;
   border-radius: 8px;
   transition: box-shadow 0.2s ease;
 }
-input:focus, textarea:focus, select:focus {
+
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.4) !important;
 }
-input::placeholder, textarea::placeholder {
+
+input::placeholder,
+textarea::placeholder {
   color: var(--text-muted) !important;
 }
 
 /* ============================================================
    TABLE STYLES
    ============================================================ */
-table { width: 100%; border-collapse: collapse; }
-thead tr { background: rgba(14, 107, 168, 0.2); }
-tbody tr:nth-child(odd)  { background: rgba(10, 53, 96, 0.3); }
-tbody tr:nth-child(even) { background: rgba(5, 30, 56, 0.5); }
-th, td { padding: 0.75rem 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: rgba(14, 107, 168, 0.2);
+}
+
+tbody tr:nth-child(odd) {
+  background: rgba(10, 53, 96, 0.3);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(5, 30, 56, 0.5);
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+}
 
 /* ============================================================
    BADGES / TAGS
    ============================================================ */
-.badge-info    { background: rgba(0, 180, 216, 0.15); color: var(--color-reef); border-radius: 999px; padding: 0.2rem 0.75rem; font-size: 0.75rem; font-weight: 700; }
-.badge-primary { background: rgba(240, 165, 0, 0.2); color: var(--color-gold); border-radius: 999px; padding: 0.2rem 0.75rem; font-size: 0.75rem; font-weight: 700; }
-.badge-error   { background: rgba(200, 50, 50, 0.2); color: #f87171; border-radius: 999px; padding: 0.2rem 0.75rem; font-size: 0.75rem; font-weight: 700; }
+.badge-info {
+  background: rgba(0, 180, 216, 0.15);
+  color: var(--color-reef);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-primary {
+  background: rgba(240, 165, 0, 0.2);
+  color: var(--color-gold);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-error {
+  background: rgba(200, 50, 50, 0.2);
+  color: #f87171;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
 
 /* ============================================================
    FLOATING HERO PARTICLES
    ============================================================ */
 @keyframes float {
-  0%   { transform: translateY(0) scale(1);   opacity: 0.2; }
-  50%  { transform: translateY(-40px) scale(1.1); opacity: 0.3; }
-  100% { transform: translateY(0) scale(1);   opacity: 0.15; }
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translateY(-40px) scale(1.1);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
 }
+
 .float-particle {
   position: absolute;
   border-radius: 50%;
@@ -234,35 +337,33 @@ th, td { padding: 0.75rem 1rem; color: var(--text-primary); border-bottom: 1px s
   background: rgba(2, 11, 24, 0.95) !important;
 }
 
-/* ============================================================
-   UTILITIES / OVERRIDES — Kill all light-mode remnants
-   ============================================================ */
-.bg-surface               { background-color: var(--color-abyss) !important; }
-.bg-surface-container-low { background-color: var(--color-deep) !important; }
-.bg-surface-container-lowest { background-color: var(--color-deep) !important; }
-.bg-surface-container-high { background-color: var(--color-mid) !important; }
-.text-on-surface          { color: var(--color-crest) !important; }
-.text-on-surface-variant  { color: var(--color-foam) !important; }
-.text-primary             { color: var(--color-current) !important; }
-.text-secondary           { color: var(--color-reef) !important; }
-.text-tertiary            { color: var(--color-foam) !important; }
-.border-outline-variant   { border-color: var(--border-subtle) !important; }
-
 /* No-scrollbar utility */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Legacy gradient-related classes */
-.aqueous-gradient {
-  background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-mid) 100%);
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* The Modern Statesman specific utilities */
 .glass-nav {
-  background: rgba(2, 11, 24, 0.8);
+  background: rgba(4, 19, 41, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
-.fluid-shadow {
-  box-shadow: 0 32px 48px -12px rgba(0, 180, 216, 0.08);
+
+.shadow-ambient {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, #003f8a 0%, #0c448f 100%);
+}
+
+.scale-98-active:active {
+  transform: scale(0.98);
 }
 
 /* Fade in up utility */
@@ -271,11 +372,30 @@ th, td { padding: 0.75rem 1rem; color: var(--text-primary); border-bottom: 1px s
   opacity: 0;
   transform: translateY(20px);
 }
+
 @keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.no-line-section { border: none !important; }
+
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.no-line-section {
+  border: none !important;
+}

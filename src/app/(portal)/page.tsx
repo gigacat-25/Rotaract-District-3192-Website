@@ -1,361 +1,247 @@
-import EventCard from "@/components/EventCard";
-import BentoCard from "@/components/BentoCard";
-import ScrollReveal from "@/components/ScrollReveal";
-import { EtherealShadow } from "@/components/ui/etheral-shadow";
+"use client";
 
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import eventsData from "@/mock/events.json";
 import clubsData from "@/mock/clubs.json";
 
-export default function HomePage() {
-  const upcomingEvents = eventsData
-    .filter((e: any) => e.status === "published")
-    .slice(0, 3);
+gsap.registerPlugin(ScrollTrigger);
 
+export default function HomePage() {
   const stats = {
     clubsCount: clubsData.filter((c: any) => c.status === "active").length,
     membersCount: 4500,
     eventsYear: 184,
   };
 
+  const containerRef = useRef(null);
+  const statsRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+
+  useEffect(() => {
+    // Stat counting animation
+    const ctx = gsap.context(() => {
+      const statsElements = document.querySelectorAll(".stat-number");
+      statsElements.forEach((el) => {
+        const target = parseInt(el.getAttribute("data-target") || "0");
+        gsap.to(el, {
+          innerText: target,
+          duration: 2,
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+          },
+        });
+      });
+    }, statsRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <main>
-      {/* ── HERO SECTION ──────────────────────────────────── */}
-      <section className="relative w-full min-h-screen overflow-hidden" style={{ background: "#020b18" }}>
-
-        {/* Bottom layer — deep abyss shadow */}
-        <div className="absolute inset-0 z-0">
-          <EtherealShadow
-            color="rgba(0, 40, 100, 1)"
-            animation={{ scale: 60, speed: 40 }}
-            noise={{ opacity: 0.3, scale: 1.6 }}
-            sizing="fill"
-            style={{ width: "100%", height: "100%" }}
-          />
+    <main ref={containerRef} className="pt-20 overflow-hidden ">
+      {/* Hero Section */}
+      <motion.section 
+        style={{ opacity: heroOpacity, scale: heroScale }}
+        className="relative px-6 py-24 flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto min-h-[80vh] items-center"
+      >
+        <div className="z-10 flex flex-col gap-8 flex-1">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="text-tertiary font-bold tracking-[0.3em] uppercase text-sm mb-4 block">District 3192</span>
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-on-surface font-display">
+              LEAD THE <br />
+              <span className="text-primary italic">MOVEMENT.</span>
+            </h1>
+          </motion.div>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-xl md:text-2xl text-on-surface-variant font-medium leading-tight max-w-[90%]"
+          >
+            Empowering the next generation of global citizens through action, leadership, and unwavering service.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <button className="bg-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 group transition-all hover:bg-primary/90 shadow-xl shadow-primary/20">
+              Start Your Journey
+              <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </button>
+          </motion.div>
         </div>
-
-        {/* Top layer — active reef current, mix-blend for depth */}
-        <div className="absolute inset-0 z-[1] pointer-events-none" style={{ mixBlendMode: "screen", opacity: 0.6 }}>
-          <EtherealShadow
-            color="rgba(0, 180, 216, 1)"
-            animation={{ scale: 100, speed: 85 }}
-            noise={{ opacity: 0.5, scale: 1.2 }}
-            sizing="fill"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-
-        {/* Ocean depth tint overlay */}
-        <div
-          className="absolute inset-0 z-[2] pointer-events-none"
-          style={{
-            background: `
-              radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,80,160,0.35) 0%, transparent 70%),
-              radial-gradient(ellipse 60% 80% at 20% 80%, rgba(0,140,210,0.2) 0%, transparent 60%),
-              radial-gradient(ellipse 50% 50% at 80% 20%, rgba(0,60,120,0.25) 0%, transparent 60%),
-              linear-gradient(to bottom, rgba(2,11,24,0.55) 0%, rgba(2,11,24,0.15) 50%, rgba(2,11,24,0.8) 100%)
-            `
-          }}
-        />
-
-        {/* Hero content */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6 pb-28">
-
-          {/* Badge */}
-          <span
-            className="inline-block mb-6 text-[11px] tracking-[0.18em] uppercase px-5 py-1.5 rounded-full backdrop-blur-sm"
-            style={{
-              border: "1px solid rgba(0,180,216,0.45)",
-              background: "rgba(0,180,216,0.1)",
-              color: "#90e0ef",
-            }}
+        
+        {/* Dynamic Image Collage */}
+        <div className="relative flex-1 w-full h-[500px] md:h-[600px]">
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.1, rotate: 2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1.2, ease: "circOut" }}
+            className="absolute top-0 right-0 w-4/5 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl z-0"
           >
-            Rotaract District 3192 · Exuberant
-          </span>
-
-          {/* Headline */}
-          <h1
-            className="font-extrabold leading-[1.08] mb-5 max-w-3xl"
-            style={{
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              background: "linear-gradient(135deg, #caf0f8 0%, #00b4d8 45%, #90e0ef 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
+            <img 
+              alt="Community action" 
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1000"
+            />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 50, y: 50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: "backOut" }}
+            className="absolute -bottom-10 left-0 w-3/5 aspect-video rounded-3xl overflow-hidden shadow-3xl z-10 border-8 border-surface"
           >
-            Harnessing the Power<br />of Youth Leadership
-          </h1>
-
-          {/* Subheadline */}
-          <p
-            className="text-lg md:text-xl mb-10 max-w-xl leading-relaxed"
-            style={{ color: "#90e0ef", opacity: 0.85 }}
+            <img 
+              alt="Leadership" 
+              className="w-full h-full object-cover" 
+              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800"
+            />
+          </motion.div>
+          
+          {/* Floating Element */}
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 -left-10 -container-high p-6 rounded-2xl shadow-xl z-20 backdrop-blur-md border border-outline-variant/30 hidden md:block"
           >
-            A unified portal for members, clubs, and the district —
-            built for connection, service, and impact.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-3 justify-center mb-16">
-            <a
-              href="/clubs"
-              className="font-bold px-8 py-3 rounded-lg text-[#020b18] text-sm transition-all duration-200 hover:-translate-y-0.5"
-              style={{
-                background: "linear-gradient(135deg, #f0a500, #c97d00)",
-                boxShadow: "0 4px 20px rgba(240,165,0,0.35)",
-              }}
-            >
-              Explore Clubs
-            </a>
-            <a
-              href="/events"
-              className="font-semibold px-8 py-3 rounded-lg text-[#00b4d8] text-sm border border-[rgba(0,180,216,0.55)] hover:bg-[rgba(0,180,216,0.1)] transition-all duration-200"
-            >
-              Upcoming Events
-            </a>
-          </div>
-
-          {/* Glass search bar */}
-          <div
-            className="max-w-2xl w-full mx-auto p-3 rounded-2xl"
-            style={{
-              background: "rgba(10, 53, 96, 0.45)",
-              border: "1px solid rgba(14, 107, 168, 0.4)",
-              backdropFilter: "blur(14px)",
-            }}
-          >
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="flex-1 relative">
-                <span
-                  className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-xl"
-                  style={{ color: "var(--color-reef)" }}
-                >
-                  search
-                </span>
-                <input
-                  type="text"
-                  placeholder="Search clubs or events..."
-                  className="w-full pl-12 pr-4 py-3 text-sm"
-                  style={{ background: "transparent", border: "none", boxShadow: "none" }}
-                />
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-tertiary/20 rounded-full flex items-center justify-center text-tertiary">
+                <span className="material-symbols-outlined">volunteer_activism</span>
               </div>
-              <button
-                className="btn-primary whitespace-nowrap"
-                style={{ padding: "0.65rem 1.5rem", borderRadius: "10px" }}
-              >
-                Find My Club
-              </button>
+              <div>
+                <p className="text-sm font-bold text-on-surface">Live Impact</p>
+                <p className="text-xs text-on-surface-variant">Active across 45+ cities</p>
+              </div>
             </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Impact Metric Bar - Dynamic Counting */}
+      <section ref={statsRef} className="px-6 py-12 relative z-20 max-w-7xl mx-auto">
+        <div className="-container-highest rounded-3xl p-12 flex justify-around items-center gap-8 shadow-inner border border-outline-variant/20 flex-wrap">
+          <div className="flex flex-col items-center group">
+            <span className="text-6xl font-black text-primary font-display stat-number" data-target={stats.clubsCount}>0</span>
+            <span className="text-xs font-bold tracking-[0.4em] text-on-surface-variant uppercase mt-2 group-hover:text-primary transition-colors">Clubs Active</span>
+          </div>
+          <div className="w-px h-20 bg-outline-variant/30 hidden md:block"></div>
+          <div className="flex flex-col items-center group">
+            <span className="text-6xl font-black text-tertiary font-display stat-number" data-target={stats.membersCount}>0</span>
+            <span className="text-xs font-bold tracking-[0.4em] text-on-surface-variant uppercase mt-2 group-hover:text-tertiary transition-colors">Volunteers</span>
+          </div>
+          <div className="w-px h-20 bg-outline-variant/30 hidden md:block"></div>
+          <div className="flex flex-col items-center group">
+            <span className="text-6xl font-black text-on-surface font-display stat-number" data-target={stats.eventsYear}>0</span>
+            <span className="text-xs font-bold tracking-[0.4em] text-on-surface-variant uppercase mt-2 group-hover:text-primary transition-colors">Impact Projects</span>
           </div>
         </div>
+      </section>
 
-        {/* Stats bar pinned to bottom of hero */}
-        <div
-          className="absolute bottom-0 left-0 right-0 z-10 flex justify-center flex-wrap gap-10 px-6 py-5 border-t border-[rgba(14,107,168,0.25)]"
-          style={{ background: "rgba(2,11,24,0.65)", backdropFilter: "blur(16px)" }}
-        >
+      {/* Core Pillars - Dynamic Grid */}
+      <section className="px-6 py-32 flex flex-col gap-16 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-4 text-center items-center">
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">Our Blueprint</span>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter font-display max-w-3xl">Strategic Pillars of Change.</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { num: stats.clubsCount.toString(), label: "Active Clubs" },
-            { num: "4,500+",                    label: "Members" },
-            { num: "1,200+",                    label: "Projects this year" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-2xl font-bold" style={{ color: "var(--color-reef)" }}>{s.num}</div>
-              <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "var(--text-muted)" }}>{s.label}</div>
-            </div>
+            { 
+              title: "Literacy First", 
+              desc: "Deploying innovative learning solutions to marginalized communities.", 
+              icon: "menu_book", 
+              color: "bg-primary",
+              delay: 0.1 
+            },
+            { 
+              title: "Eco Resilience", 
+              desc: "Building a sustainable future through radical environmental action.", 
+              icon: "forest", 
+              color: "bg-tertiary",
+              delay: 0.2
+            },
+            { 
+              title: "Leader Lab", 
+              desc: "Nurturing professional excellence through mentorship and workshops.", 
+              icon: "workspace_premium", 
+              color: "bg-secondary",
+              delay: 0.3
+            }
+          ].map((pillar, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: pillar.delay }}
+              viewport={{ once: true }}
+              className="group bg-surface-container-low p-10 rounded-[2.5rem] flex flex-col gap-8 transition-all hover:-container-high hover:shadow-2xl hover:shadow-primary/5"
+            >
+              <div className={`w-20 h-20 rounded-3xl ${pillar.color}/10 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6`}>
+                <span className={`material-symbols-outlined ${pillar.color.replace('bg-', 'text-')} text-4xl`}>{pillar.icon}</span>
+              </div>
+              <div className="flex flex-col gap-4">
+                <h3 className="text-3xl font-bold font-display">{pillar.title}</h3>
+                <p className="text-lg text-on-surface-variant leading-relaxed">{pillar.desc}</p>
+              </div>
+              <motion.button 
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-3 text-primary font-bold mt-auto group/btn"
+              >
+                Deep Dive <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+              </motion.button>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ── INNOVATION BENTO ──────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "var(--color-abyss)" }}>
-        <ScrollReveal className="max-w-7xl mx-auto" animation="slide-up">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-            <div className="max-w-2xl">
-              <span
-                className="text-xs font-black uppercase tracking-widest mb-4 block"
-                style={{ color: "var(--color-reef)" }}
-              >
-                Our Core Pillars
-              </span>
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter" style={{ color: "var(--color-crest)" }}>
-                Innovation in <br /> Digital Service
-              </h2>
-            </div>
-            <p
-              className="font-medium md:max-w-xs mt-6 md:mt-0"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Pioneering the next generation of youth leadership through
-              tech-driven community engagement.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <BentoCard
-              title="Institutional Growth"
-              description="Scalable tools designed to help every club reach their maximum potential through digital efficiency."
-              icon="query_stats"
-              type="primary"
-            />
-            <BentoCard
-              title="Strategic Impact"
-              description="Measuring our district's success with data-driven insights and transparent reporting systems."
-              icon="vitals"
-              type="secondary"
-              translateY={true}
-            />
-            <BentoCard
-              title="Unified Governance"
-              description="Seamless communication and coordination across 142+ clubs through one central authority."
-              icon="hub"
-              type="tertiary"
-            />
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* ── DISTRICT IMPACT STATS ─────────────────────────── */}
-      <section
-        className="py-24 px-6 relative overflow-hidden"
-        style={{ background: "var(--color-deep)" }}
-      >
-        <div
-          className="absolute top-0 right-0 w-1/3 h-full pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to left, rgba(0, 180, 216, 0.05), transparent)",
-          }}
-        />
-        <ScrollReveal
-          className="max-w-7xl mx-auto relative z-10"
-          delay={0.2}
-          animation="fade"
+      {/* Dynamic CTA */}
+      <section className="px-6 pb-32 max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-primary text-on-primary rounded-[3rem] p-16 overflow-hidden relative"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { label: "Total Membership", value: "4,500+", color: "var(--color-reef)" },
-              { label: "Active Chapters", value: stats.clubsCount, color: "var(--color-gold)" },
-              { label: "Annual Projects", value: "1,200+", color: "var(--color-foam)" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center md:text-left group cursor-default">
-                <p
-                  className="text-[10px] font-black uppercase tracking-[0.3em] mb-4 transition-colors duration-500"
-                  style={{ color: stat.color }}
-                >
-                  {stat.label}
-                </p>
-                <div
-                  className="text-7xl md:text-8xl font-black tracking-tighter mb-4 group-hover:scale-105 transition-transform origin-left duration-500"
-                  style={{ color: stat.color, fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  {stat.value}
-                </div>
-                <p className="font-medium leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  {i === 0 && "Dedicated young professionals across the district unified for service excellence."}
-                  {i === 1 && "Vibrant clubs operating in universities and communities across South India."}
-                  {i === 2 && "Sustainable impact projects addressing critical community needs and global issues."}
-                </p>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* ── UPCOMING EVENTS ───────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "var(--color-abyss)" }}>
-        <ScrollReveal className="max-w-7xl mx-auto" animation="slide-left">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-            <h2
-              className="text-5xl font-black tracking-tighter"
-              style={{ color: "var(--color-crest)" }}
-            >
-              Upcoming Events
-            </h2>
-            <a
-              href="/events"
-              className="btn-secondary flex items-center gap-2"
-              style={{ borderRadius: "10px" }}
-            >
-              View Calendar
-              <span className="material-symbols-outlined">calendar_month</span>
-            </a>
-          </div>
-
-          <div
-            className="flex gap-6 overflow-x-auto pb-12 snap-x no-scrollbar"
-            style={{
-              WebkitMaskImage: "linear-gradient(to right, black 90%, transparent 100%)",
-              maskImage: "linear-gradient(to right, black 90%, transparent 100%)",
-            }}
-          >
-            {upcomingEvents.map((event: any, idx: number) => (
-              <EventCard
-                key={idx}
-                title={event.title}
-                date={new Date(event.start_at).toLocaleDateString("en-US", {
-                  day: "2-digit",
-                  month: "short",
-                })}
-                description={event.description}
-                image={event.banner_url}
-                slug={event.slug}
-                badge={event.is_free ? "Free Entry" : "Ticketed Event"}
-                statusBadge={event.status.toUpperCase()}
+          <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-center justify-between">
+            <div className="flex flex-col gap-6 max-w-xl">
+              <h2 className="text-5xl md:text-7xl font-black leading-[1.1] font-display">THE FUTURE <br /> NEEDS YOU.</h2>
+              <p className="text-xl text-on-primary/70">Join 4,500+ young leaders making a real difference in the world. No borders, just impact.</p>
+            </div>
+            <div className="flex flex-col w-full lg:w-auto min-w-[350px] gap-4">
+              <input 
+                className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 text-white placeholder:text-white/40 focus:bg-white/20 outline-none transition-all" 
+                placeholder="Enter your email" 
+                type="email"
               />
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* ── JOIN SECTION ──────────────────────────────────── */}
-      <section className="py-32 px-6" style={{ background: "var(--color-abyss)" }}>
-        <ScrollReveal
-          className="max-w-7xl mx-auto rounded-[3rem] p-12 md:p-24 relative overflow-hidden"
-          animation="slide-up"
-          style={{
-            background: "linear-gradient(135deg, rgba(10,53,96,0.9) 0%, rgba(5,30,56,0.95) 100%)",
-            border: "1px solid rgba(14, 107, 168, 0.4)",
-            boxShadow: "0 0 80px rgba(0, 180, 216, 0.08)",
-          }}
-        >
-          <div
-            className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-1000 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse at 50% 100%, rgba(0,180,216,0.08), transparent 60%)",
-            }}
-          />
-          <div className="relative z-10 text-center max-w-3xl mx-auto">
-            <span
-              className="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-8 inline-block"
-              style={{
-                background: "rgba(240, 165, 0, 0.1)",
-                border: "1px solid rgba(240, 165, 0, 0.3)",
-                color: "var(--color-gold)",
-              }}
-            >
-              Charter Your Legacy
-            </span>
-            <h2
-              className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-none"
-              style={{ color: "var(--color-crest)" }}
-            >
-              Ready to lead <br /> the next wave?
-            </h2>
-            <p className="text-lg font-medium mb-12" style={{ color: "var(--text-secondary)" }}>
-              Join a global movement of young leaders making an impact. Start your
-              journey with Rotaract District 3192 today.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="/clubs" className="btn-primary" style={{ padding: "0.9rem 2.5rem", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Find a Club
-              </a>
-              <a href="/contact" className="btn-secondary" style={{ padding: "0.9rem 2.5rem", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Contact PR Team
-              </a>
+              <button className="bg-tertiary text-on-tertiary py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Get Connected
+              </button>
             </div>
           </div>
-        </ScrollReveal>
+          
+          {/* Abstract Decorations */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-tertiary/20 blur-[100px] rounded-full"></div>
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full"></div>
+        </motion.div>
       </section>
     </main>
   );

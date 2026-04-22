@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#434751",
+                        "tertiary-container": "#5d3b00",
+                        "surface-tint": "#adc6ff",
+                        "surface-bright": "#2c3951",
+                        "inverse-primary": "#305da9",
+                        "on-primary-container": "#85aeff",
+                        "inverse-surface": "#d6e3ff",
+                        "secondary": "#b8c6ea",
+                        "error": "#ffb4ab",
+                        "tertiary": "#F5A623",
+                        "secondary-fixed-dim": "#b8c6ea",
+                        "on-error": "#690005",
+                        "surface-container-high": "#1c2a41",
+                        "secondary-container": "#3b4967",
+                        "on-primary-fixed": "#001a41",
+                        "outline": "#8d909c",
+                        "surface-container": "#112036",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#aab8dc",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-lowest": "#010e24",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-secondary-fixed": "#0b1b37",
+                        "on-secondary": "#22304d",
+                        "primary-container": "#003f8a",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#233148",
+                        "on-primary": "#002e69",
+                        "surface-container-highest": "#27354c",
+                        "surface": "#041329",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-tertiary-container": "#ec9f1a",
+                        "surface-variant": "#27354c",
+                        "on-background": "#d6e3ff",
+                        "tertiary-fixed": "#ffddb4",
+                        "surface-container-low": "#0d1c32",
+                        "on-surface": "#d6e3ff",
+                        "background": "#041329",
+                        "primary": "#adc6ff",
+                        "on-tertiary": "#452b00",
+                        "on-surface-variant": "#c3c6d3",
+                        "surface-dim": "#041329",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-secondary-fixed-variant": "#384764",
+                        "on-primary-fixed-variant": "#0c448f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #041329;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-blue-900/70 backdrop-blur-xl dark:bg-slate-900/70 shadow-2xl shadow-blue-900/20">
+<nav class="flex justify-between items-center px-6 py-4 w-full max-w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-500 text-2xl" data-icon="menu">menu</span>
+<span class="text-2xl font-black tracking-tighter text-blue-500 dark:text-blue-400 bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-['Space_Grotesk'] uppercase">DISTRICT 3192</span>
+</div>
+<button class="bg-primary-container text-primary px-4 py-2 rounded-lg text-xs font-bold tracking-widest uppercase scale-95 active:scale-90 transition-transform">
+                JOIN THE MOVEMENT
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative px-6 py-12 flex flex-col gap-8 overflow-hidden">
+<div class="z-10 flex flex-col gap-6">
+<h1 class="text-5xl font-bold leading-tight tracking-tighter text-on-surface max-w-[90%]">
+                    Building the <span class="text-primary">Future</span> of Service
+                </h1>
+<p class="text-lg text-on-surface-variant font-light leading-relaxed max-w-[85%]">
+                    Empowering young leaders across District 3192 to create sustainable change through action, innovation, and fellowship.
+                </p>
+<div>
+<button class="bg-gradient-to-r from-primary-container to-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 group transition-all">
+                        Explore Impact
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Asymmetrical Image Layout -->
+<div class="relative mt-4">
+<div class="w-full aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img alt="Young leaders in discussion" class="w-full h-full object-cover" data-alt="dynamic close-up of diverse young professionals collaborating in a modern glass-walled office with warm evening sunlight flares" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2HKQmTmA5z3tOn0rZs9lI9eLTy3U4KH4j9fxWI0tYUHqLA2uU5CwalcwyMZ9Wawl19EL4gegikY4RPnxhRkyvJgyd8iR7ZRn_q2PiSdwzGOuAiKKAOvB4CjEQqyaEjlm8qu_ObN4pSoID9EKvRPxu6gtGV8se5IbAwNjoyXGWsIYl-BK6314FxsT-vUTwsz6WOLaOaTWPs1zNRz3NwROS50UPJgRJBtjNy4UmYqGWtXelHB1D4SphKUc9NVCFDzGfhRZrBhOgIeXb"/>
+</div>
+<div class="absolute -bottom-6 -right-4 w-1/2 aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-surface">
+<img alt="Team celebration" class="w-full h-full object-cover" data-alt="group of energetic youth high-fiving outdoors during a community service project, vibrant colors and joyful expressions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHOk65lJeg1aDuSmMGUmizlGOE7Wnkd4tnkflMOcUthX3R4ziNzX2jm3PdjloimV3ESNXzmC1bWH6GruxvK2fTFt5vJ2zsYlLiednr1ew3NraZ3FCVuxU0D6haVUiCYe-Ph4ETAQObUXIj00BzuCttIOY1y-zgmUU3B-l74n3bbITlm1ot9pRud8piPJEgzYzbXvT9UawJlEWCOov5w51j1_d_aA5Yhj1ftt63Px2ydiN-NFJuByLXlrz0vAnN3kVbeGHiLWgjVVU"/>
+</div>
+</div>
+</section>
+<!-- Impact Metric Bar -->
+<section class="px-6 -mt-4 relative z-20">
+<div class="bg-surface-bright rounded-2xl p-8 flex justify-around items-center gap-4 shadow-2xl shadow-black/40">
+<div class="flex flex-col items-center">
+<span class="text-4xl font-bold text-tertiary font-display">85+</span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase">Clubs</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-bold text-tertiary font-display">3000+</span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase">Members</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-bold text-tertiary font-display">12+</span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase">Cities</span>
+</div>
+</div>
+</section>
+<!-- Featured Initiatives Section -->
+<section class="px-6 py-20 flex flex-col gap-12">
+<div class="flex flex-col gap-2">
+<span class="text-tertiary text-xs font-bold tracking-widest uppercase">Our Focus</span>
+<h2 class="text-4xl font-bold tracking-tight">Core Initiatives</h2>
+</div>
+<div class="grid grid-cols-1 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 hover:-translate-y-2 transition-transform duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="school">school</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-2xl font-bold">Literacy &amp; Education</h3>
+<p class="text-on-surface-variant leading-relaxed">Pioneering digital literacy programs across rural communities to bridge the educational divide.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 mt-2" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 hover:-translate-y-2 transition-transform duration-300">
+<div class="w-14 h-14 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="eco">eco</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-2xl font-bold">Environmental Action</h3>
+<p class="text-on-surface-variant leading-relaxed">Sustainable urban forestry and water conservation projects driving ecological resilience.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 mt-2" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 hover:-translate-y-2 transition-transform duration-300">
+<div class="w-14 h-14 rounded-full bg-blue-400/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400 text-3xl" data-icon="diversity_3">diversity_3</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-2xl font-bold">Leadership Training</h3>
+<p class="text-on-surface-variant leading-relaxed">Intensive workshops designed to transform potential into professional excellence.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 mt-2" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Newsletter / Call to Action -->
+<section class="px-6 pb-20">
+<div class="bg-gradient-to-br from-primary-container to-surface-container-highest rounded-2xl p-10 overflow-hidden relative">
+<div class="relative z-10 flex flex-col gap-6">
+<h2 class="text-3xl font-bold leading-tight">Ready to lead the change?</h2>
+<p class="text-on-primary-container/80">Join our newsletter to stay updated on the latest events and community milestones.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-surface/50 border-0 rounded-lg px-4 py-4 text-on-surface focus:ring-2 focus:ring-primary outline-none" placeholder="Email Address" type="email"/>
+<button class="bg-tertiary text-on-tertiary py-4 rounded-lg font-bold uppercase tracking-widest text-sm">Subscribe</button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-tertiary/10 blur-3xl rounded-full"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 px-6 py-16 flex flex-col gap-12 border-t border-white/5">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-['Space_Grotesk'] text-3xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-800 bg-clip-text text-transparent">DISTRICT 3192</span>
+<p class="text-slate-500 font-['Manrope'] text-sm tracking-wide max-w-[250px]">Empowering the modern statesman through service and fellowship.</p>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-10">
+<div class="flex flex-col gap-4">
+<h4 class="text-on-surface text-xs font-bold uppercase tracking-widest opacity-40">District</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">The District</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Impact</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Clubs</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-on-surface text-xs font-bold uppercase tracking-widest opacity-40">Resources</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Bylaws</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Terms</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Privacy</a>
+</nav>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-8 pt-12 border-t border-white/5">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-tertiary transition-colors cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-tertiary transition-colors cursor-pointer" data-icon="mail">mail</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-tertiary transition-colors cursor-pointer" data-icon="language">language</span>
+</div>
+<p class="text-slate-500 text-[10px] font-medium tracking-widest uppercase">
+                © 2024 Rotaract District 3192. Service Above Self.
+            </p>
+</div>
+</footer>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/70 backdrop-blur-xl py-3 px-6 flex justify-between items-center border-t border-white/5">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Events</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</div>
+</nav>
+<div class="h-16 md:hidden"></div> <!-- Spacer for bottom nav -->
+</body></html>

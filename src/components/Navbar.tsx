@@ -30,29 +30,15 @@ export default function Navbar() {
   return (
     <nav
       className={`sticky top-0 w-full z-50 h-20 flex items-center transition-all duration-300 ${
-        scrolled ? "nav-scrolled" : ""
+        scrolled ? "bg-surface/95 backdrop-blur-md border-b border-outline-variant/30" : "bg-surface/80 backdrop-blur-md border-b border-outline-variant/10"
       }`}
-      style={{
-        background: scrolled
-          ? "rgba(2, 11, 24, 0.95)"
-          : "rgba(2, 11, 24, 0.8)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(14, 107, 168, 0.3)",
-      }}
     >
       <div className="flex justify-between items-center px-8 w-full max-w-7xl mx-auto">
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight"
-          style={{
-            background: "linear-gradient(90deg, #00b4d8, #caf0f8)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            textDecoration: "none",
-          }}
+          className="text-2xl font-bold tracking-tight text-primary"
+          style={{ textDecoration: "none" }}
         >
           Rotaract Portal
         </Link>
@@ -65,16 +51,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{
-                  color: isActive ? "var(--color-reef)" : "var(--color-foam)",
-                  fontWeight: 500,
-                  textDecoration: "none",
-                  transition: "color 0.2s ease",
-                  borderBottom: isActive
-                    ? "2px solid var(--color-reef)"
-                    : "2px solid transparent",
-                  paddingBottom: "2px",
-                }}
+                className={`font-medium transition-colors border-b-2 pb-[2px] ${isActive ? 'text-primary border-primary' : 'text-on-surface-variant border-transparent hover:text-primary'}`}
+                style={{ textDecoration: "none" }}
               >
                 {link.name}
               </Link>
@@ -83,24 +61,14 @@ export default function Navbar() {
 
           {/* More Dropdown */}
           <div className="relative group">
-            <button
-              style={{ color: "var(--color-foam)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}
-              className="transition-colors group-hover:text-[var(--color-reef)]"
-            >
+            <button className="flex items-center gap-1 font-medium text-on-surface-variant transition-colors group-hover:text-primary bg-transparent border-none cursor-pointer">
               Office
               <span className="material-symbols-outlined text-lg leading-none transform group-hover:rotate-180 transition-transform">
                 expand_more
               </span>
             </button>
             <div
-              className="absolute top-full -left-10 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4"
-              style={{
-                background: "rgba(5, 30, 56, 0.97)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(14, 107, 168, 0.3)",
-                borderRadius: "12px",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
-              }}
+              className="absolute top-full -left-10 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-3 mt-4 bg-surface/95 backdrop-blur-md border border-outline-variant/30 rounded-xl shadow-xl"
             >
               {[
                 { label: "District News", href: "/news" },
@@ -113,14 +81,8 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-6 py-2.5 text-sm font-semibold transition-colors"
-                  style={{ color: "var(--color-foam)", textDecoration: "none" }}
-                  onMouseEnter={(e) =>
-                    ((e.target as HTMLElement).style.color = "var(--color-reef)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.target as HTMLElement).style.color = "var(--color-foam)")
-                  }
+                  className="block px-6 py-2.5 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors"
+                  style={{ textDecoration: "none" }}
                 >
                   {item.label}
                 </Link>
@@ -134,8 +96,8 @@ export default function Navbar() {
           {isLoggedIn ? (
             <Link
               href={dashboardLink}
-              className="material-symbols-outlined text-3xl cursor-pointer transition-all hover:scale-110"
-              style={{ color: "var(--color-foam)", textDecoration: "none" }}
+              className="material-symbols-outlined text-3xl cursor-pointer transition-all hover:scale-110 text-on-surface-variant hover:text-primary"
+              style={{ textDecoration: "none" }}
             >
               account_circle
             </Link>
@@ -154,7 +116,7 @@ export default function Navbar() {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
-            style={{ color: "var(--color-reef)", background: "none", border: "none", cursor: "pointer" }}
+            style={{ color: "var(--color-primary)", background: "none", border: "none", cursor: "pointer" }}
           >
             <span className="material-symbols-outlined text-3xl">menu</span>
           </button>
@@ -164,12 +126,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden absolute top-20 left-0 w-full z-50"
-          style={{
-            background: "rgba(2, 11, 24, 0.98)",
-            backdropFilter: "blur(20px)",
-            borderBottom: "1px solid rgba(14, 107, 168, 0.3)",
-          }}
+          className="md:hidden absolute top-20 left-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30"
         >
           <div className="px-8 py-8 space-y-6">
             {mainNavLinks.map((link) => {
@@ -179,19 +136,15 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-xl font-bold"
-                  style={{
-                    color: isActive ? "var(--color-reef)" : "var(--color-foam)",
-                    textDecoration: "none",
-                  }}
+                  className={`block text-xl font-bold ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
+                  style={{ textDecoration: "none" }}
                 >
                   {link.name}
                 </Link>
               );
             })}
             <div
-              className="pt-6"
-              style={{ borderTop: "1px solid rgba(14, 107, 168, 0.3)" }}
+              className="pt-6 border-t border-outline-variant/30"
             >
               <Link
                 href={dashboardLink}
