@@ -2,13 +2,7 @@ import coursesData from "@/mock/courses.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return coursesData.map((course) => ({
-    courseId: course.id,
-  }));
-}
+export const runtime = 'edge';
 
 export default function CourseDetailPage({ params }: { params: { courseId: string } }) {
   const course = coursesData.find((c: any) => c.id === params.courseId);

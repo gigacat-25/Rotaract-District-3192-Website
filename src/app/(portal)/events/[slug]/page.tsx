@@ -2,13 +2,7 @@ import eventsData from "@/mock/events.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return eventsData.map((event) => ({
-    slug: event.slug,
-  }));
-}
+export const runtime = 'edge';
 
 export default function EventDetailPage({ params }: { params: { slug: string } }) {
   const event = eventsData.find((e: any) => e.slug === params.slug);
