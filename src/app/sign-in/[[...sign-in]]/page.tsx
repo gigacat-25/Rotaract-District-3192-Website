@@ -1,6 +1,4 @@
-import dynamic from 'next/dynamic';
-
-const SignIn = dynamic(() => import('@clerk/nextjs').then(mod => mod.SignIn), { ssr: false });
+import SignInWrapper from './SignInWrapper';
 
 export const runtime = 'edge';
 export const dynamicParams = false;
@@ -12,7 +10,7 @@ export async function generateStaticParams() {
 export default function Page() {
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <SignIn />
+      <SignInWrapper />
     </div>
   );
 }
