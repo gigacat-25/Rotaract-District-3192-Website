@@ -1,7 +1,6 @@
 import clubsData from "@/mock/clubs.json";
 import ClubEventsWrapper from "./ClubEventsWrapper";
 
-export const runtime = 'edge';
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
