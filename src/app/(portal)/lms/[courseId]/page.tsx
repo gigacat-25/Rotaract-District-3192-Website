@@ -1,9 +1,12 @@
+export const runtime = 'edge';
+
 import coursesData from "@/mock/courses.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export default function CourseDetailPage({ params }: { params: { courseId: string } }) {
-  const course = coursesData.find((c: any) => c.id === params.courseId);
+export default async function CourseDetailPage({ params }: { params: Promise<{ courseId: string }> }) {
+  const { courseId } = await params;
+  const course = coursesData.find((c: any) => c.id === courseId);
 
   if (!course) {
     notFound();

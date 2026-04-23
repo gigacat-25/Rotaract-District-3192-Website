@@ -1,9 +1,12 @@
+export const runtime = 'edge';
+
 import eventsData from "@/mock/events.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export default function EventDetailPage({ params }: { params: { slug: string } }) {
-  const event = eventsData.find((e: any) => e.slug === params.slug);
+export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const event = eventsData.find((e: any) => e.slug === slug);
 
   if (!event) {
     notFound();

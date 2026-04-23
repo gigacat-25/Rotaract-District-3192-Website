@@ -1,9 +1,12 @@
+export const runtime = 'edge';
+
 import momsData from "@/mock/moms.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export default function MOMDetailPage({ params }: { params: { id: string } }) {
-  const mom = momsData.find((m: any) => m.id === params.id);
+export default async function MOMDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const mom = momsData.find((m: any) => m.id === id);
 
   if (!mom) {
     notFound();

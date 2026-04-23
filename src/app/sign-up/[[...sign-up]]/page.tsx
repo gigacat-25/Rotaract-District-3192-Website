@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import SignUpWrapper from './SignUpWrapper';
 
 export default function Page() {
