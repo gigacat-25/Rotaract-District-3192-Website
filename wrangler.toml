@@ -4,4 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".open-next/assets"
 
 [vars]
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = ""
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "pk_test_Z3VpZGluZy1nb3NoYXdrLTkuY2xlcmsuYWNjb3VudHMuZGV2JA"
+NEXT_PUBLIC_CLERK_SIGN_IN_URL = "/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL = "/sign-up"
+# NOTE: CLERK_SECRET_KEY must be set as an encrypted secret in the Cloudflare Pages dashboard
+# Settings → Environment Variables → Add variable (encrypted) → CLERK_SECRET_KEY

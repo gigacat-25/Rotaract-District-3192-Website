@@ -3629,7 +3629,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-      "bytes": 177912,
+      "bytes": 222562,
       "imports": [
         {
           "path": "path",
@@ -3696,7 +3696,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/brand-centre/page.js": {
-      "bytes": 968,
+      "bytes": 1195,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3707,7 +3707,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/hall-of-fame/page.js": {
-      "bytes": 968,
+      "bytes": 1195,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3718,7 +3718,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/leaderboard/page.js": {
-      "bytes": 1025,
+      "bytes": 1192,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3729,7 +3729,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/mentorship/page.js": {
-      "bytes": 964,
+      "bytes": 1193,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3740,7 +3740,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/newsletter/page.js": {
-      "bytes": 964,
+      "bytes": 1193,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3762,7 +3762,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/dashboard/page.js": {
-      "bytes": 962,
+      "bytes": 1192,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3773,7 +3773,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/resources/page.js": {
-      "bytes": 962,
+      "bytes": 1192,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3784,7 +3784,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/mom/new/page.js": {
-      "bytes": 961,
+      "bytes": 1193,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3795,7 +3795,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/profile/page.js": {
-      "bytes": 958,
+      "bytes": 1190,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3806,7 +3806,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/events/page.js": {
-      "bytes": 956,
+      "bytes": 1189,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3839,7 +3839,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/about/page.js": {
-      "bytes": 948,
+      "bytes": 1182,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3850,7 +3850,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/clubs/page.js": {
-      "bytes": 954,
+      "bytes": 1188,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3861,7 +3861,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/login/page.js": {
-      "bytes": 954,
+      "bytes": 1188,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3872,7 +3872,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/jobs/page.js": {
-      "bytes": 952,
+      "bytes": 1187,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3883,7 +3883,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/news/page.js": {
-      "bytes": 952,
+      "bytes": 1187,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3916,7 +3916,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/lms/page.js": {
-      "bytes": 950,
+      "bytes": 1186,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3927,7 +3927,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/mom/page.js": {
-      "bytes": 950,
+      "bytes": 1186,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -3982,7 +3982,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/_not-found/page.js": {
-      "bytes": 803,
+      "bytes": 1041,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -4015,7 +4015,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/(portal)/page.js": {
-      "bytes": 939,
+      "bytes": 1179,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -5820,7 +5820,7 @@
       "format": "esm"
     },
     ".open-next/server-functions/default/index.mjs": {
-      "bytes": 123765,
+      "bytes": 124176,
       "imports": [
         {
           "path": "node:module",
@@ -6995,43 +6995,43 @@
           "bytesInOutput": 586
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-          "bytesInOutput": 143891
+          "bytesInOutput": 178869
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js": {
           "bytesInOutput": 17253
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/brand-centre/page.js": {
-          "bytesInOutput": 1088
+          "bytesInOutput": 1315
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/hall-of-fame/page.js": {
-          "bytesInOutput": 1089
+          "bytesInOutput": 1316
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/leaderboard/page.js": {
-          "bytesInOutput": 1145
+          "bytesInOutput": 1312
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/mentorship/page.js": {
-          "bytesInOutput": 1083
+          "bytesInOutput": 1312
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/newsletter/page.js": {
-          "bytesInOutput": 1083
+          "bytesInOutput": 1312
         },
         ".open-next/server-functions/default/.next/server/app/admin/announcements/page.js": {
           "bytesInOutput": 1312
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/dashboard/page.js": {
-          "bytesInOutput": 1080
+          "bytesInOutput": 1310
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/resources/page.js": {
-          "bytesInOutput": 1080
+          "bytesInOutput": 1310
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/mom/new/page.js": {
-          "bytesInOutput": 1074
+          "bytesInOutput": 1306
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/profile/page.js": {
-          "bytesInOutput": 1075
+          "bytesInOutput": 1307
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/events/page.js": {
-          "bytesInOutput": 1072
+          "bytesInOutput": 1305
         },
         ".open-next/server-functions/default/.next/server/app/admin/campaigns/page.js": {
           "bytesInOutput": 1305
@@ -7040,19 +7040,19 @@
           "bytesInOutput": 1305
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/about/page.js": {
-          "bytesInOutput": 1063
+          "bytesInOutput": 1297
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/clubs/page.js": {
-          "bytesInOutput": 1069
+          "bytesInOutput": 1303
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/login/page.js": {
-          "bytesInOutput": 1069
+          "bytesInOutput": 1303
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/jobs/page.js": {
-          "bytesInOutput": 1066
+          "bytesInOutput": 1301
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/news/page.js": {
-          "bytesInOutput": 1066
+          "bytesInOutput": 1301
         },
         ".open-next/server-functions/default/.next/server/app/_global-error/page.js": {
           "bytesInOutput": 710
@@ -7061,10 +7061,10 @@
           "bytesInOutput": 1297
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/lms/page.js": {
-          "bytesInOutput": 1063
+          "bytesInOutput": 1299
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/mom/page.js": {
-          "bytesInOutput": 1063
+          "bytesInOutput": 1299
         },
         ".open-next/server-functions/default/.next/server/app/admin/events/page.js": {
           "bytesInOutput": 1299
@@ -7079,7 +7079,7 @@
           "bytesInOutput": 1297
         },
         ".open-next/server-functions/default/.next/server/app/_not-found/page.js": {
-          "bytesInOutput": 917
+          "bytesInOutput": 1155
         },
         ".open-next/server-functions/default/.next/server/app/admin/lms/page.js": {
           "bytesInOutput": 1293
@@ -7088,7 +7088,7 @@
           "bytesInOutput": 1293
         },
         ".open-next/server-functions/default/.next/server/app/(portal)/page.js": {
-          "bytesInOutput": 1051
+          "bytesInOutput": 1291
         },
         ".open-next/server-functions/default/.next/server/app/admin/page.js": {
           "bytesInOutput": 1285
@@ -7301,10 +7301,10 @@
           "bytesInOutput": 5072
         },
         ".open-next/server-functions/default/index.mjs": {
-          "bytesInOutput": 94603
+          "bytesInOutput": 94998
         }
       },
-      "bytes": 2175579
+      "bytes": 2215310
     }
   }
 }
