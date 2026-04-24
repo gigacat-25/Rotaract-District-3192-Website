@@ -152,10 +152,20 @@ a:hover {
   border: 1px solid rgba(14, 107, 168, 0.3);
   border-radius: 16px;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(0, 180, 216, 0.08) inset;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+}
+
+@media (pointer: coarse) {
+  .card {
+    backdrop-filter: blur(4px); /* Reduced for mobile performance */
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .card:hover {
@@ -181,6 +191,12 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (pointer: coarse) {
+  .btn-primary {
+    box-shadow: 0 2px 8px rgba(240, 165, 0, 0.2);
+  }
 }
 
 .btn-primary:hover {
@@ -296,17 +312,17 @@ td {
    ============================================================ */
 @keyframes float {
   0% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1) translateZ(0);
     opacity: 0.2;
   }
 
   50% {
-    transform: translateY(-40px) scale(1.1);
+    transform: translateY(-40px) scale(1.1) translateZ(0);
     opacity: 0.3;
   }
 
   100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1) translateZ(0);
     opacity: 0.15;
   }
 }
@@ -318,6 +334,7 @@ td {
   animation: float linear infinite;
   pointer-events: none;
   will-change: transform;
+  transform: translateZ(0); /* Hardware acceleration */
 }
 
 /* ============================================================
@@ -352,6 +369,14 @@ td {
   background: rgba(4, 19, 41, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+@media (pointer: coarse) {
+  .glass-nav {
+    backdrop-filter: blur(8px);
+    background: rgba(4, 19, 41, 0.9);
+  }
 }
 
 .shadow-ambient {
@@ -365,6 +390,7 @@ td {
 .scale-98-active:active {
   transform: scale(0.98);
 }
+
 
 /* Fade in up utility */
 .fade-in-up {

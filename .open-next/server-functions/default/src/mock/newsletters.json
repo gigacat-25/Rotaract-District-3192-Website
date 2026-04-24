@@ -1,0 +1,38 @@
+[
+    {
+        "id": "nl1",
+        "club_id": "d3192",
+        "club_name": "District 3192",
+        "title": "The Golden Wheel - May 2026 Edition",
+        "thumbnail_url": "https://placehold.co/400x565/003F8A/FFFFFF?text=May+Edition",
+        "file_url": "https://example.com/newsletters/may-2026.pdf",
+        "published_at": "2026-05-01T09:00:00Z"
+    },
+    {
+        "id": "nl2",
+        "club_id": "d3192",
+        "club_name": "District 3192",
+        "title": "The Golden Wheel - April 2026 Edition",
+        "thumbnail_url": "https://placehold.co/400x565/F5A623/FFFFFF?text=April+Edition",
+        "file_url": "https://example.com/newsletters/april-2026.pdf",
+        "published_at": "2026-04-01T09:00:00Z"
+    },
+    {
+        "id": "nl3",
+        "club_id": "c1",
+        "club_name": "Rotaract Club of Chennai",
+        "title": "Chennai Chronicles - Q1 2026",
+        "thumbnail_url": "https://placehold.co/400x565/CCCCCC/333333?text=Chennai+Q1",
+        "file_url": "https://example.com/newsletters/chennai-q1-2026.pdf",
+        "published_at": "2026-03-31T10:00:00Z"
+    },
+    {
+        "id": "nl4",
+        "club_id": "c2",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "title": "Central Beat - March Spotlight",
+        "thumbnail_url": "https://placehold.co/400x565/00732A/FFFFFF?text=Central+Beat",
+        "file_url": "https://example.com/newsletters/central-march-2026.pdf",
+        "published_at": "2026-03-15T12:00:00Z"
+    }
+]

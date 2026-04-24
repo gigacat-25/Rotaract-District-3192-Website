@@ -24,7 +24,10 @@ export default function HomePage() {
   });
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+  
+  // Disable scale on mobile for smoother scroll performance
+  const isMobile = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, isMobile ? 1 : 0.95]);
 
   useEffect(() => {
     // Stat counting animation

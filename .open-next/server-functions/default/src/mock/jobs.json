@@ -1,0 +1,46 @@
+[
+    {
+        "id": "j1",
+        "title": "Frontend Developer Intern",
+        "company": "TechSolutions India",
+        "type": "internship",
+        "description": "Looking for an enthusiastic intern with a passion for building great user interfaces using React and Tailwind CSS. 3-6 months duration with stipend.",
+        "apply_url": "https://techsolutions.in/careers/frontend-intern",
+        "posted_by": "Karthik Reddy",
+        "expires_at": "2026-07-01",
+        "status": "active"
+    },
+    {
+        "id": "j2",
+        "title": "Business Development Executive",
+        "company": "GrowthWorks",
+        "type": "job",
+        "description": "Join our fast-growing startup to drive B2B sales. Requirements: Excellent communication skills, 1-2 years experience, willing to travel within India.",
+        "apply_url": "https://growthworks.com/jobs/bde",
+        "posted_by": "Priya Sharma",
+        "expires_at": "2026-06-15",
+        "status": "active"
+    },
+    {
+        "id": "j3",
+        "title": "Graphic Designer",
+        "company": "Creative Minds Agency",
+        "type": "job",
+        "description": "We need a creative designer proficient in Adobe Creative Suite and Figma to work on brand identity and social media campaigns.",
+        "apply_url": "mailto:hr@creativeminds.in?subject=Graphic Designer Application",
+        "posted_by": "Nithin Gowda",
+        "expires_at": "2026-05-30",
+        "status": "active"
+    },
+    {
+        "id": "j4",
+        "title": "Social Media Marketing Intern",
+        "company": "DigiBuzz",
+        "type": "internship",
+        "description": "Work on real campaigns for top brands. Learn campaign management, analytics, and content creation. Freshers welcome.",
+        "apply_url": "https://digibuzz.in/internships",
+        "posted_by": "Deepa Krishnan",
+        "expires_at": "2025-12-31",
+        "status": "closed"
+    }
+]

@@ -1,0 +1,57 @@
+[
+    {
+        "id": "f1",
+        "club_id": "c1",
+        "club_name": "Rotaract Club of Chennai",
+        "author_name": "Arjun Kumar",
+        "author_pic": "https://ui-avatars.com/api/?name=Arjun+Kumar&background=random",
+        "content_type": "achievement",
+        "caption": "Thrilled to announce that our club just received the District Citation for Best Community Service Project! Huge thanks to all our dedicated members and volunteers who made this possible. #Rotaract3192 #ServiceAboveSelf",
+        "media_url": "https://placehold.co/800x800/003F8A/FFFFFF?text=Award+Ceremony",
+        "posted_at": "2026-05-18T10:30:00Z"
+    },
+    {
+        "id": "f2",
+        "club_id": "c2",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "author_name": "Sneha Patil",
+        "author_pic": "https://ui-avatars.com/api/?name=Sneha+Patil&background=random",
+        "content_type": "announcement",
+        "caption": "Registrations for Leadership Summit 2026 are NOW OPEN! Early bird tickets are limited, grab yours today to hear from top industry veterans. Link in bio.",
+        "media_url": "https://placehold.co/800x800/F5A623/FFFFFF?text=Leadership+Summit+Launch",
+        "posted_at": "2026-05-15T14:45:00Z"
+    },
+    {
+        "id": "f3",
+        "club_id": "c3",
+        "club_name": "Rotaract Club of Coimbatore Cosmos",
+        "author_name": "Vikram Singh",
+        "author_pic": "https://ui-avatars.com/api/?name=Vikram+Singh&background=random",
+        "content_type": "photo",
+        "caption": "A wonderful weekend trek to the Nilgiris! The Green Earth Trek witnessed 35 enthusiastic participants who not only conquered the peak but also planted 100 saplings. #GoGreen #Fellowship",
+        "media_url": "https://placehold.co/800x1200/00732A/FFFFFF?text=Trek+Group+Photo",
+        "posted_at": "2026-05-12T09:15:00Z"
+    },
+    {
+        "id": "f4",
+        "club_id": "d3192",
+        "club_name": "District 3192 Council",
+        "author_name": "District Admin",
+        "author_pic": "https://placehold.co/200x200/222222/FFFFFF?text=D3192",
+        "content_type": "announcement",
+        "caption": "The Rotaract District 3192 Hall of Fame has been updated for May! Congratulations to Karthik Reddy for securing the top spot this month.",
+        "media_url": "https://placehold.co/800x400/333333/FFFFFF?text=Monthly+Leaderboard",
+        "posted_at": "2026-05-01T08:00:00Z"
+    },
+    {
+        "id": "f5",
+        "club_id": "c4",
+        "club_name": "Rotaract Club of Mysuru Royal",
+        "author_name": "Ananya Bhat",
+        "author_pic": "https://ui-avatars.com/api/?name=Ananya+Bhat&background=random",
+        "content_type": "photo",
+        "caption": "Success! Over 150 units of blood collected at our recent donation camp at Mysore Medical College. Thank you to everyone who stepped up to save a life today.",
+        "media_url": "https://placehold.co/800x800/8A003F/FFFFFF?text= Blood+Donation+Camp",
+        "posted_at": "2026-04-28T16:20:00Z"
+    }
+]

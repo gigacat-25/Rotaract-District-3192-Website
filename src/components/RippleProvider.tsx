@@ -5,6 +5,9 @@ import { useEffect } from "react";
 export default function RippleProvider() {
   useEffect(() => {
     const handler = (e: MouseEvent | TouchEvent) => {
+      // Skip on touch devices to avoid DOM churn and lag
+      if (window.matchMedia("(pointer: coarse)").matches) return;
+
       const { clientX, clientY } =
         e instanceof TouchEvent ? e.touches[0] : e;
 

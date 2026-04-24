@@ -1,11 +1,1 @@
-export const runtime = 'edge';
-
-import SignUpWrapper from './SignUpWrapper';
-
-export default function Page() {
-  return (
-    <div className="flex justify-center items-center min-h-screen">
-      <SignUpWrapper />
-    </div>
-  );
-}
+export default function Page() { return null; }

@@ -1,0 +1,113 @@
+[
+    {
+        "id": "m3",
+        "club_id": "c2",
+        "name": "Karthik Reddy",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Karthik+Reddy&background=random",
+        "points": 620,
+        "rank": 1,
+        "badges": [
+            "Most Active",
+            "Top Leader"
+        ]
+    },
+    {
+        "id": "m10",
+        "club_id": "c2",
+        "name": "Deepa Krishnan",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Deepa+Krishnan&background=random",
+        "points": 580,
+        "rank": 2,
+        "badges": [
+            "Project Champion"
+        ]
+    },
+    {
+        "id": "m5",
+        "club_id": "c3",
+        "name": "Vikram Singh",
+        "club_name": "Rotaract Club of Coimbatore Cosmos",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Vikram+Singh&background=random",
+        "points": 510,
+        "rank": 3,
+        "badges": [
+            "Rising Star"
+        ]
+    },
+    {
+        "id": "m1",
+        "club_id": "c1",
+        "name": "Arjun Kumar",
+        "club_name": "Rotaract Club of Chennai",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Arjun+Kumar&background=random",
+        "points": 450,
+        "rank": 4,
+        "badges": []
+    },
+    {
+        "id": "m2",
+        "club_id": "c1",
+        "name": "Priya Sharma",
+        "club_name": "Rotaract Club of Chennai",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Priya+Sharma&background=random",
+        "points": 380,
+        "rank": 5,
+        "badges": [
+            "Best Speaker"
+        ]
+    },
+    {
+        "id": "m7",
+        "club_id": "c4",
+        "name": "Nithin Gowda",
+        "club_name": "Rotaract Club of Mysuru Royal",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Nithin+Gowda&background=random",
+        "points": 340,
+        "rank": 6,
+        "badges": []
+    },
+    {
+        "id": "m8",
+        "club_id": "c4",
+        "name": "Ananya Bhat",
+        "club_name": "Rotaract Club of Mysuru Royal",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Ananya+Bhat&background=random",
+        "points": 290,
+        "rank": 7,
+        "badges": []
+    },
+    {
+        "id": "m6",
+        "club_id": "c3",
+        "name": "Lakshmi Narayanan",
+        "club_name": "Rotaract Club of Coimbatore Cosmos",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Lakshmi+Narayanan&background=random",
+        "points": 230,
+        "rank": 8,
+        "badges": []
+    },
+    {
+        "id": "m9",
+        "club_id": "c1",
+        "name": "Rahul Verma",
+        "club_name": "Rotaract Club of Chennai",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Rahul+Verma&background=random",
+        "points": 180,
+        "rank": 9,
+        "badges": []
+    },
+    {
+        "id": "m4",
+        "club_id": "c2",
+        "name": "Sneha Patil",
+        "club_name": "Rotaract Club of Bengaluru Central",
+        "profile_pic_url": "https://ui-avatars.com/api/?name=Sneha+Patil&background=random",
+        "points": 150,
+        "rank": 10,
+        "badges": [
+            "Newcomer"
+        ]
+    }
+]
