@@ -70,8 +70,8 @@ export default function WaveBackground() {
     const firstImg = new Image();
     firstImg.src = FRAME_PATH(1);
     firstImg.onload = async () => {
-      if (window.createImageBitmap) {
-        images[0] = await createImageBitmap(firstImg);
+      if (typeof window !== "undefined" && "createImageBitmap" in window) {
+        images[0] = await window.createImageBitmap(firstImg);
       } else {
         images[0] = firstImg;
       }
@@ -84,8 +84,8 @@ export default function WaveBackground() {
       const frameIndex = i - 1;
       img.src = FRAME_PATH(i);
       img.onload = async () => {
-        if (window.createImageBitmap) {
-          images[frameIndex] = await createImageBitmap(img);
+        if (typeof window !== "undefined" && "createImageBitmap" in window) {
+          images[frameIndex] = await window.createImageBitmap(img);
         } else {
           images[frameIndex] = img;
         }
